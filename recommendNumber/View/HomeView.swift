@@ -11,29 +11,24 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
     var body: some View {
-        ZStack {
-            VStack {
-               
-                List(viewModel.resultArray, id: \.self) { result in
-                    Text("\(result.map{String($0)}.joined(separator: " "))")
-                        .frame(alignment: .center)
-                }
-                
-                HStack {
-                    Button("1") {
-                        viewModel.createNumbers(1)
-                    }
-                    Button("5") {
-                        viewModel.createNumbers(5)
-                    }
-                    Button("10") {
-                        viewModel.createNumbers(10)
-                    }
-                }
-                .padding()
+        VStack {
+            List(viewModel.resultArray, id: \.self) { result in
+                Text("\(result.map{String($0)}.joined(separator: " "))")
+                    .frame(alignment: .center)
             }
             
-//            ProgressView("설정중").scaleEffect(2)
+            HStack {
+                Button("1") {
+                    viewModel.createNumbers(1)
+                }
+                Button("5") {
+                    viewModel.createNumbers(5)
+                }
+                Button("10") {
+                    viewModel.createNumbers(10)
+                }
+            }
+            .padding()
         }
     }
 }
