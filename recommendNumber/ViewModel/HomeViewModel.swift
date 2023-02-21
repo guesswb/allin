@@ -14,12 +14,12 @@ final class HomeViewModel: ObservableObject {
     private var last3WeeksNumberSet: [Int] = []
     private var last5WeeksNumberSet: [Int] = []
     
-    @Published var resultArray = [[Int]]()
+    @Published var resultArray: [[Int]] = []
+    @Published var isAvailable: Bool = false
     
     init() {
-        if isAvailable() == false {
-            return
-        }
+        isAvailable = isAvailableTime()
+        if isAvailable == false { return }
         
         let firstTime = Calendar.current.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20))!
         let dDay = Calendar.current.dateComponents([.day], from: firstTime, to: Date()).day!
@@ -32,7 +32,7 @@ final class HomeViewModel: ObservableObject {
 }
 
 extension HomeViewModel {
-    private func isAvailable() -> Bool {
+    private func isAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
         
         guard let weekday = today.weekday, let hour = today.hour else {
@@ -54,12 +54,8 @@ extension HomeViewModel {
                 let randomSet = numberArray.shuffled()[0...5].sorted()
                 let (result1, result2, result3, result4, result5, result6) = checkAll(randomSet)
                 
-                if result.count < 7 {
+                if result.count < 8 {
                     if result1 && result2 && result3 && result4 && result5 && result6 {
-                        result.append(randomSet)
-                    }
-                } else if result.count < 8 {
-                    if !result1 && result2 && result3 && result4 && result5 && result6 {
                         result.append(randomSet)
                     }
                 } else if result.count < 9 {
@@ -82,11 +78,10 @@ extension HomeViewModel {
                         result.append(randomSet)
                     }
                 } else {
-                    let caseOne = !result1 && result2 && result3 && result4 && result5 && result6
-                    let caseTwo = result1 && !result2 && result3 && result4 && result5 && result6
-                    let caseThree = result1 && result2 && result3 && !result4 && result5 && result6
+                    let caseOne = result1 && !result2 && result3 && result4 && result5 && result6
+                    let caseTwo = result1 && result2 && result3 && !result4 && result5 && result6
 
-                    if caseOne || caseTwo || caseThree {
+                    if caseOne || caseTwo {
                         result.append(randomSet)
                     }
                 }
