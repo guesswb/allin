@@ -1,8 +1,8 @@
 //
 //  HomeViewModel.swift
-//  recommendNumber
+//  allin
 //
-//  Created by 김기훈 on 2023/02/16.
+//  Created by 김기훈 on 2023/02/24.
 //
 
 import Foundation
@@ -18,23 +18,27 @@ final class HomeViewModel: ObservableObject {
     @Published var isAvailable: Bool = false
     
     init() {
-        isAvailable = isAvailableTime()
-        if isAvailable == false { return }
-        
-        let firstTime = Calendar.current.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20))!
-        let dDay = Calendar.current.dateComponents([.day], from: firstTime, to: Date()).day!
-        let drawDate = dDay / 7 + 1
-
         Task {
-            try await getNumberSet(drawDate)
+            await configure()
         }
+    }
+}
+
+extension HomeViewModel {
+    private func configure() async {
+        isAvailable = isAvailableTime()
+        if !isAvailable { return }
+        // 인터넷 안될 때 체크
+        
+        let drawDate = getDrawDate()
+        await getNumberSet(drawDate)
     }
 }
 
 extension HomeViewModel {
     private func isAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
-        
+
         guard let weekday = today.weekday, let hour = today.hour else {
             return false
         }
@@ -46,6 +50,31 @@ extension HomeViewModel {
         return true
     }
     
+    private func getDrawDate() -> Int {
+        let calendar = Calendar.current
+        
+        guard let firstTime = calendar.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20)), let dDay = calendar.dateComponents([.day], from: firstTime, to: Date()).day else {
+            return 0
+        }
+        
+        return dDay / 7 + 1
+    }
+    
+    private func getNumberSet(_ drawDate: Int) async {
+        do {
+            if let result = getNumberSetFromFile(drawDate) {
+                numberSet = result
+            } else {
+                numberSet = try await requestNumberSet(Array((drawDate-5)..<drawDate), drawDate)
+                storeFile(numberSet, drawDate)
+            }
+        } catch {
+            print("numberSet error")
+        }
+    }
+}
+
+extension HomeViewModel {
     func createNumbers(_ count: Int) {
         var result: [[Int]] = []
         
@@ -102,30 +131,13 @@ extension HomeViewModel {
 }
 
 extension HomeViewModel {
-    private func getNumberSet(_ N: Int) async throws {
-        for number in (N-5)..<N {
-            guard let url = URL(string: "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)") else { return }
-
-            let request = URLRequest(url: url)
-            let (data, _) = try await URLSession.shared.data(for: request)
-
-            let json = try JSONDecoder().decode(Lottery.self, from: data)
-            numberSet[number-N+5] = [json.drwtNo1, json.drwtNo2, json.drwtNo3, json.drwtNo4, json.drwtNo5, json.drwtNo6, json.bnusNo]
-        }
-        lastWeekNumbers = numberSet[4]
-        last3WeeksNumberSet = numberSet[2...4].reduce([], +)
-        last5WeeksNumberSet = numberSet.reduce([], +)
-    }
-}
-
-extension HomeViewModel {
     private func checkAll(_ randomSet: [Int]) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
         let result1 = checkPairCount(randomSet)
         let result2 = checkSum(randomSet)
-        let result3 = checkReappear(randomSet, Array(lastWeekNumbers[0...5]))
-        let result4 = checkLastBonus(randomSet, lastWeekNumbers[6])
-        let result5 = checkLastWeeks(randomSet, last3WeeksNumberSet, 2, 5)
-        let result6 = checkLastWeeks(randomSet, last5WeeksNumberSet, 1, 4)
+        let result3 = checkReappear(randomSet, Array(numberSet[4][0...5]))
+        let result4 = checkLastBonus(randomSet, numberSet[4][6])
+        let result5 = checkLastWeeks(randomSet, numberSet[2...4].reduce([], +), 2, 5)
+        let result6 = checkLastWeeks(randomSet, numberSet.reduce([], +), 1, 4)
         
         return (result1, result2, result3, result4, result5, result6)
     }

@@ -1,13 +1,13 @@
 //
 //  ContentView.swift
-//  recommendNumber
+//  allin
 //
-//  Created by 김기훈 on 2023/01/19.
+//  Created by 김기훈 on 2023/02/24.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct ContentView: View {
     @StateObject var viewModel: HomeViewModel = HomeViewModel()
     
     let buttonTitle: [Int] = [1, 5, 10]
@@ -20,12 +20,14 @@ struct HomeView: View {
                 Text("Good Luck!")
                     .font(.system(size: 25))
             } else {
-                LazyVStack {
-                    ForEach(viewModel.resultArray, id: \.self) { result in
-                        Text("\(result.map{String($0)}.joined(separator: ", "))")
-                            .font(.system(size: 25))
-                            .padding()
-                            .border(.black)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.resultArray, id: \.self) { result in
+                            Text("\(result.map{String($0)}.joined(separator: ", "))")
+                                .font(.system(size: 25))
+                                .padding()
+                                .border(.black)
+                        }
                     }
                 }
             }
@@ -57,6 +59,6 @@ struct HomeView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ContentView()
     }
 }
