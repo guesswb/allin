@@ -15,10 +15,10 @@ struct ButtonView: View {
     var fontSize: CGFloat
     
     var body: some View {
-        HStack {
-            if isAvailable {
+        if isAvailable {
+            #if os(iOS)
+            HStack {
                 ForEach(buttonTitle, id: \.self) { number in
-                    #if os(iOS)
                     Button("\(number)line") {
                         createNumbers(number)
                     }
@@ -29,19 +29,22 @@ struct ButtonView: View {
                     .overlay(RoundedRectangle(cornerRadius: 8)
                         .stroke(Color("systemColor"), lineWidth: 4)
                     )
-                    #else
+                }
+            }
+            .padding()
+            #else
+            HStack {
+                ForEach(buttonTitle, id: \.self) { number in
                     Button("\(number)") {
                         createNumbers(number)
                     }
                     .font(.system(size: fontSize))
-                    .padding()
                     .foregroundColor(Color("systemColor"))
-                    #endif
                 }
-            } else {
-                Text("토요일 20시 ~ 일요일 08시는 이용이 불가능합니다.")
             }
+            #endif
+        } else {
+            Text("토요일 20시 ~ 일요일 08시는 이용이 불가능합니다.")
         }
-        .padding()
     }
 }
