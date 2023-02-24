@@ -13,6 +13,7 @@ final class HomeViewModel: ObservableObject {
     private var lastWeekNumbers: [Int] = []
     private var last3WeeksNumberSet: [Int] = []
     private var last5WeeksNumberSet: [Int] = []
+    let buttonTitle: [Int] = [1, 5, 10]
     
     @Published var resultArray: [[Int]] = []
     @Published var isAvailable: Bool = false
