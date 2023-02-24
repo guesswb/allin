@@ -78,9 +78,9 @@
 		3B57A56629A838F9000C110A /* allin */ = {
 			isa = PBXGroup;
 			children = (
+				3B57A56B29A838FA000C110A /* Assets.xcassets */,
 				3B57A59829A83EB4000C110A /* Info.plist */,
 				3B57A56729A838F9000C110A /* allinApp.swift */,
-				3B57A56B29A838FA000C110A /* Assets.xcassets */,
 				3B57A59029A839D0000C110A /* Util */,
 				3B57A58C29A83994000C110A /* Model */,
 				3B57A58829A83973000C110A /* ViewModel */,
