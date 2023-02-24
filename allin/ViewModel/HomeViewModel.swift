@@ -150,7 +150,7 @@ extension HomeViewModel {
         var result = 0
 
         for index in 0...4 {
-            if numbers[index] == numbers[index + 1] {
+            if numbers[index] + 1 == numbers[index + 1] {
                 result += 1
             }
         }
@@ -166,7 +166,7 @@ extension HomeViewModel {
     }
 
     private func checkLastBonus(_ numbers: [Int], _ bonus: Int) -> Bool {
-        return numbers.contains(bonus)
+        return !numbers.contains(bonus)
     }
 
     private func checkLastWeeks(_ numbers: [Int], _ lastWeeksNumberSet: [Int], _ minNum: Int, _ maxNum: Int) -> Bool {
