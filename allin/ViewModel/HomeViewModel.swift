@@ -10,9 +10,7 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     private var numberSet: [[Int]] = Array(repeating: [Int](), count: 5)
     private let numberArray: [Int] = [Int](1...45)
-    private var lastWeekNumbers: [Int] = []
-    private var last3WeeksNumberSet: [Int] = []
-    private var last5WeeksNumberSet: [Int] = []
+
     let buttonTitle: [Int] = [1, 5, 10]
     
     @Published var resultArray: [[Int]] = []
@@ -23,12 +21,11 @@ final class HomeViewModel: ObservableObject {
             await configure()
         }
     }
-}
-
-extension HomeViewModel {
+    
     private func configure() async {
         isAvailable = isAvailableTime()
         if !isAvailable { return }
+        
         // 인터넷 안될 때 체크
         
         let drawDate = getDrawDate()
@@ -39,8 +36,10 @@ extension HomeViewModel {
 extension HomeViewModel {
     private func isAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
-
-        guard let weekday = today.weekday, let hour = today.hour else {
+        
+        guard let weekday = today.weekday,
+                let hour = today.hour
+        else {
             return false
         }
         
@@ -54,13 +53,17 @@ extension HomeViewModel {
     private func getDrawDate() -> Int {
         let calendar = Calendar.current
         
-        guard let firstTime = calendar.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20)), let dDay = calendar.dateComponents([.day], from: firstTime, to: Date()).day else {
+        guard let firstTime = calendar.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20)),
+              let dDay = calendar.dateComponents([.day], from: firstTime, to: Date()).day
+        else {
             return 0
         }
         
         return dDay / 7 + 1
     }
-    
+}
+
+extension HomeViewModel {
     private func getNumberSet(_ drawDate: Int) async {
         do {
             if let result = getNumberSetFromFile(drawDate) {
