@@ -25,7 +25,7 @@ struct ResultView: View {
                             Text("\(numbers.map{String($0)}.joined(separator: ", "))")
                                 .font(.system(size: fontSize))
                                 .padding()
-                                .border(.black)
+                                .border(Color("systemColor"))
                         }
                     }
                     .frame(minHeight: geometry.size.height)

@@ -17,7 +17,7 @@ struct ContentView: View {
             ButtonView(isAvailable: viewModel.isAvailable,
                        buttonTitle: viewModel.buttonTitle,
                        createNumbers: viewModel.createNumbers(_:),
-                       width: 15,
+                       width: 40,
                        fontSize: 15
             )
         }
