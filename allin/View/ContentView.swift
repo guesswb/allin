@@ -12,10 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             ResultView(result: viewModel.resultArray, fontSize: 25)
-            
-            Spacer()
                         
             ButtonView(isAvailable: viewModel.isAvailable,
                        buttonTitle: viewModel.buttonTitle,

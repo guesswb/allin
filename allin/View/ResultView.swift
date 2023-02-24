@@ -13,17 +13,22 @@ struct ResultView: View {
     
     var body: some View {
         if result.isEmpty {
+            Spacer()
             Text("Good Luck!")
                 .font(.system(size: fontSize))
+            Spacer()
         } else {
-            ScrollView {
-                LazyVStack {
-                    ForEach(result, id: \.self) { numbers in
-                        Text("\(numbers.map{String($0)}.joined(separator: ", "))")
-                            .font(.system(size: fontSize))
-                            .padding()
-                            .border(.black)
+            GeometryReader { geometry in
+                ScrollView(.vertical) {
+                    LazyVStack {
+                        ForEach(result, id: \.self) { numbers in
+                            Text("\(numbers.map{String($0)}.joined(separator: ", "))")
+                                .font(.system(size: fontSize))
+                                .padding()
+                                .border(.black)
+                        }
                     }
+                    .frame(minHeight: geometry.size.height)
                 }
             }
         }
