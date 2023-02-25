@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeViewModel: ObservableObject {
+final class RecommendViewModel: ObservableObject {
     private var numberSet: [[Int]] = Array(repeating: [Int](), count: 5)
     private let numberArray: [Int] = [Int](1...45)
 
@@ -33,7 +33,7 @@ final class HomeViewModel: ObservableObject {
     }
 }
 
-extension HomeViewModel {
+extension RecommendViewModel {
     private func isAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
         
@@ -63,7 +63,7 @@ extension HomeViewModel {
     }
 }
 
-extension HomeViewModel {
+extension RecommendViewModel {
     private func getNumberSet(_ drawDate: Int) async {
         do {
             if let result = getNumberSetFromFile(drawDate) {
@@ -78,7 +78,7 @@ extension HomeViewModel {
     }
 }
 
-extension HomeViewModel {
+extension RecommendViewModel {
     func createNumbers(_ count: Int) {
         var result: [[Int]] = []
         
@@ -134,7 +134,7 @@ extension HomeViewModel {
     }
 }
 
-extension HomeViewModel {
+extension RecommendViewModel {
     private func checkAll(_ randomSet: [Int]) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
         let result1 = checkPairCount(randomSet)
         let result2 = checkSum(randomSet)

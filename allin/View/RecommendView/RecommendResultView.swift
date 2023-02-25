@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResultView: View {
+struct RecommendResultView: View {
     var result: [[Int]]
     var fontSize: CGFloat
     

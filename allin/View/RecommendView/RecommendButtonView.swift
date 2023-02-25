@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonView: View {
+struct RecommendButtonView: View {
     var isAvailable: Bool
     var buttonTitle: [Int]
     var createNumbers: (_ count: Int) -> Void

@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel: HomeViewModel = HomeViewModel()
-    
     var body: some View {
-        VStack {
-            ResultView(result: viewModel.resultArray, fontSize: 25)
-                        
-            ButtonView(isAvailable: viewModel.isAvailable,
-                       buttonTitle: viewModel.buttonTitle,
-                       createNumbers: viewModel.createNumbers(_:),
-                       width: 80,
-                       fontSize: 30
-            )
+        TabView {
+            RecommendView()
+                .tabItem { Text("추첨") }
+            Text("sceond")
+                .tabItem { Text("판매점") }
+            Text("third")
+                .tabItem { Text("위시리스트") }
         }
+        
     }
 }
 
