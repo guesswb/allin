@@ -12,15 +12,18 @@ struct RecommendView: View {
     
     var body: some View {
         VStack {
-            RecommendResultView(result: viewModel.resultArray, fontSize: 25)
-                        
-            RecommendButtonView(isAvailable: viewModel.isAvailable,
-                       buttonTitle: viewModel.buttonTitle,
-                       createNumbers: viewModel.createNumbers(_:),
-                       width: 80,
-                       fontSize: 30
+            RecommendResultView(
+                result: viewModel.resultArray
+            )
+            
+            RecommendButtonView(
+                isAvailableTime: viewModel.isAvailableTime,
+                isAvailableNetwork: viewModel.isAvailableNetwork,
+                buttonTitle: viewModel.buttonTitle,
+                createNumbers: viewModel.createNumbers(_:)
             )
         }
+        .padding()
     }
 }
 

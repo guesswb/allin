@@ -11,13 +11,28 @@ struct ContentView: View {
     var body: some View {
         TabView {
             RecommendView()
-                .tabItem { Text("추첨") }
-            Text("sceond")
-                .tabItem { Text("판매점") }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "questionmark")
+                        Text("추첨")
+                    }
+                }
+            StoreView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "map")
+                        Text("판매점")
+                    }
+                }
             Text("third")
-                .tabItem { Text("위시리스트") }
+                .tabItem {
+                    VStack {
+                        Image(systemName: "doc.plaintext")
+                        Text("위시리스트")
+                    }
+                }
         }
-        
+        .padding()
     }
 }
 

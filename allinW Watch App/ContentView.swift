@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel: HomeViewModel = HomeViewModel()
+    @StateObject var viewModel: RecommendViewModel = RecommendViewModel()
     
     var body: some View {
         VStack {
-            ResultView(result: viewModel.resultArray, fontSize: 20)
+            RecommendResultView(
+                result: viewModel.resultArray
+            )
                         
-            ButtonView(isAvailable: viewModel.isAvailable,
-                       buttonTitle: viewModel.buttonTitle,
-                       createNumbers: viewModel.createNumbers(_:),
-                       width: 40,
-                       fontSize: 15
+            RecommendButtonView(
+                isAvailableTime: viewModel.isAvailableTime,
+                isAvailableNetwork: viewModel.isAvailableNetwork,
+                buttonTitle: viewModel.buttonTitle,
+                createNumbers: viewModel.createNumbers(_:)
             )
         }
     }

@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import Network
 
 final class RecommendViewModel: ObservableObject {
     private var numberSet: [[Int]] = Array(repeating: [Int](), count: 5)
     private let numberArray: [Int] = [Int](1...45)
-
+    private let monitor = NWPathMonitor()
+    
     let buttonTitle: [Int] = [1, 5, 10]
     
     @Published var resultArray: [[Int]] = []
-    @Published var isAvailable: Bool = false
+    @Published var isAvailableTime: Bool = false
+    @Published var isAvailableNetwork: Bool = false
     
     init() {
         Task {
@@ -22,19 +25,23 @@ final class RecommendViewModel: ObservableObject {
         }
     }
     
+    deinit {
+        monitor.cancel()
+    }
+    
+    @MainActor
     private func configure() async {
-        isAvailable = isAvailableTime()
-        if !isAvailable { return }
+        getIsAvailableNetwork()
         
-        // 인터넷 안될 때 체크
+        isAvailableTime = getIsAvailableTime()
+        if isAvailableTime == false { return }
         
-        let drawDate = getDrawDate()
-        await getNumberSet(drawDate)
+        await getNumberSet()
     }
 }
 
 extension RecommendViewModel {
-    private func isAvailableTime() -> Bool {
+    private func getIsAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
         
         guard let weekday = today.weekday,
@@ -61,10 +68,32 @@ extension RecommendViewModel {
         
         return dDay / 7 + 1
     }
+    
+    private func getIsAvailableNetwork() {
+        let queue = DispatchQueue.global(qos: .background)
+        
+        monitor.start(queue: queue)
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                DispatchQueue.main.async {
+                    self.isAvailableNetwork = true
+                }
+                    
+            } else {
+                if self.numberSet[0].isEmpty {
+                    DispatchQueue.main.async {
+                        self.isAvailableNetwork = false
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension RecommendViewModel {
-    private func getNumberSet(_ drawDate: Int) async {
+    private func getNumberSet() async {
+        let drawDate = getDrawDate()
+        
         do {
             if let result = getNumberSetFromFile(drawDate) {
                 numberSet = result

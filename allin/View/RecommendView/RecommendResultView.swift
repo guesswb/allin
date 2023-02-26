@@ -9,21 +9,28 @@ import SwiftUI
 
 struct RecommendResultView: View {
     var result: [[Int]]
-    var fontSize: CGFloat
     
     var body: some View {
         if result.isEmpty {
             Spacer()
             Text("Good Luck!")
-                .font(.system(size: fontSize))
+                #if os(iOS)
+                .font(.system(size: 25))
+                #else
+                .font(.system(size: 20))
+                #endif
             Spacer()
         } else {
             GeometryReader { geometry in
                 ScrollView(.vertical) {
                     LazyVStack {
                         ForEach(result, id: \.self) { numbers in
-                            Text("\(numbers.map{String($0)}.joined(separator: ", "))")
-                                .font(.system(size: fontSize))
+                            Text("\(numbers.map { String($0) }.joined(separator: ", "))")
+                                #if os(iOS)
+                                .font(.system(size: 25))
+                                #else
+                                .font(.system(size: 15))
+                                #endif
                                 .padding()
                                 .border(Color("systemColor"))
                         }

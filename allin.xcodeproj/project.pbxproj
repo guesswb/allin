@@ -27,6 +27,7 @@
 		3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */; };
 		3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
+		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		3B57A59929A8D923000C110A /* RecommendResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResultView.swift; sourceTree = "<group>"; };
 		3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendButtonView.swift; sourceTree = "<group>"; };
 		3B57A5B429AA50DB000C110A /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		3B57A5B829AB447E000C110A /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		3B57A58729A8396B000C110A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B57A5B729AB4465000C110A /* StoreView */,
 				3B57A5B329AA50A8000C110A /* RecommendView */,
 				3B57A56929A838F9000C110A /* ContentView.swift */,
 			);
@@ -166,6 +169,14 @@
 				3B57A5B429AA50DB000C110A /* RecommendView.swift */,
 			);
 			path = RecommendView;
+			sourceTree = "<group>";
+		};
+		3B57A5B729AB4465000C110A /* StoreView */ = {
+			isa = PBXGroup;
+			children = (
+				3B57A5B829AB447E000C110A /* StoreView.swift */,
+			);
+			path = StoreView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +286,7 @@
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
+				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
 				3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
