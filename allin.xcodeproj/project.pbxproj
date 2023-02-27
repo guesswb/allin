@@ -28,6 +28,9 @@
 		3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
+		3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 3B57A5BD29AB79C1000C110A /* NMapsMap */; };
+		3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */; };
+		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,8 @@
 		3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendButtonView.swift; sourceTree = "<group>"; };
 		3B57A5B429AA50DB000C110A /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		3B57A5B829AB447E000C110A /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapView.swift; sourceTree = "<group>"; };
+		3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3B57A58929A83987000C110A /* RecommendViewModel.swift */,
+				3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				3B57A5B829AB447E000C110A /* StoreView.swift */,
+				3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */,
 			);
 			path = StoreView;
 			sourceTree = "<group>";
@@ -195,6 +203,9 @@
 			dependencies = (
 			);
 			name = allin;
+			packageProductDependencies = (
+				3B57A5BD29AB79C1000C110A /* NMapsMap */,
+			);
 			productName = allin;
 			productReference = 3B57A56429A838F9000C110A /* allin.app */;
 			productType = "com.apple.product-type.application";
@@ -243,6 +254,9 @@
 				Base,
 			);
 			mainGroup = 3B57A55B29A838F9000C110A;
+			packageReferences = (
+				3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
+			);
 			productRefGroup = 3B57A56529A838F9000C110A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B57A59229A839D7000C110A /* File.swift in Sources */,
+				3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */,
 				3B57A56A29A838F9000C110A /* ContentView.swift in Sources */,
 				3B57A59529A839DD000C110A /* Network.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
@@ -287,6 +302,7 @@
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
+				3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */,
 				3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +600,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jaemyeong/NMapsMap-SPM.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.16.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B57A5BD29AB79C1000C110A /* NMapsMap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */;
+			productName = NMapsMap;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B57A55C29A838F9000C110A /* Project object */;
 }
