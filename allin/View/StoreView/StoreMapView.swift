@@ -17,14 +17,13 @@ struct StoreMapView: UIViewRepresentable {
         view.showZoomControls = false
         view.mapView.positionMode = .direction
         view.mapView.zoomLevel = 17
+        view.showCompass = true
       
         return view
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        guard let coordinate = viewModel.currentLocation else {
-            return
-        }
+        let coordinate = viewModel.currentLocation
         
         let cameraUpdate = NMFCameraUpdate(
             scrollTo: NMGLatLng(

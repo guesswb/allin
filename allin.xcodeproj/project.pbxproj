@@ -31,6 +31,8 @@
 		3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 3B57A5BD29AB79C1000C110A /* NMapsMap */; };
 		3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */; };
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
+		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
+		3B57A5C629ACD173000C110A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C529ACD173000C110A /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		3B57A5B829AB447E000C110A /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapView.swift; sourceTree = "<group>"; };
 		3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
+		3B57A5C329ACCCF4000C110A /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
+		3B57A5C529ACD173000C110A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		3B57A58C29A83994000C110A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B57A5C329ACCCF4000C110A /* Plist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			children = (
 				3B57A59129A839D7000C110A /* File.swift */,
 				3B57A59429A839DD000C110A /* Network.swift */,
+				3B57A5C529ACD173000C110A /* Location.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 				3B57A59529A839DD000C110A /* Network.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
+				3B57A5C629ACD173000C110A /* Location.swift in Sources */,
+				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
