@@ -6,51 +6,31 @@
 //
 
 import Foundation
+import CoreLocation
 
 final class StoreViewModel: ObservableObject {
+    private let locationManager: LocationManager = LocationManager()
     
-    @Published var currentLocation = Location.shared.currentLocation
+    @Published var currentCoordinate: CLLocationCoordinate2D
+    @Published var storeLocation: Store?
     
     init() {
-        
-//        configure()
+        currentCoordinate = locationManager.currentCoordinate
+        Task {
+            do {
+                let addressData = try await locationManager.getCurrentAddress()
+                let address = try JSONDecoder().decode(Address.self, from: addressData)
+                let area = address.results[0].region.area3.name
+                
+                let storeData = try await locationManager.getStoreAAA(area)
+                let store = try JSONDecoder().decode(Store.self, from: storeData)
+                
+                DispatchQueue.main.async {
+                    self.storeLocation = store
+                }
+            } catch (let error) {
+                print(error)
+            }
+        }
     }
-    
-//    private func configure() {
-//        Task {
-//            try await getStoreData()
-//        }
-//    }
-//
-//
-//    private func getStoreData() async throws {
-//        guard var urlComponent = URLComponents(string: "https://openapi.naver.com/v1/search/local.json") else { return }
-//
-//        let query = URLQueryItem(name: "query", value: "복권")
-//        let display = URLQueryItem(name: "display", value: "5")
-//        let start = URLQueryItem(name: "start", value: "1")
-//        let sort = URLQueryItem(name: "sort", value: "random")
-//
-//        urlComponent.queryItems = [query, display, start, sort]
-//
-//        var urlRequest = URLRequest(url: urlComponent.url!)
-//
-//        guard let bundleURL = Bundle.main.url(forResource: "Info", withExtension: "plist") else {
-//            return
-//        }
-//
-//        do {
-//            let data = try Data(contentsOf: bundleURL)
-//            let result = try PropertyListDecoder().decode(Plist.self, from: data)
-//
-//            urlRequest.addValue(result.naverClientId, forHTTPHeaderField: "X-Naver-Client-Id")
-//            urlRequest.addValue(result.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
-//
-//            let (responseData, _) = try await URLSession.shared.data(for: urlRequest)
-//            let jsonString = String(data: responseData, encoding: .utf8)!
-//            print(jsonString)
-//        } catch {
-//
-//        }
-//    }
 }

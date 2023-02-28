@@ -24,7 +24,7 @@ struct ContentView: View {
                         Text("판매점")
                     }
                 }
-            Text("third")
+            WishlistView()
                 .tabItem {
                     VStack {
                         Image(systemName: "doc.plaintext")

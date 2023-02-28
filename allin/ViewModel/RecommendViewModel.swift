@@ -20,23 +20,22 @@ final class RecommendViewModel: ObservableObject {
     @Published var isAvailableNetwork: Bool = false
     
     init() {
-        Task {
-            await configure()
-        }
+        configure()
     }
     
     deinit {
         monitor.cancel()
     }
     
-    @MainActor
-    private func configure() async {
-        getIsAvailableNetwork()
+    private func configure() {
+        checkIsAvailableNetwork()
         
         isAvailableTime = getIsAvailableTime()
         if isAvailableTime == false { return }
         
-        await getNumberSet()
+        Task {
+            await getNumberSet()
+        }
     }
 }
 
@@ -69,7 +68,7 @@ extension RecommendViewModel {
         return dDay / 7 + 1
     }
     
-    private func getIsAvailableNetwork() {
+    private func checkIsAvailableNetwork() {
         let queue = DispatchQueue.global(qos: .background)
         
         monitor.start(queue: queue)
@@ -95,11 +94,19 @@ extension RecommendViewModel {
         let drawDate = getDrawDate()
         
         do {
-            if let result = getNumberSetFromFile(drawDate) {
+            if let result = CustomFileManager.getNumberSetFromFile(drawDate) {
                 numberSet = result
             } else {
-                numberSet = try await requestNumberSet(Array((drawDate-5)..<drawDate), drawDate)
-                storeFile(numberSet, drawDate)
+                var numbers: [[Int]] = Array(repeating: [Int](), count: 5)
+                
+                for number in (drawDate-5)..<drawDate {
+                    let data = try await NetworkManager.getLottery(number)
+                    
+                    let lottery = try JSONDecoder().decode(Lottery.self, from: data)
+                    numbers[number-drawDate+5] = [lottery.drwtNo1, lottery.drwtNo2, lottery.drwtNo3, lottery.drwtNo4, lottery.drwtNo5, lottery.drwtNo6, lottery.bnusNo]
+                }
+                numberSet = numbers
+                CustomFileManager.storeFile(numbers, drawDate)
             }
         } catch {
             print("numberSet error")

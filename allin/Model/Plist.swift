@@ -8,6 +8,11 @@
 import Foundation
 
 struct Plist: Codable {
+    //naverCloud map
     let naverAPIKeyId: String
     let naverAPIKey: String
+    
+    //naverDev
+    let naverClientId: String
+    let naverClientSecret: String
 }

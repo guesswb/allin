@@ -23,7 +23,8 @@ struct StoreMapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        let coordinate = viewModel.currentLocation
+        let coordinate = viewModel.currentCoordinate
+        
         
         let cameraUpdate = NMFCameraUpdate(
             scrollTo: NMGLatLng(
@@ -35,5 +36,20 @@ struct StoreMapView: UIViewRepresentable {
         cameraUpdate.animation = .fly
         cameraUpdate.animationDuration = 1
         uiView.mapView.moveCamera(cameraUpdate)
+        
+        guard let stores = viewModel.storeLocation else { return }
+        
+        for index in 0..<stores.items.count  {
+            let store = stores.items[index]
+            
+            if store.category == "생활,편의>복권,로또" {
+                guard let x = Double(store.mapx), let y = Double(store.mapy) else { continue }
+                let marker = NMFMarker()
+                let latlon = NMGTm128(x: x, y: y).toLatLng()
+                
+                marker.position = NMGLatLng(lat: latlon.lat, lng: latlon.lng)
+                marker.mapView = uiView.mapView
+            }
+        }
     }
 }
