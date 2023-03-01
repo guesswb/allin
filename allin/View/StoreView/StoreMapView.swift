@@ -9,22 +9,26 @@ import SwiftUI
 import NMapsMap
 
 struct StoreMapView: UIViewRepresentable {
-    @StateObject var viewModel: StoreViewModel = StoreViewModel()
+    var currentCoordinate: CLLocationCoordinate2D
+    var storeLocation: Store?
+    
+    init(currentCoordinate: CLLocationCoordinate2D, storeLocation: Store? = nil) {
+        self.currentCoordinate = currentCoordinate
+        self.storeLocation = storeLocation
+    }
     
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
         
         view.showZoomControls = false
         view.mapView.positionMode = .direction
-        view.mapView.zoomLevel = 17
         view.showCompass = true
       
         return view
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        let coordinate = viewModel.currentCoordinate
-        
+        let coordinate = currentCoordinate
         
         let cameraUpdate = NMFCameraUpdate(
             scrollTo: NMGLatLng(
@@ -35,9 +39,10 @@ struct StoreMapView: UIViewRepresentable {
         
         cameraUpdate.animation = .fly
         cameraUpdate.animationDuration = 1
+        uiView.mapView.zoomLevel = 14
         uiView.mapView.moveCamera(cameraUpdate)
         
-        guard let stores = viewModel.storeLocation else { return }
+        guard let stores = storeLocation else { return }
         
         for index in 0..<stores.items.count  {
             let store = stores.items[index]

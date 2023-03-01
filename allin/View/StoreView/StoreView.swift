@@ -7,10 +7,19 @@
 
 import SwiftUI
 
-
 struct StoreView: View {
+    @StateObject var viewModel: StoreViewModel = StoreViewModel()
+    
     var body: some View {
-        StoreMapView()
+        VStack {
+            StoreMapView(
+                currentCoordinate: viewModel.currentCoordinate,
+                storeLocation: viewModel.storeLocation
+            ).padding()
+            StoreMoveMapButton(
+                areaName: viewModel.areaName
+            ).padding()
+        }
     }
 }
 

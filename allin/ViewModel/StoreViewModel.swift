@@ -13,6 +13,7 @@ final class StoreViewModel: ObservableObject {
     
     @Published var currentCoordinate: CLLocationCoordinate2D
     @Published var storeLocation: Store?
+    @Published var areaName: String = ""
     
     init() {
         currentCoordinate = locationManager.currentCoordinate
@@ -21,6 +22,9 @@ final class StoreViewModel: ObservableObject {
                 let addressData = try await locationManager.getCurrentAddress()
                 let address = try JSONDecoder().decode(Address.self, from: addressData)
                 let area = address.results[0].region.area3.name
+                DispatchQueue.main.async {
+                    self.areaName = area
+                }
                 
                 let storeData = try await locationManager.getStoreAAA(area)
                 let store = try JSONDecoder().decode(Store.self, from: storeData)

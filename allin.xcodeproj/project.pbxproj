@@ -39,6 +39,7 @@
 		3B878C1629AE1E0200846742 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
+		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		3B878C1529AE1E0200846742 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		3B878C1729AE295300846742 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		3B878C1929AE30FC00846742 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMoveMapButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			children = (
 				3B57A5B829AB447E000C110A /* StoreView.swift */,
 				3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */,
+				3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */,
 			);
 			path = StoreView;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				3B57A59529A839DD000C110A /* NetworkManager.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
+				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
 				3B57A5C629ACD173000C110A /* LocationManager.swift in Sources */,
 				3B878C1629AE1E0200846742 /* Lottery.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
@@ -497,6 +501,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = allin/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -531,6 +536,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = allin/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
