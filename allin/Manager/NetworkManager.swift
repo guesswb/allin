@@ -52,8 +52,8 @@ final class NetworkManager {
         let data = try Data(contentsOf: bundleURL)
         let result = try PropertyListDecoder().decode(Plist.self, from: data)
         
-        urlRequest.addValue(result.naverAPIKeyId, forHTTPHeaderField: "X-NCP-APIGW-API-KEY-ID")
-        urlRequest.addValue(result.naverAPIKey, forHTTPHeaderField: "X-NCP-APIGW-API-KEY")
+        urlRequest.addValue(result.NMFClientId, forHTTPHeaderField: "X-NCP-APIGW-API-KEY-ID")
+        urlRequest.addValue(result.NMFClientSecret, forHTTPHeaderField: "X-NCP-APIGW-API-KEY")
         
         return try await request(urlRequest)
     }

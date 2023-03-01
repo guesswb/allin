@@ -9,8 +9,8 @@ import Foundation
 
 struct Plist: Codable {
     //naverCloud map
-    let naverAPIKeyId: String
-    let naverAPIKey: String
+    let NMFClientId: String
+    let NMFClientSecret: String
     
     //naverDev
     let naverClientId: String
