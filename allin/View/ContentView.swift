@@ -24,13 +24,6 @@ struct ContentView: View {
                         Text("판매점")
                     }
                 }
-            WishlistView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "doc.plaintext")
-                        Text("위시리스트")
-                    }
-                }
         }
         .padding()
     }
