@@ -39,6 +39,10 @@
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
 		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
+		3BF8D10829B327A6008A61ED /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1329AE111A00846742 /* FileError.swift */; };
+		3BF8D10929B327A9008A61ED /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1129AE10F600846742 /* NetworkError.swift */; };
+		3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
+		3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -355,10 +359,14 @@
 				3B57A57E29A83917000C110A /* ContentView.swift in Sources */,
 				3B57A59629A839DD000C110A /* NetworkManager.swift in Sources */,
 				3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */,
+				3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */,
 				3B57A58B29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B57A57C29A83917000C110A /* allinWApp.swift in Sources */,
+				3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */,
 				3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
+				3BF8D10829B327A6008A61ED /* FileError.swift in Sources */,
+				3BF8D10929B327A9008A61ED /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,21 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel: RecommendViewModel = RecommendViewModel()
-    
     var body: some View {
-        VStack {
-            RecommendResultView(
-                result: viewModel.resultArray
-            )
-                        
-            RecommendButtonView(
-                isAvailableTime: viewModel.isAvailableTime,
-                isAvailableNetwork: viewModel.isAvailableNetwork,
-                buttonTitle: viewModel.buttonTitle,
-                createNumbers: viewModel.createNumbers(_:)
-            )
-        }
+        RecommendView()
     }
 }
 

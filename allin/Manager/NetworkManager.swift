@@ -7,7 +7,6 @@
 
 import Foundation
 
-#if os(iOS)
 final class NetworkManager {
     static let shared = NetworkManager()
     
@@ -33,6 +32,7 @@ final class NetworkManager {
         return try await request(urlRequest)
     }
     
+    #if os(iOS)
     static func getAddress(_ lon: Double, _ lat: Double) async throws -> Data {
         guard var urlComponent = URLComponents(string: "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc") else { throw NetworkError.urlError }
         
@@ -82,5 +82,5 @@ final class NetworkManager {
         
         return try await request(urlRequest)
     }
+    #endif
 }
-#endif

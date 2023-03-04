@@ -17,7 +17,7 @@ final class RecommendViewModel: ObservableObject {
     
     @Published var resultArray: [[Int]] = []
     @Published var isAvailableTime: Bool = false
-    @Published var isAvailableNetwork: Bool = false
+    @Published var isAvailableNetwork: Bool = true
     
     init() {
         configure()
@@ -32,7 +32,7 @@ final class RecommendViewModel: ObservableObject {
         
         isAvailableTime = getIsAvailableTime()
         if isAvailableTime == false { return }
-        
+
         Task {
             await getNumberSet()
         }
@@ -69,21 +69,12 @@ extension RecommendViewModel {
     }
     
     private func checkIsAvailableNetwork() {
-        let queue = DispatchQueue.global(qos: .background)
+        let queue = DispatchQueue(label: "NetworkManager")
         
         monitor.start(queue: queue)
         monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                DispatchQueue.main.async {
-                    self.isAvailableNetwork = true
-                }
-                    
-            } else {
-                if self.numberSet[0].isEmpty {
-                    DispatchQueue.main.async {
-                        self.isAvailableNetwork = false
-                    }
-                }
+            DispatchQueue.main.async {
+                self.isAvailableNetwork = path.status == .satisfied
             }
         }
     }
@@ -102,8 +93,13 @@ extension RecommendViewModel {
                 for number in (drawDate-5)..<drawDate {
                     let data = try await NetworkManager.getLottery(number)
                     
+                    #if os(iOS)
                     let lottery = try JSONDecoder().decode(Lottery.self, from: data)
                     numbers[number-drawDate+5] = [lottery.drwtNo1, lottery.drwtNo2, lottery.drwtNo3, lottery.drwtNo4, lottery.drwtNo5, lottery.drwtNo6, lottery.bnusNo]
+                    #else
+                    guard let lottery = String(data: data, encoding: .utf8) else { continue }
+                    numbers[number-drawDate+5] = getArray(lottery)
+                    #endif
                 }
                 numberSet = numbers
                 CustomFileManager.storeFile(numbers, drawDate)
@@ -112,6 +108,35 @@ extension RecommendViewModel {
             print("numberSet error")
         }
     }
+    
+    #if os(watchOS)
+    private func getArray(_ string: String) -> [Int] {
+        var temp = string
+        temp.removeFirst()
+        temp.removeLast()
+        
+        let array = temp.components(separatedBy: ",")
+
+        var result = Array(repeating: 0, count: 7)
+        
+        for line in array {
+            let split = line.components(separatedBy: ":")
+            
+            switch split[0] {
+            case "\"drwtNo1\"": result[0] = Int(split[1])!
+            case "\"drwtNo2\"": result[1] = Int(split[1])!
+            case "\"drwtNo3\"": result[2] = Int(split[1])!
+            case "\"drwtNo4\"": result[3] = Int(split[1])!
+            case "\"drwtNo5\"": result[4] = Int(split[1])!
+            case "\"drwtNo6\"": result[5] = Int(split[1])!
+            case "\"bnusNo\"": result[6] = Int(split[1])!
+            default: continue
+            }
+        }
+        
+        return result
+    }
+    #endif
 }
 
 extension RecommendViewModel {
