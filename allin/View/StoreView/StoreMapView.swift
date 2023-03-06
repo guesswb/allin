@@ -12,11 +12,6 @@ struct StoreMapView: UIViewRepresentable {
     var currentCoordinate: CLLocationCoordinate2D
     var storeLocation: Store?
     
-    init(currentCoordinate: CLLocationCoordinate2D, storeLocation: Store? = nil) {
-        self.currentCoordinate = currentCoordinate
-        self.storeLocation = storeLocation
-    }
-    
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
         

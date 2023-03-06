@@ -38,3 +38,21 @@ final class StoreViewModel: ObservableObject {
         }
     }
 }
+
+extension StoreViewModel {
+    func urlForNaverMap(_ isOpenApp: Bool) -> URL? {
+        if isOpenApp {
+            let urlString = "nmap://search?query=\(areaName)복권&appname=com.kim.allin"
+            
+            guard let encoded = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                  let url = URL(string: encoded) else { return nil }
+            return url
+        } else {
+            guard let appStoreURL = URL(string: "http://itunes.apple.com/app/id311867728?mt=8") else { return nil }
+            return appStoreURL
+        }
+       
+        
+
+    }
+}

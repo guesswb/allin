@@ -17,7 +17,8 @@ struct StoreView: View {
                 storeLocation: viewModel.storeLocation
             ).padding()
             StoreMoveMapButton(
-                areaName: viewModel.areaName
+                areaName: viewModel.areaName,
+                urlForNaverMap: viewModel.urlForNaverMap
             ).padding()
         }
     }

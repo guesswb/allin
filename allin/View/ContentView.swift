@@ -12,10 +12,7 @@ struct ContentView: View {
         TabView {
             RecommendView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "questionmark")
-                        Text("추첨")
-                    }
+                    Label("추첨", systemImage: "questionmark")
                 }
             StoreView()
                 .tabItem {
@@ -25,7 +22,10 @@ struct ContentView: View {
                     }
                 }
         }
-        .padding()
+        .onAppear {
+            UITabBar.appearance().backgroundColor = .systemGray6
+        }
+        .tint(.red)
     }
 }
 
