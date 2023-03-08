@@ -7,12 +7,14 @@
 
 import Foundation
 import CoreLocation
+import Combine
 
 #if os(iOS)
-final class LocationManager: NSObject, CLLocationManagerDelegate {
-    private var locationManager: CLLocationManager
-    
+final class LocationManager: NSObject {
+    var locationManager: CLLocationManager
     var currentCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37, longitude: 126)
+    
+    var needPermission: PassthroughSubject<Bool, Never> = PassthroughSubject<Bool, Never>()
     
     override init() {
         locationManager = CLLocationManager()
@@ -36,6 +38,22 @@ final class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func getStoreAAA(_ area: String) async throws -> Data {
         return try await NetworkManager.getStore(area)
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+        case .denied:
+            needPermission.send(true)
+        case .authorizedAlways, .authorizedWhenInUse:
+            needPermission.send(false)
+        case .restricted, .notDetermined:
+            needPermission.send(true)
+            locationManager.requestWhenInUseAuthorization()
+        @unknown default:
+            return
+        }
     }
 }
 #endif
