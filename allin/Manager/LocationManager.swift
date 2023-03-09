@@ -11,13 +11,12 @@ import Combine
 
 #if os(iOS)
 final class LocationManager: NSObject {
-    var locationManager: CLLocationManager
-    var currentCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37, longitude: 126)
+    var locationManager: CLLocationManager = CLLocationManager()
     
+    var currentCoordinate: CurrentValueSubject<CLLocationCoordinate2D, Never> = CurrentValueSubject<CLLocationCoordinate2D, Never>(CLLocationCoordinate2D(latitude: 37.0, longitude: 126.0))
     var needPermission: PassthroughSubject<Bool, Never> = PassthroughSubject<Bool, Never>()
     
     override init() {
-        locationManager = CLLocationManager()
         super.init()
         configure()
     }
@@ -27,13 +26,10 @@ final class LocationManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-        
-        guard let coordinate = locationManager.location?.coordinate else { return }
-        currentCoordinate = coordinate
     }
     
     func getCurrentAddress() async throws -> Data {
-        return try await NetworkManager.getAddress(currentCoordinate.longitude, currentCoordinate.latitude)
+        return try await NetworkManager.getAddress(currentCoordinate.value.longitude, currentCoordinate.value.latitude)
     }
     
     func getStoreAAA(_ area: String) async throws -> Data {
@@ -42,6 +38,11 @@ final class LocationManager: NSObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let coordinate = manager.location?.coordinate else { return }
+        currentCoordinate.send(coordinate)
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .denied:

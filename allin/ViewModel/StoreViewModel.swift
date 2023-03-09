@@ -14,14 +14,12 @@ final class StoreViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var currentCoordinate: CLLocationCoordinate2D
+    @Published var currentCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.0, longitude: 126.0)
     @Published var storeLocation: Store?
     @Published var areaName: String = ""
     @Published var needPermission: Bool = true
     
     init() {
-        currentCoordinate = locationManager.currentCoordinate
-        
         locationManager.needPermission
             .sink(receiveValue: { value in
                 if !value {
@@ -37,31 +35,41 @@ final class StoreViewModel: ObservableObject {
 
 extension StoreViewModel {
     private func configure() {
-        currentCoordinate = locationManager.currentCoordinate
-        
+        locationManager.currentCoordinate
+            .sink(receiveValue: { value in
+                self.currentCoordinate = value
+                self.setStore()
+            })
+            .store(in: &cancellables)
+    }
+    
+    private func setStore() {
         if currentCoordinate.longitude < 124.0 || currentCoordinate.longitude > 132.0 ||
             currentCoordinate.latitude < 33.0 || currentCoordinate.latitude > 43.0 {
+            storeLocation = nil
             return
         }
-        
-        Task {
-            do {
-                let addressData = try await locationManager.getCurrentAddress()
-                let address = try JSONDecoder().decode(Address.self, from: addressData)
-                let area = address.results[0].region.area3.name
-                
-                DispatchQueue.main.async {
-                    self.areaName = area
+        if storeLocation == nil {
+            Task {
+                do {
+                    let addressData = try await locationManager.getCurrentAddress()
+                    let address = try JSONDecoder().decode(Address.self, from: addressData)
+
+                    if address.results.isEmpty { return }
+                    let area = address.results[0].region.area3.name
+                    
+                    DispatchQueue.main.async {
+                        self.areaName = area
+                    }
+                    
+                    let storeData = try await locationManager.getStoreAAA(area)
+                    let store = try JSONDecoder().decode(Store.self, from: storeData)
+                    DispatchQueue.main.async {
+                        self.storeLocation = store
+                    }
+                } catch (let error) {
+                    print(error)
                 }
-                
-                let storeData = try await locationManager.getStoreAAA(area)
-                let store = try JSONDecoder().decode(Store.self, from: storeData)
-                
-                DispatchQueue.main.async {
-                    self.storeLocation = store
-                }
-            } catch (let error) {
-                print(error)
             }
         }
     }
