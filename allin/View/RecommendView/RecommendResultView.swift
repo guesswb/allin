@@ -32,6 +32,7 @@ struct RecommendResultView: View {
                                 .font(.system(size: 15))
                                 #endif
                                 .padding()
+                                .frame(maxWidth: .infinity)
                                 .border(Color("systemColor"))
                         }
                     }
