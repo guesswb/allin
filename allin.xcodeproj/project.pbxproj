@@ -612,6 +612,7 @@
 				DEVELOPMENT_TEAM = 77295VQTPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allin/info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = allinW;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;
@@ -644,6 +645,7 @@
 				DEVELOPMENT_TEAM = 77295VQTPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = allin/info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = allinW;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;

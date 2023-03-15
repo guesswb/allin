@@ -11,7 +11,7 @@ import Network
 final class RecommendViewModel: ObservableObject {
     private var numberSet: [[Int]] = Array(repeating: [Int](), count: 5)
     private let numberArray: [Int] = [Int](1...45)
-    private let monitor = NWPathMonitor()
+    private let monitor: NWPathMonitor
     
     let buttonTitle: [Int] = [1, 5, 10]
     
@@ -20,6 +20,7 @@ final class RecommendViewModel: ObservableObject {
     @Published var isAvailableNetwork: Bool = true
     
     init() {
+        self.monitor = NWPathMonitor()
         configure()
     }
     
@@ -28,7 +29,9 @@ final class RecommendViewModel: ObservableObject {
     }
     
     private func configure() {
+        #if os(iOS)
         checkIsAvailableNetwork()
+        #endif
         
         isAvailableTime = getIsAvailableTime()
         if isAvailableTime == false { return }
@@ -69,9 +72,7 @@ extension RecommendViewModel {
     }
     
     private func checkIsAvailableNetwork() {
-        let queue = DispatchQueue(label: "NetworkManager")
-        
-        monitor.start(queue: queue)
+        monitor.start(queue: .global())
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
                 self.isAvailableNetwork = path.status == .satisfied
@@ -97,8 +98,12 @@ extension RecommendViewModel {
                     let lottery = try JSONDecoder().decode(Lottery.self, from: data)
                     numbers[number-drawDate+5] = [lottery.drwtNo1, lottery.drwtNo2, lottery.drwtNo3, lottery.drwtNo4, lottery.drwtNo5, lottery.drwtNo6, lottery.bnusNo]
                     #else
-                    guard let lottery = String(data: data, encoding: .utf8) else { continue }
-                    numbers[number-drawDate+5] = getArray(lottery)
+                    guard let lottery = String(data: data, encoding: .utf8) else {
+                        isAvailableNetwork = false
+                        continue
+                    }
+                    
+                    numbers[number-drawDate+5] = Lottery.getArray(lottery)
                     #endif
                 }
                 numberSet = numbers
@@ -109,34 +114,7 @@ extension RecommendViewModel {
         }
     }
     
-    #if os(watchOS)
-    private func getArray(_ string: String) -> [Int] {
-        var temp = string
-        temp.removeFirst()
-        temp.removeLast()
-        
-        let array = temp.components(separatedBy: ",")
-
-        var result = Array(repeating: 0, count: 7)
-        
-        for line in array {
-            let split = line.components(separatedBy: ":")
-            
-            switch split[0] {
-            case "\"drwtNo1\"": result[0] = Int(split[1])!
-            case "\"drwtNo2\"": result[1] = Int(split[1])!
-            case "\"drwtNo3\"": result[2] = Int(split[1])!
-            case "\"drwtNo4\"": result[3] = Int(split[1])!
-            case "\"drwtNo5\"": result[4] = Int(split[1])!
-            case "\"drwtNo6\"": result[5] = Int(split[1])!
-            case "\"bnusNo\"": result[6] = Int(split[1])!
-            default: continue
-            }
-        }
-        
-        return result
-    }
-    #endif
+   
 }
 
 extension RecommendViewModel {
