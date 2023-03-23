@@ -6,49 +6,51 @@
 //
 
 import Foundation
-import Network
+import Combine
+import Alamofire
 
 final class RecommendViewModel: ObservableObject {
-    private var numberSet: [[Int]] = Array(repeating: [Int](), count: 5)
-    private let numberArray: [Int] = [Int](1...45)
-    private let monitor: NWPathMonitor
     
-    let buttonTitle: [Int] = [1, 5, 10]
-    
-    @Published var resultArray: [[Int]] = []
     @Published var isAvailableTime: Bool = false
     @Published var isAvailableNetwork: Bool = true
+    @Published var recommendNumberSet: [[Int]] = [[Int]]()
+    
+    private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
+    private var drawRound: Int = 0
+    private var numberSet: [Lottery] = Array(repeating: Lottery(), count: 5)
     
     init() {
-        self.monitor = NWPathMonitor()
-        configure()
-    }
-    
-    deinit {
-        monitor.cancel()
-    }
-    
-    private func configure() {
-        #if os(iOS)
-        checkIsAvailableNetwork()
-        #endif
-        
-        isAvailableTime = getIsAvailableTime()
-        if isAvailableTime == false { return }
-
-        Task {
-            await getNumberSet()
-        }
+        self.isAvailableTime = checkTime()
+        self.drawRound = getDrawRound()
+        setNumberSet()
     }
 }
 
 extension RecommendViewModel {
-    private func getIsAvailableTime() -> Bool {
+    
+    private func setNumberSet() {
+        let drawRound = drawRound
+        
+        for number in (drawRound-5)..<drawRound {
+            AF.request("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)")
+                .responseDecodable(of: Lottery.self) { response in
+                    DispatchQueue.main.async {
+                        self.numberSet[number - drawRound + 5] = (Lottery(drwtNo1: response.value?.drwtNo1 ?? 0,
+                                                                          drwtNo2: response.value?.drwtNo2 ?? 0,
+                                                                          drwtNo3: response.value?.drwtNo3 ?? 0,
+                                                                          drwtNo4: response.value?.drwtNo4 ?? 0,
+                                                                          drwtNo5: response.value?.drwtNo5 ?? 0,
+                                                                          drwtNo6: response.value?.drwtNo6 ?? 0,
+                                                                          bnusNo: response.value?.bnusNo ?? 0))
+                    }
+                }
+        }
+    }
+    
+    private func checkTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
         
-        guard let weekday = today.weekday,
-                let hour = today.hour
-        else {
+        guard let weekday = today.weekday, let hour = today.hour else {
             return false
         }
         
@@ -59,7 +61,7 @@ extension RecommendViewModel {
         return true
     }
     
-    private func getDrawDate() -> Int {
+    private func getDrawRound() -> Int {
         let calendar = Calendar.current
         
         guard let firstTime = calendar.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20)),
@@ -70,117 +72,42 @@ extension RecommendViewModel {
         
         return dDay / 7 + 1
     }
-    
-    private func checkIsAvailableNetwork() {
-        monitor.start(queue: .global())
-        monitor.pathUpdateHandler = { path in
-            DispatchQueue.main.async {
-                self.isAvailableNetwork = path.status == .satisfied
-            }
-        }
-    }
-}
-
-extension RecommendViewModel {
-    private func getNumberSet() async {
-        let drawDate = getDrawDate()
-        
-        do {
-            if let result = CustomFileManager.getNumberSetFromFile(drawDate) {
-                numberSet = result
-            } else {
-                var numbers: [[Int]] = Array(repeating: [Int](), count: 5)
-                
-                for number in (drawDate-5)..<drawDate {
-                    let data = try await NetworkManager.getLottery(number)
-                    
-                    #if os(iOS)
-                    let lottery = try JSONDecoder().decode(Lottery.self, from: data)
-                    numbers[number-drawDate+5] = [lottery.drwtNo1, lottery.drwtNo2, lottery.drwtNo3, lottery.drwtNo4, lottery.drwtNo5, lottery.drwtNo6, lottery.bnusNo]
-                    #else
-                    guard let lottery = String(data: data, encoding: .utf8) else {
-                        isAvailableNetwork = false
-                        continue
-                    }
-                    
-                    numbers[number-drawDate+5] = Lottery.getArray(lottery)
-                    #endif
-                }
-                numberSet = numbers
-                CustomFileManager.storeFile(numbers, drawDate)
-            }
-        } catch {
-            print("numberSet error")
-        }
-    }
-    
-   
 }
 
 extension RecommendViewModel {
     func createNumbers(_ count: Int) {
+        let numberArray: [Int] = [Int](1...45)
+        
         var result: [[Int]] = []
         
-        if count == 10 {
-            while result.count != 10 {
-                let randomSet = numberArray.shuffled()[0...5].sorted()
-                let (result1, result2, result3, result4, result5, result6) = checkAll(randomSet)
-                
-                if result.count < 8 {
-                    if result1 && result2 && result3 && result4 && result5 && result6 {
-                        result.append(randomSet)
-                    }
-                } else if result.count < 9 {
-                    if result1 && !result2 && result3 && result4 && result5 && result6 {
-                        result.append(randomSet)
-                    }
-                } else {
-                    if result1 && result2 && result3 && !result4 && result5 && result6 {
-                        result.append(randomSet)
-                    }
-                }
-            }
-        } else if count == 5 {
-            while result.count != 5 {
-                let randomSet = numberArray.shuffled()[0...5].sorted()
-                let (result1, result2, result3, result4, result5, result6) = checkAll(randomSet)
-                
-                if result.count < 4 {
-                    if result1 && result2 && result3 && result4 && result5 && result6 {
-                        result.append(randomSet)
-                    }
-                } else {
-                    let caseOne = result1 && !result2 && result3 && result4 && result5 && result6
-                    let caseTwo = result1 && result2 && result3 && !result4 && result5 && result6
-
-                    if caseOne || caseTwo {
-                        result.append(randomSet)
-                    }
-                }
-            }
-        } else {
-            while result.count != 1 {
-                let randomSet = numberArray.shuffled()[0...5].sorted()
-                let (result1, result2, result3, result4, result5, result6) = checkAll(randomSet)
-
+        while result.count != count {
+            let randomSet = numberArray.shuffled()[0...5].sorted()
+            let (result1, result2, result3, result4, result5, result6) = checkAll(randomSet, numberSet)
+            
+            if result.count < 8 && count != 5 {
                 if result1 && result2 && result3 && result4 && result5 && result6 {
+                    result.append(randomSet)
+                }
+            } else {
+                let caseOne = result1 && !result2 && result3 && result4 && result5 && result6
+                let caseTwo = result1 && result2 && result3 && !result4 && result5 && result6
+
+                if caseOne || caseTwo {
                     result.append(randomSet)
                 }
             }
         }
         
-        resultArray = result
+        recommendNumberSet = result
     }
-}
 
-extension RecommendViewModel {
-    private func checkAll(_ randomSet: [Int]) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
+    private func checkAll(_ randomSet: [Int], _ numberSet: [Lottery]) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
         let result1 = checkPairCount(randomSet)
         let result2 = checkSum(randomSet)
-        let result3 = checkReappear(randomSet, Array(numberSet[4][0...5]))
-        let result4 = checkLastBonus(randomSet, numberSet[4][6])
-        let result5 = checkLastWeeks(randomSet, numberSet[2...4].reduce([], +), 2, 5)
-        let result6 = checkLastWeeks(randomSet, numberSet.reduce([], +), 1, 4)
+        let result3 = checkReappear(randomSet, numberSet[4])
+        let result4 = checkLastBonus(randomSet, numberSet[4].bnusNo)
+        let result5 = checkLastWeeks(randomSet, Array(numberSet[2...4]), 2, 5)
+        let result6 = checkLastWeeks(randomSet, numberSet, 1, 4)
         
         return (result1, result2, result3, result4, result5, result6)
     }
@@ -200,15 +127,16 @@ extension RecommendViewModel {
         return 90...180 ~= numbers.reduce(0, +)
     }
 
-    private func checkReappear(_ numbers: [Int], _ lastNumbers: [Int]) -> Bool {
-        return 0...1 ~= Set(numbers).intersection(Set(lastNumbers)).count
+    private func checkReappear(_ numbers: [Int], _ lastNumbers: Lottery) -> Bool {
+        return 0...1 ~= Set(numbers).intersection(Set(lastNumbers.winNumbers())).count
     }
 
     private func checkLastBonus(_ numbers: [Int], _ bonus: Int) -> Bool {
         return !numbers.contains(bonus)
     }
 
-    private func checkLastWeeks(_ numbers: [Int], _ lastWeeksNumberSet: [Int], _ minNum: Int, _ maxNum: Int) -> Bool {
-        return minNum...maxNum ~= Set([Int](1...45)).subtracting(Set(lastWeeksNumberSet)).intersection(Set(numbers)).count
+    private func checkLastWeeks(_ numbers: [Int], _ lastWeeksNumberSet: [Lottery], _ minNum: Int, _ maxNum: Int) -> Bool {
+        let appearNumbers = lastWeeksNumberSet.map { $0.winNumbers() }.flatMap { $0 }
+        return minNum...maxNum ~= Set([Int](1...45)).subtracting(Set(appearNumbers)).intersection(Set(numbers)).count
     }
 }
