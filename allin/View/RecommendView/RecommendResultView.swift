@@ -34,7 +34,7 @@ struct RecommendResultView: View {
                         .background(Color(red: 0.76, green: 0.76, blue: 0.76))
                         .cornerRadius(25)
                 }
-                .padding(5)
+                .padding()
                 .frame(
                     minWidth: geometry.size.width,
                     minHeight: geometry.size.height)

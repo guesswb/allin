@@ -10,7 +10,9 @@ import NMapsMap
 
 struct StoreMapView: UIViewRepresentable {
     var currentCoordinate: CLLocationCoordinate2D
-    var storeLocation: Store?
+    var stores: [StoreItem]
+    
+    private let categoryText = "생활,편의>복권,로또"
     
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
@@ -37,12 +39,12 @@ struct StoreMapView: UIViewRepresentable {
         uiView.mapView.zoomLevel = 14
         uiView.mapView.moveCamera(cameraUpdate)
         
-        guard let stores = storeLocation else { return }
+        if stores.isEmpty { return }
         
-        for index in 0..<stores.items.count  {
-            let store = stores.items[index]
+        for index in 0..<stores.count  {
+            let store = stores[index]
             
-            if store.category == "생활,편의>복권,로또" {
+            if store.category == categoryText {
                 guard let x = Double(store.mapx), let y = Double(store.mapy) else { continue }
                 let marker = NMFMarker()
                 let latlon = NMGTm128(x: x, y: y).toLatLng()

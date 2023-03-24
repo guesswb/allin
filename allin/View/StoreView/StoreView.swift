@@ -9,43 +9,27 @@ import SwiftUI
 
 struct StoreView: View {
     @StateObject var viewModel: StoreViewModel = StoreViewModel()
-    @State private var showingAlert = false
+    
+    private let onlyKoreaText = "대한민국에서만 사용 가능합니다."
     
     var body: some View {
         VStack {
             if viewModel.needPermission {
-                Button("설정으로 이동") {
-                    showingAlert.toggle()
-                }
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("위치 접근이 허용되어 있지 않습니다. 설정으로 이동하시겠습니까?"),
-                              primaryButton: .destructive(Text("아니오"), action: {
-                        }),
-                              secondaryButton: .default(Text("네"), action: {
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                        }))
-                    }
+                StoreLocationSettingButton()
             } else {
-                if viewModel.storeLocation == nil {
-                    Text("대한민국에서만 사용 가능합니다.")
-                } else {
+                if viewModel.isKoreanLocation() {
                     StoreMapView(
                         currentCoordinate: viewModel.currentCoordinate,
-                        storeLocation: viewModel.storeLocation
+                        stores: viewModel.storeItems
                     ).padding()
                     StoreMoveMapButton(
                         areaName: viewModel.areaName,
                         urlForNaverMap: viewModel.urlForNaverMap
-                    ).padding()
+                    )
+                } else {
+                    Text(onlyKoreaText)
                 }
-                
             }
         }
-    }
-}
-
-struct StoreView_Previews: PreviewProvider {
-    static var previews: some View {
-        StoreView()
     }
 }
