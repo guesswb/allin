@@ -14,6 +14,7 @@
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
 		3B32C5B129CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
+		3B32C5B329CDBF94009D336F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3B32C5B229CDBF94009D336F /* README.md */; };
 		3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B57A57929A83917000C110A /* allinW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
@@ -72,6 +73,7 @@
 		3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationSettingButton.swift; sourceTree = "<group>"; };
 		3B32C5AC29CDB292009D336F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
+		3B32C5B229CDBF94009D336F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B57A56429A838F9000C110A /* allin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = allin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57A56729A838F9000C110A /* allinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinApp.swift; sourceTree = "<group>"; };
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		3B57A55B29A838F9000C110A = {
 			isa = PBXGroup;
 			children = (
+				3B32C5B229CDBF94009D336F /* README.md */,
 				3B57A56629A838F9000C110A /* allin */,
 				3B57A57A29A83917000C110A /* allinW Watch App */,
 				3B57A56529A838F9000C110A /* Products */,
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B32C5B329CDBF94009D336F /* README.md in Resources */,
 				3B57A56F29A838FA000C110A /* Preview Assets.xcassets in Resources */,
 				3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */,
 			);
