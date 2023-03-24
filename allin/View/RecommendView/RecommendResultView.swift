@@ -10,7 +10,7 @@ import SwiftUI
 struct RecommendResultView: View {
     var result: [[Int]]
     
-    let goodLuckText: String = "Good Luck!"
+    private let goodLuckText: String = "Good Luck!"
     
     var body: some View {
         GeometryReader { geometry in
