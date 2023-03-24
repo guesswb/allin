@@ -11,34 +11,30 @@ struct RecommendResultView: View {
     var result: [[Int]]
     
     var body: some View {
-        if result.isEmpty {
-            Spacer()
-            Text("Good Luck!")
-                #if os(iOS)
-                .font(.system(size: 25))
-                #else
-                .font(.system(size: 20))
-                #endif
-            Spacer()
-        } else {
-            GeometryReader { geometry in
-                ScrollView(.vertical) {
-                    LazyVStack {
-                        ForEach(result, id: \.self) { numbers in
-                            Text("\(numbers.map { String($0) }.joined(separator: ", "))")
-                                #if os(iOS)
-                                .font(.system(size: 25))
-                                #else
-                                .font(.system(size: 15))
-                                #endif
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .border(Color("systemColor"))
-                        }
-                    }
-                    .frame(minHeight: geometry.size.height)
+        GeometryReader { geometry in
+            if result.isEmpty {
+                Text("Good Luck!")
+                    .font(.system(size: 25))
+                    .frame(
+                        minWidth: geometry.size.width,
+                        minHeight: geometry.size.height)
+            }
+            ScrollView(.vertical) {
+                ForEach(result, id: \.self) { numbers in
+                    Text("\(numbers.map{String($0)}.joined(separator: ", "))")
+                        .padding()
+                        .font(.system(size: 25))
+                        .frame(maxWidth: .infinity)
+                        .background(Color(.systemGray4))
+                        .clipShape(Capsule())
                 }
+                .padding()
+                .frame(
+                    minWidth: geometry.size.width,
+                    minHeight: geometry.size.height)
             }
         }
+        .background(Color(.systemGray))
+        .cornerRadius(50)
     }
 }

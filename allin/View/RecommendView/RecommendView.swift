@@ -10,18 +10,26 @@ import SwiftUI
 struct RecommendView: View {
     @StateObject var viewModel: RecommendViewModel = RecommendViewModel()
     
+    private let checkNetworkText = "Network를 확인해 주세요."
+    private let notAvailableTimeText = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+    
     var body: some View {
         VStack {
-            RecommendResultView(
-                result: viewModel.resultArray
-            )
-            
-            RecommendButtonView(
-                isAvailableTime: viewModel.isAvailableTime,
-                isAvailableNetwork: viewModel.isAvailableNetwork,
-                buttonTitle: viewModel.buttonTitle,
-                createNumbers: viewModel.createNumbers(_:)
-            )
+            if viewModel.isAvailableTime {
+                if viewModel.isAvailableNetwork {
+                    RecommendResultView(
+                        result: viewModel.recommendNumberSet
+                    )
+                } else {
+                    Text(checkNetworkText)
+                }
+                RecommendButtonView(
+                    createNumbers:
+                        viewModel.createNumbers(_:)
+                )
+            } else {
+                Text(notAvailableTimeText)
+            }
         }
         .padding()
     }
