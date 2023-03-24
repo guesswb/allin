@@ -13,15 +13,21 @@ struct RecommendButtonView: View {
     var body: some View {
         HStack {
             ForEach([1, 5, 10], id: \.self) { number in
-                Button("\(number) line") { createNumbers(number) }
+                Button(action: {
+                    createNumbers(number)
+                }, label: {
+                    Text("\(number)")
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                    #if os(iOS)
+                        .font(.system(size: 30))
+                        .background(Color(red: 0.82, green: 0.82, blue: 0.82))
+                        .cornerRadius(25)
+                    #else
+                        .font(.system(size: 16))
+                    #endif
+                })
             }
-            .padding()
-            .font(.system(size: 25))
-            .frame(maxWidth: .infinity)
-            .background(Color(.systemGray4))
-            .clipShape(Capsule())
         }
-        .padding()
-        .tint(Color(red: 0.53, green: 0.35, blue: 0.18))
     }
 }

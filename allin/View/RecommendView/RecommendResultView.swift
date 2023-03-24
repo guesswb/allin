@@ -10,10 +10,12 @@ import SwiftUI
 struct RecommendResultView: View {
     var result: [[Int]]
     
+    let goodLuckText: String = "Good Luck!"
+    
     var body: some View {
         GeometryReader { geometry in
             if result.isEmpty {
-                Text("Good Luck!")
+                Text(goodLuckText)
                     .font(.system(size: 25))
                     .frame(
                         minWidth: geometry.size.width,
@@ -21,20 +23,24 @@ struct RecommendResultView: View {
             }
             ScrollView(.vertical) {
                 ForEach(result, id: \.self) { numbers in
-                    Text("\(numbers.map{String($0)}.joined(separator: ", "))")
+                    Text("\(numbers.map{String($0)}.joined(separator: " "))")
                         .padding()
-                        .font(.system(size: 25))
+                    #if os(iOS)
+                        .font(.system(size:30))
+                    #else
+                        .font(.system(size: 16))
+                    #endif
                         .frame(maxWidth: .infinity)
-                        .background(Color(.systemGray4))
-                        .clipShape(Capsule())
+                        .background(Color(red: 0.76, green: 0.76, blue: 0.76))
+                        .cornerRadius(25)
                 }
-                .padding()
+                .padding(5)
                 .frame(
                     minWidth: geometry.size.width,
                     minHeight: geometry.size.height)
             }
         }
-        .background(Color(.systemGray))
-        .cornerRadius(50)
+        .background(Color(.gray))
+        .cornerRadius(25)
     }
 }

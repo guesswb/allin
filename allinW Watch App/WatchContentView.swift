@@ -10,6 +10,7 @@ import SwiftUI
 struct WatchContentView: View {
     var body: some View {
         RecommendView()
+            .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 
