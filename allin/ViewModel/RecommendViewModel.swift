@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import Alamofire
 
 final class RecommendViewModel: ObservableObject {
@@ -15,7 +14,6 @@ final class RecommendViewModel: ObservableObject {
     @Published var isAvailableNetwork: Bool = true
     @Published var recommendNumberSet: [[Int]] = [[Int]]()
     
-    private var cancellable: Set<AnyCancellable> = Set<AnyCancellable>()
     private var drawRound: Int = 0
     private var numberSet: [Lottery] = Array(repeating: Lottery(), count: 5)
     
@@ -29,21 +27,21 @@ final class RecommendViewModel: ObservableObject {
 extension RecommendViewModel {
     
     private func setNumberSet() {
-        let drawRound = drawRound
-        
-        for number in (drawRound-5)..<drawRound {
-            AF.request("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)")
-                .responseDecodable(of: Lottery.self) { response in
+        Task {
+            do {
+                for number in (drawRound-5)..<drawRound {
+                    let lottery = try await AF.request("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)")
+                        .serializingDecodable(Lottery.self).value
+                    numberSet[number - drawRound + 5] = lottery
                     DispatchQueue.main.async {
-                        self.numberSet[number - drawRound + 5] = (Lottery(drwtNo1: response.value?.drwtNo1 ?? 0,
-                                                                          drwtNo2: response.value?.drwtNo2 ?? 0,
-                                                                          drwtNo3: response.value?.drwtNo3 ?? 0,
-                                                                          drwtNo4: response.value?.drwtNo4 ?? 0,
-                                                                          drwtNo5: response.value?.drwtNo5 ?? 0,
-                                                                          drwtNo6: response.value?.drwtNo6 ?? 0,
-                                                                          bnusNo: response.value?.bnusNo ?? 0))
+                        self.isAvailableNetwork = true
                     }
                 }
+            } catch {
+                DispatchQueue.main.async {
+                    self.isAvailableNetwork = false
+                }
+            }
         }
     }
     
@@ -76,6 +74,10 @@ extension RecommendViewModel {
 
 extension RecommendViewModel {
     func createNumbers(_ count: Int) {
+        if numberSet.isEmpty {
+            setNumberSet()
+        }
+        
         let numberArray: [Int] = [Int](1...45)
         
         var result: [[Int]] = []
@@ -102,41 +104,13 @@ extension RecommendViewModel {
     }
 
     private func checkAll(_ randomSet: [Int], _ numberSet: [Lottery]) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
-        let result1 = checkPairCount(randomSet)
-        let result2 = checkSum(randomSet)
-        let result3 = checkReappear(randomSet, numberSet[4])
-        let result4 = checkLastBonus(randomSet, numberSet[4].bnusNo)
-        let result5 = checkLastWeeks(randomSet, Array(numberSet[2...4]), 2, 5)
-        let result6 = checkLastWeeks(randomSet, numberSet, 1, 4)
+        let result1 = VerifyNumber.checkPairCount(randomSet)
+        let result2 = VerifyNumber.checkSum(randomSet)
+        let result3 = VerifyNumber.checkReappear(randomSet, numberSet[4])
+        let result4 = VerifyNumber.checkLastBonus(randomSet, numberSet[4].bnusNo)
+        let result5 = VerifyNumber.checkLastWeeks(randomSet, Array(numberSet[2...4]), 2, 5)
+        let result6 = VerifyNumber.checkLastWeeks(randomSet, numberSet, 1, 4)
         
         return (result1, result2, result3, result4, result5, result6)
-    }
-    
-    private func checkPairCount(_ numbers: [Int]) -> Bool {
-        var result = 0
-
-        for index in 0...4 {
-            if numbers[index] + 1 == numbers[index + 1] {
-                result += 1
-            }
-        }
-        return 0...1 ~= result
-    }
-
-    private func checkSum(_ numbers: [Int]) -> Bool {
-        return 90...180 ~= numbers.reduce(0, +)
-    }
-
-    private func checkReappear(_ numbers: [Int], _ lastNumbers: Lottery) -> Bool {
-        return 0...1 ~= Set(numbers).intersection(Set(lastNumbers.winNumbers())).count
-    }
-
-    private func checkLastBonus(_ numbers: [Int], _ bonus: Int) -> Bool {
-        return !numbers.contains(bonus)
-    }
-
-    private func checkLastWeeks(_ numbers: [Int], _ lastWeeksNumberSet: [Lottery], _ minNum: Int, _ maxNum: Int) -> Bool {
-        let appearNumbers = lastWeeksNumberSet.map { $0.winNumbers() }.flatMap { $0 }
-        return minNum...maxNum ~= Set([Int](1...45)).subtracting(Set(appearNumbers)).intersection(Set(numbers)).count
     }
 }
