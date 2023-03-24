@@ -16,7 +16,7 @@ struct RecommendButtonView: View {
                 Button("\(number) line") { createNumbers(number) }
             }
             .padding()
-            .font(.system(size: 30))
+            .font(.system(size: 25))
             .frame(maxWidth: .infinity)
             .background(Color(.systemGray4))
             .clipShape(Capsule())

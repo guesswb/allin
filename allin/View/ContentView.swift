@@ -22,7 +22,7 @@ struct ContentView: View {
         .onAppear {
             UITabBar.appearance().backgroundColor = .systemGray6
         }
-        .tint(Color(red: 0.28, green: 0.15, blue: 0.1))
+        .tint(Color(red: 0.38, green: 0.2, blue: 0.1))
     }
 }
 

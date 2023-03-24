@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B20274829CC6B6D00BECA1D /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
+		3B20275029CC791600BECA1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B20274F29CC791600BECA1D /* Alamofire */; };
+		3B20275229CC791E00BECA1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B20275129CC791E00BECA1D /* Alamofire */; };
 		3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B57A57929A83917000C110A /* allinW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
@@ -16,11 +19,8 @@
 		3B57A57E29A83917000C110A /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A57D29A83917000C110A /* WatchContentView.swift */; };
 		3B57A58329A83918000C110A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A58229A83918000C110A /* Preview Assets.xcassets */; };
 		3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
-		3B57A58B29A83987000C110A /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
-		3B57A59229A839D7000C110A /* CustomFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59129A839D7000C110A /* CustomFileManager.swift */; };
-		3B57A59329A839D7000C110A /* CustomFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59129A839D7000C110A /* CustomFileManager.swift */; };
-		3B57A59529A839DD000C110A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59429A839DD000C110A /* NetworkManager.swift */; };
-		3B57A59629A839DD000C110A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59429A839DD000C110A /* NetworkManager.swift */; };
+		3B57A59529A839DD000C110A /* CustomNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59429A839DD000C110A /* CustomNetworkManager.swift */; };
+		3B57A59629A839DD000C110A /* CustomNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59429A839DD000C110A /* CustomNetworkManager.swift */; };
 		3B57A59729A83AB3000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
 		3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59929A8D923000C110A /* RecommendResultView.swift */; };
 		3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59929A8D923000C110A /* RecommendResultView.swift */; };
@@ -34,14 +34,14 @@
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
 		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
 		3B57A5C629ACD173000C110A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C529ACD173000C110A /* LocationManager.swift */; };
-		3B878C1229AE10F600846742 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1129AE10F600846742 /* NetworkError.swift */; };
-		3B878C1429AE111A00846742 /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1329AE111A00846742 /* FileError.swift */; };
+		3B878C1229AE10F600846742 /* CustomNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1129AE10F600846742 /* CustomNetworkError.swift */; };
+		3B878C1429AE111A00846742 /* CustomFileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1329AE111A00846742 /* CustomFileError.swift */; };
 		3B878C1629AE1E0200846742 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
 		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
-		3BF8D10829B327A6008A61ED /* FileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1329AE111A00846742 /* FileError.swift */; };
-		3BF8D10929B327A9008A61ED /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1129AE10F600846742 /* NetworkError.swift */; };
+		3BF8D10829B327A6008A61ED /* CustomFileError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1329AE111A00846742 /* CustomFileError.swift */; };
+		3BF8D10929B327A9008A61ED /* CustomNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1129AE10F600846742 /* CustomNetworkError.swift */; };
 		3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
 		3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 /* End PBXBuildFile section */
@@ -59,18 +59,19 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		3B4543AD29BAC39D00637D1E /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
 				3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B20275729CC816F00BECA1D /* allinW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "allinW Watch App.entitlements"; sourceTree = "<group>"; };
 		3B57A56429A838F9000C110A /* allin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = allin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57A56729A838F9000C110A /* allinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinApp.swift; sourceTree = "<group>"; };
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,8 +82,7 @@
 		3B57A57D29A83917000C110A /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
 		3B57A58229A83918000C110A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B57A58929A83987000C110A /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
-		3B57A59129A839D7000C110A /* CustomFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileManager.swift; sourceTree = "<group>"; };
-		3B57A59429A839DD000C110A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3B57A59429A839DD000C110A /* CustomNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNetworkManager.swift; sourceTree = "<group>"; };
 		3B57A59829A83EB4000C110A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3B57A59929A8D923000C110A /* RecommendResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResultView.swift; sourceTree = "<group>"; };
 		3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendButtonView.swift; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 		3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		3B57A5C329ACCCF4000C110A /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		3B57A5C529ACD173000C110A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		3B878C1129AE10F600846742 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		3B878C1329AE111A00846742 /* FileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileError.swift; sourceTree = "<group>"; };
+		3B878C1129AE10F600846742 /* CustomNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNetworkError.swift; sourceTree = "<group>"; };
+		3B878C1329AE111A00846742 /* CustomFileError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileError.swift; sourceTree = "<group>"; };
 		3B878C1529AE1E0200846742 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		3B878C1729AE295300846742 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		3B878C1929AE30FC00846742 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */,
+				3B20275029CC791600BECA1D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,12 +114,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B20275229CC791E00BECA1D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B20275329CC7A9600BECA1D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B57A59029A839D0000C110A /* Manager */,
+				3B878C1029AE10E400846742 /* Error */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3B4543A929BAC39D00637D1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +162,7 @@
 				3B57A56B29A838FA000C110A /* Assets.xcassets */,
 				3B57A59829A83EB4000C110A /* Info.plist */,
 				3B57A56729A838F9000C110A /* allinApp.swift */,
-				3B878C1029AE10E400846742 /* Error */,
-				3B57A59029A839D0000C110A /* Manager */,
+				3B20275329CC7A9600BECA1D /* Common */,
 				3B57A58C29A83994000C110A /* Model */,
 				3B57A58829A83973000C110A /* ViewModel */,
 				3B57A58729A8396B000C110A /* View */,
@@ -172,6 +182,7 @@
 		3B57A57A29A83917000C110A /* allinW Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				3B20275729CC816F00BECA1D /* allinW Watch App.entitlements */,
 				3B57A57B29A83917000C110A /* allinWApp.swift */,
 				3B57A57D29A83917000C110A /* WatchContentView.swift */,
 				3B57A58129A83918000C110A /* Preview Content */,
@@ -220,8 +231,7 @@
 		3B57A59029A839D0000C110A /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				3B57A59129A839D7000C110A /* CustomFileManager.swift */,
-				3B57A59429A839DD000C110A /* NetworkManager.swift */,
+				3B57A59429A839DD000C110A /* CustomNetworkManager.swift */,
 				3B57A5C529ACD173000C110A /* LocationManager.swift */,
 			);
 			path = Manager;
@@ -250,8 +260,8 @@
 		3B878C1029AE10E400846742 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				3B878C1129AE10F600846742 /* NetworkError.swift */,
-				3B878C1329AE111A00846742 /* FileError.swift */,
+				3B878C1129AE10F600846742 /* CustomNetworkError.swift */,
+				3B878C1329AE111A00846742 /* CustomFileError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -276,6 +286,7 @@
 			name = allin;
 			packageProductDependencies = (
 				3B57A5BD29AB79C1000C110A /* NMapsMap */,
+				3B20274F29CC791600BECA1D /* Alamofire */,
 			);
 			productName = allin;
 			productReference = 3B57A56429A838F9000C110A /* allin.app */;
@@ -294,6 +305,9 @@
 			dependencies = (
 			);
 			name = "allinW Watch App";
+			packageProductDependencies = (
+				3B20275129CC791E00BECA1D /* Alamofire */,
+			);
 			productName = "allinW Watch App";
 			productReference = 3B57A57929A83917000C110A /* allinW Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -327,6 +341,7 @@
 			mainGroup = 3B57A55B29A838F9000C110A;
 			packageReferences = (
 				3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
+				3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3B57A56529A838F9000C110A /* Products */;
 			projectDirPath = "";
@@ -365,18 +380,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B878C1829AE295300846742 /* Address.swift in Sources */,
-				3B57A59229A839D7000C110A /* CustomFileManager.swift in Sources */,
 				3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */,
 				3B57A56A29A838F9000C110A /* ContentView.swift in Sources */,
-				3B878C1429AE111A00846742 /* FileError.swift in Sources */,
-				3B57A59529A839DD000C110A /* NetworkManager.swift in Sources */,
+				3B878C1429AE111A00846742 /* CustomFileError.swift in Sources */,
+				3B57A59529A839DD000C110A /* CustomNetworkManager.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
 				3B57A5C629ACD173000C110A /* LocationManager.swift in Sources */,
 				3B878C1629AE1E0200846742 /* Lottery.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
-				3B878C1229AE10F600846742 /* NetworkError.swift in Sources */,
+				3B878C1229AE10F600846742 /* CustomNetworkError.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
@@ -390,18 +404,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B57A59329A839D7000C110A /* CustomFileManager.swift in Sources */,
 				3B57A57E29A83917000C110A /* WatchContentView.swift in Sources */,
-				3B57A59629A839DD000C110A /* NetworkManager.swift in Sources */,
+				3B57A59629A839DD000C110A /* CustomNetworkManager.swift in Sources */,
 				3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */,
+				3B20274829CC6B6D00BECA1D /* RecommendViewModel.swift in Sources */,
 				3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */,
-				3B57A58B29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B57A57C29A83917000C110A /* allinWApp.swift in Sources */,
 				3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */,
 				3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
-				3BF8D10829B327A6008A61ED /* FileError.swift in Sources */,
-				3BF8D10929B327A9008A61ED /* NetworkError.swift in Sources */,
+				3BF8D10829B327A6008A61ED /* CustomFileError.swift in Sources */,
+				3BF8D10929B327A9008A61ED /* CustomNetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -584,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -603,6 +616,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "allinW Watch App/allinW Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"allinW Watch App/Preview Content\"";
@@ -611,6 +625,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = allin/info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = allinW;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -635,6 +650,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "allinW Watch App/allinW Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"allinW Watch App/Preview Content\"";
@@ -643,6 +659,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = allin/info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = allinW;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -695,6 +712,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.4;
+			};
+		};
 		3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jaemyeong/NMapsMap-SPM.git";
@@ -706,6 +731,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B20274F29CC791600BECA1D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3B20275129CC791E00BECA1D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		3B57A5BD29AB79C1000C110A /* NMapsMap */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */;
