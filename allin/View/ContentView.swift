@@ -16,16 +16,13 @@ struct ContentView: View {
                 }
             StoreView()
                 .tabItem {
-                    VStack {
-                        Image(systemName: "map")
-                        Text("판매점")
-                    }
+                    Label("판매점", systemImage: "map")
                 }
         }
         .onAppear {
             UITabBar.appearance().backgroundColor = .systemGray6
         }
-        .tint(.red)
+        .tint(Color(red: 0.28, green: 0.15, blue: 0.1))
     }
 }
 
