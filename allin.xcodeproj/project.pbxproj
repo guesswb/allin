@@ -12,6 +12,8 @@
 		3B20275229CC791E00BECA1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B20275129CC791E00BECA1D /* Alamofire */; };
 		3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */; };
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
+		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
+		3B32C5B129CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
 		3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B57A57929A83917000C110A /* allinW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
@@ -69,6 +71,7 @@
 		3B20275729CC816F00BECA1D /* allinW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "allinW Watch App.entitlements"; sourceTree = "<group>"; };
 		3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationSettingButton.swift; sourceTree = "<group>"; };
 		3B32C5AC29CDB292009D336F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
 		3B57A56429A838F9000C110A /* allin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = allin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57A56729A838F9000C110A /* allinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinApp.swift; sourceTree = "<group>"; };
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B32C5AE29CDB767009D336F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B32C5AC29CDB292009D336F /* Error.swift */,
+				3B32C5AF29CDB794009D336F /* Verify.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3B4543A929BAC39D00637D1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +158,7 @@
 				3B57A56B29A838FA000C110A /* Assets.xcassets */,
 				3B57A59829A83EB4000C110A /* Info.plist */,
 				3B57A56729A838F9000C110A /* allinApp.swift */,
-				3B32C5AC29CDB292009D336F /* Error.swift */,
+				3B32C5AE29CDB767009D336F /* Common */,
 				3B57A58C29A83994000C110A /* Model */,
 				3B57A58829A83973000C110A /* ViewModel */,
 				3B57A58729A8396B000C110A /* View */,
@@ -357,6 +369,7 @@
 				3B878C1629AE1E0200846742 /* Lottery.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
+				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
@@ -376,6 +389,7 @@
 				3B57A57C29A83917000C110A /* allinWApp.swift in Sources */,
 				3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */,
 				3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */,
+				3B32C5B129CDB794009D336F /* Verify.swift in Sources */,
 				3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
