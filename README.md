@@ -4,6 +4,8 @@
   
   유료 사이트에서 번호 추천받지 말고 무료로 사용하세요.  
   
+  토요일 20시 ~ 일요일 08시 사용 불가
+  
   <a href="https://apps.apple.com/us/app/allin/id6446078092" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
 
 ## iOS
