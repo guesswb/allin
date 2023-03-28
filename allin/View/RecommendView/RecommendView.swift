@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecommendView: View {
-    @StateObject var viewModel: RecommendViewModel = RecommendViewModel()
+    @StateObject private var viewModel: RecommendViewModel = RecommendViewModel()
     
     private let checkNetworkText = "Network를 확인해 주세요."
     private let notAvailableTimeText = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
@@ -24,14 +24,17 @@ struct RecommendView: View {
                     Text(checkNetworkText)
                 }
                 RecommendButtonView(
-                    createNumbers:
-                        viewModel.createNumbers(_:)
+                    createNumbers: viewModel.createNumbers,
+                    checkTime: viewModel.checkTime
                 )
             } else {
                 Text(notAvailableTimeText)
             }
         }
         .padding()
+        .onAppear {
+            viewModel.checkTime()
+        }
     }
 }
 

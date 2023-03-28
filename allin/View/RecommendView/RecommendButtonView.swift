@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RecommendButtonView: View {
     var createNumbers: (_ count: Int) -> Void
+    var checkTime: () -> Void
     
     var body: some View {
         HStack {
             ForEach([1, 5, 10], id: \.self) { number in
                 Button(action: {
+                    checkTime()
                     createNumbers(number)
                 }, label: {
                     Text("\(number)")

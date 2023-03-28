@@ -18,8 +18,8 @@ final class RecommendViewModel: ObservableObject {
     private var numberSet: [Lottery] = Array(repeating: Lottery(), count: 5)
     
     init() {
-        self.isAvailableTime = checkTime()
         self.drawRound = getDrawRound()
+        checkTime()
         setNumberSet()
     }
 }
@@ -45,18 +45,20 @@ extension RecommendViewModel {
         }
     }
     
-    private func checkTime() -> Bool {
+    func checkTime() {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
         
         guard let weekday = today.weekday, let hour = today.hour else {
-            return false
+            self.isAvailableTime = false
+            return
         }
         
         if (weekday == 7 && hour >= 20) || (weekday == 1 && hour <= 8) {
-            return false
+            self.isAvailableTime = false
+            return
         }
         
-        return true
+        self.isAvailableTime = true
     }
     
     private func getDrawRound() -> Int {
