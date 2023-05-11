@@ -6,10 +6,59 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Address: Codable {
-    let status: Status
-    let results: [Result]
+    var status: Status = Status(code: 0, name: "", message: "")
+    var results: [Result] = []
+    
+    enum NaverDevelopers {
+        enum Geocode {
+            static let urlString: String = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc"
+            
+            static func queryItems(coordinate: String) -> [URLQueryItem] {
+                return [URLQueryItem(name: "coords", value: coordinate),
+                        URLQueryItem(name: "targetcrs", value: "nhn:128"),
+                        URLQueryItem(name: "orders", value: "legalcode"),
+                        URLQueryItem(name: "output", value: "json")]
+            }
+        }
+        
+        enum HTTPHeader {
+            static let APIKeyId: String = "X-NCP-APIGW-API-KEY-ID"
+            static let APIKey: String = "X-NCP-APIGW-API-KEY"
+        }
+    }
+    
+    static func currentAddress(longitude: CLLocationDegrees, latitude: CLLocationDegrees) async throws -> Address {
+        guard var urlComponent = URLComponents(string: NaverDevelopers.Geocode.urlString) else {
+            throw NetworkError.url
+        }
+                
+        urlComponent.queryItems = NaverDevelopers.Geocode.queryItems(coordinate: "\(longitude),\(latitude)")
+        
+        guard let url = urlComponent.url else {
+            throw NetworkError.url
+        }
+        
+        let plistData = try Plist.data()
+        let plist = try PropertyListDecoder().decode(Plist.self, from: plistData)
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue(plist.NMFClientId, forHTTPHeaderField: NaverDevelopers.HTTPHeader.APIKeyId)
+        urlRequest.addValue(plist.NMFClientSecret, forHTTPHeaderField: NaverDevelopers.HTTPHeader.APIKey)
+        
+        guard let (data, response) = try? await URLSession.shared.data(for: urlRequest),
+              let statusCode = (response as? HTTPURLResponse)?.statusCode,
+              (200...299 ~= statusCode) == true else {
+            throw NetworkError.response
+        }
+                
+        let address = try JSONDecoder().decode(Address.self, from: data)
+        
+        return address
+    }
+    
 }
 
 struct Result: Codable {

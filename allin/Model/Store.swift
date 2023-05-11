@@ -11,6 +11,45 @@ struct Store: Codable {
     let lastBuildDate: String
     let total, start, display: Int
     let items: [StoreItem]
+    
+    enum NaverCloud {
+        enum Location {
+            static let urlString: String = "https://openapi.naver.com/v1/search/local.json"
+            
+            static func queryItems(keyword: String) -> [URLQueryItem] {
+                return [URLQueryItem(name: "query", value: "\(keyword)"),
+                        URLQueryItem(name: "display", value: "5"),
+                        URLQueryItem(name: "start", value: "1"),
+                        URLQueryItem(name: "sort", value: "random")]
+            }
+        }
+        
+        enum HTTPHeader {
+            static let clientID: String = "X-Naver-Client-Id"
+            static let clientSecret: String = "X-Naver-Client-Secret"
+        }
+    }
+    
+    static func storeInformations(keyword: String) async throws -> Store {
+        guard var urlComponent = URLComponents(string: NaverCloud.Location.urlString),
+              let url = urlComponent.url else {
+            throw NetworkError.url
+        }
+    
+        urlComponent.queryItems = NaverCloud.Location.queryItems(keyword: keyword)
+        
+        let plistData = try Plist.data()
+        let plist = try PropertyListDecoder().decode(Plist.self, from: plistData)
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.addValue(plist.naverClientId, forHTTPHeaderField: NaverCloud.HTTPHeader.clientID)
+        urlRequest.addValue(plist.naverClientSecret, forHTTPHeaderField: NaverCloud.HTTPHeader.clientSecret)
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let store = try JSONDecoder().decode(Store.self, from: data)
+        
+        return store
+    }
 }
 
 struct StoreItem: Codable {

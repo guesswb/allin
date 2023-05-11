@@ -12,7 +12,16 @@ struct Plist: Codable {
     let NMFClientId: String
     let NMFClientSecret: String
     
-    //naverDev
+    //naverDeveloper
     let naverClientId: String
     let naverClientSecret: String
+    
+    static func data() throws -> Data {
+        guard let bundleURL = Bundle.main.url(forResource: "Info", withExtension: "plist"),
+              let bundleData = try? Data(contentsOf: bundleURL)
+        else {
+            throw FileError.bundle
+        }
+        return bundleData
+    }
 }
