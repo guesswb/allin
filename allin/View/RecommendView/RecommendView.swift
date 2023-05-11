@@ -8,32 +8,33 @@
 import SwiftUI
 
 struct RecommendView: View {
+    
+    @Environment(\.scenePhase) var scenePhase
+    
     @StateObject private var viewModel: RecommendViewModel = RecommendViewModel()
     
-    private let checkNetworkText = "Network를 확인해 주세요."
-    private let notAvailableTimeText = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+    enum InfromationText {
+        static let pleaseCheckNetwork: String = "Network를 확인해 주세요."
+        static let notAvailableTime: String = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+    }
     
     var body: some View {
         VStack {
-            if viewModel.isAvailableTime {
-                if viewModel.isAvailableNetwork {
-                    RecommendResultView(
-                        result: viewModel.recommendNumberSet
-                    )
-                } else {
-                    Text(checkNetworkText)
-                }
-                RecommendButtonView(
-                    createNumbers: viewModel.createNumbers,
-                    checkTime: viewModel.checkTime
-                )
+            if viewModel.isAvailableTime && viewModel.isAvailableNetwork {
+                RecommendResultView(viewModel: viewModel)
+                RecommendButtonView(viewModel: viewModel)
             } else {
-                Text(notAvailableTimeText)
+                Text(viewModel.isAvailableTime ? InfromationText.notAvailableTime : InfromationText.pleaseCheckNetwork )
             }
         }
         .padding()
         .onAppear {
             viewModel.checkTime()
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                viewModel.checkTime()
+            }
         }
     }
 }

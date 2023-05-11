@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct RecommendButtonView: View {
-    var createNumbers: (_ count: Int) -> Void
-    var checkTime: () -> Void
+    @ObservedObject var viewModel: RecommendViewModel
     
     var body: some View {
         HStack {
             ForEach([1, 5, 10], id: \.self) { number in
                 Button(action: {
-                    checkTime()
-                    createNumbers(number)
+                    viewModel.checkTime()
+                    viewModel.recommendNumbers(count: number)
                 }, label: {
                     Text("\(number)")
                         .padding()

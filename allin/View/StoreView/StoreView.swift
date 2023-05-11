@@ -21,15 +21,19 @@ struct StoreView: View {
                     StoreMapView(
                         currentCoordinate: viewModel.currentCoordinate,
                         stores: viewModel.storeItems
-                    ).padding()
-                    StoreMoveMapButton(
-                        areaName: viewModel.areaName,
-                        urlForNaverMap: viewModel.urlForNaverMap
                     )
+                    .padding()
+                    StoreMoveMapButton(viewModel: viewModel)
                 } else {
                     Text(onlyKoreaText)
                 }
             }
         }
+    }
+}
+
+struct StoreView_Previews : PreviewProvider {
+    static var previews: some View {
+        StoreView()
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 import NMapsMap
 
 struct StoreMapView: UIViewRepresentable {
+    
     var currentCoordinate: CLLocationCoordinate2D
     var stores: [StoreItem]
     
@@ -25,12 +26,10 @@ struct StoreMapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
-        let coordinate = currentCoordinate
-        
         let cameraUpdate = NMFCameraUpdate(
             scrollTo: NMGLatLng(
-                lat: coordinate.latitude,
-                lng: coordinate.longitude
+                lat: currentCoordinate.latitude,
+                lng: currentCoordinate.longitude
             )
         )
         
@@ -41,11 +40,9 @@ struct StoreMapView: UIViewRepresentable {
         
         if stores.isEmpty { return }
         
-        for index in 0..<stores.count  {
-            let store = stores[index]
-            
-            if store.category == categoryText {
-                guard let x = Double(store.mapx), let y = Double(store.mapy) else { continue }
+        stores.forEach { storeItem in
+            if storeItem.category == categoryText {
+                guard let x = Double(storeItem.mapx), let y = Double(storeItem.mapy) else { return }
                 let marker = NMFMarker()
                 let latlon = NMGTm128(x: x, y: y).toLatLng()
                 

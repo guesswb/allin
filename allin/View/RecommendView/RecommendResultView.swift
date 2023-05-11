@@ -8,28 +8,29 @@
 import SwiftUI
 
 struct RecommendResultView: View {
-    var result: [[Int]]
+    @ObservedObject var viewModel: RecommendViewModel
     
     private let goodLuckText: String = "Good Luck!"
     
     var body: some View {
         GeometryReader { geometry in
-            if result.isEmpty {
+            if viewModel.recommendNumbers.isEmpty {
                 Text(goodLuckText)
                     .font(.system(size: 25))
                     .frame(
                         minWidth: geometry.size.width,
                         minHeight: geometry.size.height)
             }
+            
             ScrollView(.vertical) {
-                ForEach(result, id: \.self) { numbers in
+                ForEach(viewModel.recommendNumbers, id: \.self) { numbers in
                     Text("\(numbers.map{String($0)}.joined(separator: " "))")
                         .padding()
-                    #if os(iOS)
+#if os(iOS)
                         .font(.system(size:30))
-                    #else
+#else
                         .font(.system(size: 16))
-                    #endif
+#endif
                         .frame(maxWidth: .infinity)
                         .background(Color(red: 0.76, green: 0.76, blue: 0.76))
                         .cornerRadius(25)
