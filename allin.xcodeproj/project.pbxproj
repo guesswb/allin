@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B20274829CC6B6D00BECA1D /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
-		3B20275029CC791600BECA1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B20274F29CC791600BECA1D /* Alamofire */; };
-		3B20275229CC791E00BECA1D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3B20275129CC791E00BECA1D /* Alamofire */; };
 		3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */; };
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
@@ -32,16 +30,18 @@
 		3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
-		3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */ = {isa = PBXBuildFile; productRef = 3B57A5BD29AB79C1000C110A /* NMapsMap */; };
 		3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */; };
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
 		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
+		3B7A5F8C2A0CBE5C005EF556 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B878C1629AE1E0200846742 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
 		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
 		3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
 		3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
+		4B98588B22FE17378781C7FE /* Pods_allin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A67059F7B17EEAC59200731 /* Pods_allin.framework */; };
+		F0522E12201B1E6A7E3C3250 /* Pods_allinW_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +96,12 @@
 		3B878C1729AE295300846742 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		3B878C1929AE30FC00846742 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMoveMapButton.swift; sourceTree = "<group>"; };
+		5A67059F7B17EEAC59200731 /* Pods_allin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allin.debug.xcconfig"; path = "Target Support Files/Pods-allin/Pods-allin.debug.xcconfig"; sourceTree = "<group>"; };
+		93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allinW Watch App.release.xcconfig"; path = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.release.xcconfig"; sourceTree = "<group>"; };
+		A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allinW_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allinW Watch App.debug.xcconfig"; path = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.debug.xcconfig"; sourceTree = "<group>"; };
+		E6772CE714FC4CBE3127B043 /* Pods-allin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allin.release.xcconfig"; path = "Target Support Files/Pods-allin/Pods-allin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B57A5BE29AB79C1000C110A /* NMapsMap in Frameworks */,
-				3B20275029CC791600BECA1D /* Alamofire in Frameworks */,
+				4B98588B22FE17378781C7FE /* Pods_allin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B20275229CC791E00BECA1D /* Alamofire in Frameworks */,
+				F0522E12201B1E6A7E3C3250 /* Pods_allinW_Watch_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +136,8 @@
 		3B4543A929BAC39D00637D1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A67059F7B17EEAC59200731 /* Pods_allin.framework */,
+				A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,6 +150,7 @@
 				3B57A57A29A83917000C110A /* allinW Watch App */,
 				3B57A56529A838F9000C110A /* Products */,
 				3B4543A929BAC39D00637D1E /* Frameworks */,
+				492921848D57A2DD4D466FBA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +256,17 @@
 			path = StoreView;
 			sourceTree = "<group>";
 		};
+		492921848D57A2DD4D466FBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */,
+				E6772CE714FC4CBE3127B043 /* Pods-allin.release.xcconfig */,
+				A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */,
+				93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,10 +274,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B57A57229A838FA000C110A /* Build configuration list for PBXNativeTarget "allin" */;
 			buildPhases = (
+				25C01E1586119F2BCE93E24D /* [CP] Check Pods Manifest.lock */,
 				3B57A56029A838F9000C110A /* Sources */,
 				3B57A56129A838F9000C110A /* Frameworks */,
 				3B57A56229A838F9000C110A /* Resources */,
 				3B4543AD29BAC39D00637D1E /* Embed Watch Content */,
+				F108CA954A7F78057380054A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -267,8 +288,6 @@
 			);
 			name = allin;
 			packageProductDependencies = (
-				3B57A5BD29AB79C1000C110A /* NMapsMap */,
-				3B20274F29CC791600BECA1D /* Alamofire */,
 			);
 			productName = allin;
 			productReference = 3B57A56429A838F9000C110A /* allin.app */;
@@ -278,6 +297,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B57A58429A83918000C110A /* Build configuration list for PBXNativeTarget "allinW Watch App" */;
 			buildPhases = (
+				6C5BD5326EB287E3AD9A274B /* [CP] Check Pods Manifest.lock */,
 				3B57A57529A83917000C110A /* Sources */,
 				3B57A57629A83917000C110A /* Frameworks */,
 				3B57A57729A83917000C110A /* Resources */,
@@ -288,7 +308,6 @@
 			);
 			name = "allinW Watch App";
 			packageProductDependencies = (
-				3B20275129CC791E00BECA1D /* Alamofire */,
 			);
 			productName = "allinW Watch App";
 			productReference = 3B57A57929A83917000C110A /* allinW Watch App.app */;
@@ -322,8 +341,6 @@
 			);
 			mainGroup = 3B57A55B29A838F9000C110A;
 			packageReferences = (
-				3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */,
-				3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 3B57A56529A838F9000C110A /* Products */;
 			projectDirPath = "";
@@ -356,6 +373,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25C01E1586119F2BCE93E24D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-allin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C5BD5326EB287E3AD9A274B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-allinW Watch App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F108CA954A7F78057380054A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-allin/Pods-allin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-allin/Pods-allin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-allin/Pods-allin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B57A56029A838F9000C110A /* Sources */ = {
@@ -394,6 +475,7 @@
 				3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */,
 				3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B32C5B129CDB794009D336F /* Verify.swift in Sources */,
+				3B7A5F8C2A0CBE5C005EF556 /* Error.swift in Sources */,
 				3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +605,7 @@
 		};
 		3B57A57329A838FA000C110A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -558,6 +641,7 @@
 		};
 		3B57A57429A838FA000C110A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6772CE714FC4CBE3127B043 /* Pods-allin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -593,6 +677,7 @@
 		};
 		3B57A58529A83918000C110A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -627,6 +712,7 @@
 		};
 		3B57A58629A83918000C110A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -690,43 +776,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = exactVersion;
-				version = 5.6.4;
-			};
-		};
-		3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jaemyeong/NMapsMap-SPM.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.16.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3B20274F29CC791600BECA1D /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		3B20275129CC791E00BECA1D /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B20274E29CC791600BECA1D /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		3B57A5BD29AB79C1000C110A /* NMapsMap */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3B57A5BC29AB79C0000C110A /* XCRemoteSwiftPackageReference "NMapsMap-SPM" */;
-			productName = NMapsMap;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B57A55C29A838F9000C110A /* Project object */;
 }

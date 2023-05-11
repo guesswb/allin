@@ -8,9 +8,14 @@
 import Foundation
 
 enum NetworkError: Error {
-    case urlError
+    case url
+    case response
+}
+
+enum JSONError: Error {
+    case decode
 }
 
 enum FileError: Error {
-    case bundleError
+    case bundle
 }
