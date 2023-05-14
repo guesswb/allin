@@ -7,53 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B20274829CC6B6D00BECA1D /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
 		3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */; };
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
-		3B32C5B129CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
 		3B32C5B329CDBF94009D336F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3B32C5B229CDBF94009D336F /* README.md */; };
-		3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3B57A57929A83917000C110A /* allinW Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
 		3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
 		3B57A56F29A838FA000C110A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56E29A838FA000C110A /* Preview Assets.xcassets */; };
-		3B57A57C29A83917000C110A /* allinWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A57B29A83917000C110A /* allinWApp.swift */; };
-		3B57A57E29A83917000C110A /* WatchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A57D29A83917000C110A /* WatchContentView.swift */; };
-		3B57A58329A83918000C110A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A58229A83918000C110A /* Preview Assets.xcassets */; };
 		3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
-		3B57A59729A83AB3000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
 		3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59929A8D923000C110A /* RecommendResultView.swift */; };
-		3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59929A8D923000C110A /* RecommendResultView.swift */; };
 		3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */; };
-		3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */; };
 		3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
-		3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
 		3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */; };
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
 		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
-		3B7A5F8C2A0CBE5C005EF556 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B7A5F922A0D2EA6005EF556 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */; };
 		3B878C1629AE1E0200846742 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
 		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
-		3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
-		3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		4B98588B22FE17378781C7FE /* Pods_allin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A67059F7B17EEAC59200731 /* Pods_allin.framework */; };
-		F0522E12201B1E6A7E3C3250 /* Pods_allinW_Watch_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3B4543AB29BAC39D00637D1E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3B57A55C29A838F9000C110A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3B57A57829A83917000C110A;
-			remoteInfo = "allinW Watch App";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3B4543AD29BAC39D00637D1E /* Embed Watch Content */ = {
@@ -62,7 +38,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				3B4543AA29BAC39D00637D1E /* allinW Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 1;
@@ -70,7 +45,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B20275729CC816F00BECA1D /* allinW Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "allinW Watch App.entitlements"; sourceTree = "<group>"; };
 		3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationSettingButton.swift; sourceTree = "<group>"; };
 		3B32C5AC29CDB292009D336F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
@@ -80,10 +54,6 @@
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3B57A56B29A838FA000C110A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B57A56E29A838FA000C110A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3B57A57929A83917000C110A /* allinW Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "allinW Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B57A57B29A83917000C110A /* allinWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinWApp.swift; sourceTree = "<group>"; };
-		3B57A57D29A83917000C110A /* WatchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchContentView.swift; sourceTree = "<group>"; };
-		3B57A58229A83918000C110A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B57A58929A83987000C110A /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 		3B57A59829A83EB4000C110A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3B57A59929A8D923000C110A /* RecommendResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResultView.swift; sourceTree = "<group>"; };
@@ -115,14 +85,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B57A57629A83917000C110A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F0522E12201B1E6A7E3C3250 /* Pods_allinW_Watch_App.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -149,7 +111,6 @@
 			children = (
 				3B32C5B229CDBF94009D336F /* README.md */,
 				3B57A56629A838F9000C110A /* allin */,
-				3B57A57A29A83917000C110A /* allinW Watch App */,
 				3B57A56529A838F9000C110A /* Products */,
 				3B4543A929BAC39D00637D1E /* Frameworks */,
 				492921848D57A2DD4D466FBA /* Pods */,
@@ -160,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				3B57A56429A838F9000C110A /* allin.app */,
-				3B57A57929A83917000C110A /* allinW Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,25 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				3B57A56E29A838FA000C110A /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		3B57A57A29A83917000C110A /* allinW Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				3B20275729CC816F00BECA1D /* allinW Watch App.entitlements */,
-				3B57A57B29A83917000C110A /* allinWApp.swift */,
-				3B57A57D29A83917000C110A /* WatchContentView.swift */,
-				3B57A58129A83918000C110A /* Preview Content */,
-			);
-			path = "allinW Watch App";
-			sourceTree = "<group>";
-		};
-		3B57A58129A83918000C110A /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3B57A58229A83918000C110A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -287,33 +228,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				3B4543AC29BAC39D00637D1E /* PBXTargetDependency */,
 			);
 			name = allin;
 			packageProductDependencies = (
 			);
 			productName = allin;
 			productReference = 3B57A56429A838F9000C110A /* allin.app */;
-			productType = "com.apple.product-type.application";
-		};
-		3B57A57829A83917000C110A /* allinW Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3B57A58429A83918000C110A /* Build configuration list for PBXNativeTarget "allinW Watch App" */;
-			buildPhases = (
-				6C5BD5326EB287E3AD9A274B /* [CP] Check Pods Manifest.lock */,
-				3B57A57529A83917000C110A /* Sources */,
-				3B57A57629A83917000C110A /* Frameworks */,
-				3B57A57729A83917000C110A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "allinW Watch App";
-			packageProductDependencies = (
-			);
-			productName = "allinW Watch App";
-			productReference = 3B57A57929A83917000C110A /* allinW Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -327,9 +247,6 @@
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					3B57A56329A838F9000C110A = {
-						CreatedOnToolsVersion = 14.2;
-					};
-					3B57A57829A83917000C110A = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
@@ -350,7 +267,6 @@
 			projectRoot = "";
 			targets = (
 				3B57A56329A838F9000C110A /* allin */,
-				3B57A57829A83917000C110A /* allinW Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -364,15 +280,6 @@
 				3B57A56F29A838FA000C110A /* Preview Assets.xcassets in Resources */,
 				3B7A5F922A0D2EA6005EF556 /* Launch Screen.storyboard in Resources */,
 				3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3B57A57729A83917000C110A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B57A59729A83AB3000C110A /* Assets.xcassets in Resources */,
-				3B57A58329A83918000C110A /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,28 +302,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-allin-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6C5BD5326EB287E3AD9A274B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-allinW Watch App-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -467,32 +352,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B57A57529A83917000C110A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3B57A57E29A83917000C110A /* WatchContentView.swift in Sources */,
-				3B57A5B629AA50DB000C110A /* RecommendView.swift in Sources */,
-				3B20274829CC6B6D00BECA1D /* RecommendViewModel.swift in Sources */,
-				3BF8D10A29B327AE008A61ED /* Plist.swift in Sources */,
-				3B57A57C29A83917000C110A /* allinWApp.swift in Sources */,
-				3BF8D10B29B327B7008A61ED /* Lottery.swift in Sources */,
-				3B57A59B29A8D923000C110A /* RecommendResultView.swift in Sources */,
-				3B32C5B129CDB794009D336F /* Verify.swift in Sources */,
-				3B7A5F8C2A0CBE5C005EF556 /* Error.swift in Sources */,
-				3B57A59E29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3B4543AC29BAC39D00637D1E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3B57A57829A83917000C110A /* allinW Watch App */;
-			targetProxy = 3B4543AB29BAC39D00637D1E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3B57A57029A838FA000C110A /* Debug */ = {
@@ -683,76 +543,6 @@
 			};
 			name = Release;
 		};
-		3B57A58529A83918000C110A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "allinW Watch App/allinW Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"allinW Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77295VQTPM;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = allin/info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = allinW;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		3B57A58629A83918000C110A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(EMBEDDED_CONTENT_CONTAINS_SWIFT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "allinW Watch App/allinW Watch App.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"allinW Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77295VQTPM;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = allin/info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = allinW;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자 주변의 복권 판매점을 표시하기 위해 위치정보가 필요합니다.";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kim.allin;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -770,15 +560,6 @@
 			buildConfigurations = (
 				3B57A57329A838FA000C110A /* Debug */,
 				3B57A57429A838FA000C110A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3B57A58429A83918000C110A /* Build configuration list for PBXNativeTarget "allinW Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3B57A58529A83918000C110A /* Debug */,
-				3B57A58629A83918000C110A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -20,13 +20,9 @@ struct RecommendButtonView: View {
                     Text("\(number)")
                         .padding()
                         .frame(maxWidth: .infinity)
-                    #if os(iOS)
                         .font(.system(size: 30))
                         .background(Color(red: 0.82, green: 0.82, blue: 0.82))
                         .cornerRadius(25)
-                    #else
-                        .font(.system(size: 16))
-                    #endif
                 })
             }
         }

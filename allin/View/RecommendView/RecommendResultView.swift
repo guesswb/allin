@@ -26,11 +26,7 @@ struct RecommendResultView: View {
                 ForEach(viewModel.recommendNumbers, id: \.self) { numbers in
                     Text("\(numbers.map{String($0)}.joined(separator: " "))")
                         .padding()
-#if os(iOS)
                         .font(.system(size:30))
-#else
-                        .font(.system(size: 16))
-#endif
                         .frame(maxWidth: .infinity)
                         .background(Color(red: 0.76, green: 0.76, blue: 0.76))
                         .cornerRadius(25)
