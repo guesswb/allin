@@ -10,11 +10,3 @@ target 'allin' do
   # Pods for allin
 
 end
-
-target 'allinW Watch App' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for allinW Watch App
-
-end
