@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct StoreLocationSettingButton: View {
-    @State private var showingAlert = false
+    @State private var isShowingAlert = false
     
-    private let alertSettingText = "위치 접근이 허용되어 있지 않습니다. 설정으로 이동하시겠습니까?"
-    private let goToSettingText = "설정으로 이동"
+    private enum TextType {
+        static let needLocationTitle: String = "위치 권한 필요"
+        static let alertMoveToSetting: String = "위치 접근이 허용되어 있지 않습니다. 설정으로 이동하시겠습니까?"
+        static let moveToSetting: String = "설정으로 이동"
+        static let confirm: String = "네"
+        static let refuse: String = "아니오"
+    }
     
     var body: some View {
-        Button(goToSettingText) {
-            showingAlert.toggle()
+        Button(TextType.moveToSetting) {
+            isShowingAlert.toggle()
         }
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text(alertSettingText),
-                      primaryButton: .destructive(Text("아니오"), action: {
-                }),
-                      secondaryButton: .default(Text("네"), action: {
+        .alert(
+            TextType.needLocationTitle,
+            isPresented: $isShowingAlert,
+            actions: {
+                Button(TextType.confirm, role: .cancel, action: {
                     UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                }))
-            }
+                })
+                Button(TextType.refuse, role: .destructive, action: {})
+            },
+            message: { Text(TextType.alertMoveToSetting) }
+        )
     }
 }
 

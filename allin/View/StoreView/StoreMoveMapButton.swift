@@ -26,7 +26,6 @@ struct StoreMoveMapButton: View {
                     UIApplication.shared.open(viewModel.urlForNaverMap(isInstalled: false))
                 }
             }
-            .padding()
             .frame(maxWidth: .infinity)
             .font(.system(size: 30))
             .background(Color(red: 0.82, green: 0.82, blue: 0.82))
