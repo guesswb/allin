@@ -9,62 +9,80 @@ import Foundation
 
 final class RecommendViewModel: ObservableObject {
     
-    @Published var isAvailableTime: Bool = Lottery.isAvailableTime()
-    @Published var isAvailableNetwork: Bool = true
-    @Published var recommendNumbers: [[Int]] = [[Int]]()
+    @Published var appState: AppState = .available
+    @Published var recommendNumbers: [Int] = []
     
-    private var lotteryRound: Int = Lottery.thisWeekRound()
-    private var winNumbers: [Lottery] = Array(repeating: Lottery(), count: 5)
+    let numbers: [Int] = Lottery.allNumbers
+    
+    private var winNumbers: [Lottery] = []
+    private var conditionCount: Int = 0
+    
+    enum AppState {
+        case unavailableTime
+        case unavailableNetwork
+        case available
+    }
     
     init() {
-        winNumbers(weeks: 5)
+        Task {
+            self.winNumbers = await winNumbers()
+        }
     }
 }
 
 extension RecommendViewModel {
-    private func winNumbers(weeks: Int) {
-        ((lotteryRound-weeks)..<lotteryRound).forEach { round in
-            Task {
-                do {
-                    let lottery = try await Lottery.request(round: round)
-                    winNumbers[round - lotteryRound + weeks] = lottery
-                } catch {
-                    self.isAvailableNetwork = false
-                }
+    private func winNumbers() async -> [Lottery] {
+        let lotteryRound: Int = Lottery.thisWeekRound()
+        
+        async let lotteryBeforeFiveWeeks = Lottery.request(round: lotteryRound - 5)
+        async let lotteryBeforeFourWeeks = Lottery.request(round: lotteryRound - 4)
+        async let lotteryBeforeThreeWeeks = Lottery.request(round: lotteryRound - 3)
+        async let lotteryBeforeTwoWeeks = Lottery.request(round: lotteryRound - 2)
+        async let lotteryBeforeOneWeeks = Lottery.request(round: lotteryRound - 1)
+        
+        do {
+            let lottery = try await [lotteryBeforeFiveWeeks,
+                                     lotteryBeforeFourWeeks,
+                                     lotteryBeforeThreeWeeks,
+                                     lotteryBeforeTwoWeeks,
+                                     lotteryBeforeOneWeeks]
+            DispatchQueue.main.async {
+                self.appState = .available
             }
+            
+            return lottery
+        } catch {
+            self.appState = .unavailableNetwork
+            return []
         }
     }
     
     func checkTime() {
-        self.isAvailableTime = Lottery.isAvailableTime()
+        self.appState = Lottery.isAvailableTime() ? .available : .unavailableTime
     }
     
-    func recommendNumbers(count: Int) {
-        var result: [[Int]] = []
+    func recommend() {
         
-        while result.count != count {
-            let randomSet = Lottery.allNumbers.shuffled()[0...5].sorted()
-            let allCondition = checkAllCondition(randomSet: randomSet)
+        if conditionCount == 4 {
+            let randomSet = numbers.shuffled()[0...5].sorted()
+            let condition = Lottery.checkCondition(randomSet: randomSet, winNumbers: winNumbers)
             
-            if result.count != count && allCondition.allSatisfy({$0}) {
-                result.append(randomSet)
-            } else if result.count == count - 1 &&
-                        allCondition[1] == false &&
-                        allCondition.filter({$0 == false}).count == 1 {
-                    result.append(randomSet)
+            if condition[1] == false && condition.filter({ $0 == false }).count == 1 {
+                recommendNumbers = randomSet
+                conditionCount = 0
+                return
             }
         }
-        recommendNumbers = result
-    }
-    
-    private func checkAllCondition(randomSet: [Int]) -> [Bool] {
-        let result1 = VerifyNumber.checkPairCount(randomSet)
-        let result2 = VerifyNumber.checkSum(randomSet)
-        let result3 = VerifyNumber.checkReappear(randomSet, winNumbers[4])
-        let result4 = VerifyNumber.checkLastBonus(randomSet, winNumbers[4].bnusNo)
-        let result5 = VerifyNumber.checkLastWeeks(randomSet, Array(winNumbers[2...4]), 2, 5)
-        let result6 = VerifyNumber.checkLastWeeks(randomSet, winNumbers, 1, 4)
         
-        return [result1, result2, result3, result4, result5, result6]
+        while true {
+            let randomSet = numbers.shuffled()[0...5].sorted()
+            let condition = Lottery.checkCondition(randomSet: randomSet, winNumbers: winNumbers)
+            
+            if condition.allSatisfy({ $0 == true }) {
+                recommendNumbers = randomSet
+                conditionCount += 1
+                return
+            }
+        }
     }
 }
