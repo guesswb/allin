@@ -31,12 +31,15 @@ struct Store: Codable {
     }
     
     static func storeInformations(keyword: String) async throws -> Store {
-        guard var urlComponent = URLComponents(string: NaverCloud.Location.urlString),
-              let url = urlComponent.url else {
+        guard var urlComponent = URLComponents(string: NaverCloud.Location.urlString) else {
             throw NetworkError.url
         }
     
         urlComponent.queryItems = NaverCloud.Location.queryItems(keyword: keyword)
+        
+        guard let url = urlComponent.url else {
+            throw NetworkError.url
+        }
         
         let plistData = try Plist.data()
         let plist = try PropertyListDecoder().decode(Plist.self, from: plistData)
@@ -45,7 +48,12 @@ struct Store: Codable {
         urlRequest.addValue(plist.naverClientId, forHTTPHeaderField: NaverCloud.HTTPHeader.clientID)
         urlRequest.addValue(plist.naverClientSecret, forHTTPHeaderField: NaverCloud.HTTPHeader.clientSecret)
         
-        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        guard let (data, response) = try? await URLSession.shared.data(for: urlRequest),
+              let statusCode = (response as? HTTPURLResponse)?.statusCode,
+              (200...299 ~= statusCode) == true else {
+            throw NetworkError.response
+        }
+        
         let store = try JSONDecoder().decode(Store.self, from: data)
         
         return store

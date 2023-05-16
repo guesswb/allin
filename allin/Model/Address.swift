@@ -9,8 +9,8 @@ import Foundation
 import CoreLocation
 
 struct Address: Codable {
-    var status: Status = Status(code: 0, name: "", message: "")
-    var results: [Result] = []
+    var status: Status
+    var results: [Result]
     
     enum NaverDevelopers {
         enum Geocode {

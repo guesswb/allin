@@ -17,8 +17,15 @@ struct Lottery: Codable {
     var bnusNo: Int = 0
     
     static let allNumbers: [Int] = [Int](1...45)
-    static let urlString: String = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
-    private static let firstRoundDate: DateComponents = DateComponents(year: 2002, month: 11, day: 30, hour: 20)
+    
+    private enum TextType {
+        static let urlString: String = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
+    }
+    
+    private enum DateType {
+        static let firstRound: DateComponents = DateComponents(year: 2002, month: 11, day: 30, hour: 20)
+    }
+    
 }
 
 extension Lottery {
@@ -27,7 +34,7 @@ extension Lottery {
     }
     
     static func thisWeekRound() -> Int {
-        guard let date = Calendar.current.date(from: firstRoundDate),
+        guard let date = Calendar.current.date(from: DateType.firstRound),
               let daysSinceFirstDay = Calendar.current.dateComponents([.day], from: date, to: Date()).day else {
             return 0
         }
@@ -49,7 +56,7 @@ extension Lottery {
     }
     
     static func request(round: Int) async throws -> Lottery {
-        guard let url = URL(string: Lottery.urlString + String(round)),
+        guard let url = URL(string: TextType.urlString + String(round)),
               let (data, response) = try? await URLSession.shared.data(from: url),
               let statusCode = (response as? HTTPURLResponse)?.statusCode,
               (200...299 ~= statusCode) == true else {
@@ -61,5 +68,16 @@ extension Lottery {
         }
 
         return lottery
+    }
+    
+    static func checkCondition(randomSet: [Int], winNumbers: [Lottery]) -> [Bool] {
+        let result1 = VerifyNumber.checkPairCount(randomSet)
+        let result2 = VerifyNumber.checkSum(randomSet)
+        let result3 = VerifyNumber.checkReappear(randomSet, winNumbers[4])
+        let result4 = VerifyNumber.checkLastBonus(randomSet, winNumbers[4].bnusNo)
+        let result5 = VerifyNumber.checkLastWeeks(randomSet, Array(winNumbers[2...4]), 2, 5)
+        let result6 = VerifyNumber.checkLastWeeks(randomSet, winNumbers, 1, 4)
+        
+        return [result1, result2, result3, result4, result5, result6]
     }
 }
