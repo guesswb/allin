@@ -10,10 +10,11 @@ import NMapsMap
 
 struct StoreMapView: UIViewRepresentable {
     
-    var currentCoordinate: CLLocationCoordinate2D
-    var stores: [StoreItem]
+    @ObservedObject var viewModel: StoreViewModel
     
-    private let categoryText = "생활,편의>복권,로또"
+    private enum TextType {
+        static let category: String = "생활,편의>복권,로또"
+    }
     
     func makeUIView(context: Context) -> NMFNaverMapView {
         let view = NMFNaverMapView()
@@ -28,8 +29,8 @@ struct StoreMapView: UIViewRepresentable {
     func updateUIView(_ uiView: NMFNaverMapView, context: Context) {
         let cameraUpdate = NMFCameraUpdate(
             scrollTo: NMGLatLng(
-                lat: currentCoordinate.latitude,
-                lng: currentCoordinate.longitude
+                lat: viewModel.currentCoordinate.latitude,
+                lng: viewModel.currentCoordinate.longitude
             )
         )
         
@@ -38,17 +39,17 @@ struct StoreMapView: UIViewRepresentable {
         uiView.mapView.zoomLevel = 14
         uiView.mapView.moveCamera(cameraUpdate)
         
-        if stores.isEmpty { return }
+        if viewModel.storeItems.isEmpty { return }
         
-        stores.forEach { storeItem in
-            if storeItem.category == categoryText {
-                guard let x = Double(storeItem.mapx), let y = Double(storeItem.mapy) else { return }
-                let marker = NMFMarker()
-                let latlon = NMGTm128(x: x, y: y).toLatLng()
-                
-                marker.position = NMGLatLng(lat: latlon.lat, lng: latlon.lng)
-                marker.mapView = uiView.mapView
-            }
+        let storeItems = viewModel.storeItems.filter { $0.category == TextType.category }
+        
+        storeItems.forEach { storeItem in
+            guard let x = Double(storeItem.mapx), let y = Double(storeItem.mapy) else { return }
+            let marker = NMFMarker()
+            let latlon = NMGTm128(x: x, y: y).toLatLng()
+            
+            marker.position = NMGLatLng(lat: latlon.lat, lng: latlon.lng)
+            marker.mapView = uiView.mapView
         }
     }
 }

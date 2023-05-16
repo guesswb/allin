@@ -11,20 +11,28 @@ struct RecommendView: View {
     
     @Environment(\.scenePhase) var scenePhase
     
-    @StateObject private var viewModel: RecommendViewModel = RecommendViewModel()
+    @StateObject private var viewModel: RecommendViewModel
     
-    enum InfromationText {
-        static let pleaseCheckNetwork: String = "Network를 확인해 주세요."
-        static let notAvailableTime: String = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+    enum InformationText {
+        static let checkNetwork: String = "Network를 확인해 주세요."
+        static let unavailableTime: String = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+    }
+    
+    init(viewModel: RecommendViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         VStack {
-            if viewModel.isAvailableTime && viewModel.isAvailableNetwork {
+            switch viewModel.appState {
+            case .available:
+                RecommendShuffleView(viewModel: viewModel)
                 RecommendResultView(viewModel: viewModel)
                 RecommendButtonView(viewModel: viewModel)
-            } else {
-                Text(viewModel.isAvailableTime ? InfromationText.notAvailableTime : InfromationText.pleaseCheckNetwork )
+            case .unavailableNetwork:
+                Text(InformationText.checkNetwork)
+            case .unavailableTime:
+                Text(InformationText.unavailableTime)
             }
         }
         .padding()
@@ -41,6 +49,6 @@ struct RecommendView: View {
 
 struct RecommendView_Previews : PreviewProvider {
     static var previews: some View {
-        RecommendView()
+        RecommendView(viewModel: RecommendViewModel())
     }
 }

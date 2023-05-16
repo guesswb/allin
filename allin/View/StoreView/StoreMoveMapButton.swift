@@ -8,21 +8,23 @@
 import SwiftUI
 
 struct StoreMoveMapButton: View {
+    
     @ObservedObject var viewModel: StoreViewModel
     
-    private let aroundStoreText: String = "주변 복권 판매점입니다."
-    private let goToNaverMapText: String = "네이버 지도로\n더 자세히 보기"
+    private enum TextType {
+        static let moveToNaverMap: String = "네이버 지도로 이동"
+    }
     
     var body: some View {
         VStack {
-            Text("\(viewModel.areaName) " + aroundStoreText)
-            Button(goToNaverMapText) {
-                guard let nmap = URL(string: "nmap://") else { return }
-                
-                let isOpenApp = UIApplication.shared.canOpenURL(nmap)
-                guard let url = viewModel.urlForNaverMap(isOpenApp: isOpenApp) else { return }
-                
-                UIApplication.shared.open(url)
+            Button(TextType.moveToNaverMap) {
+                guard let url = URL(string: "nmap://") else { return }
+
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(viewModel.urlForNaverMap(isInstalled: true))
+                } else {
+                    UIApplication.shared.open(viewModel.urlForNaverMap(isInstalled: false))
+                }
             }
             .padding()
             .frame(maxWidth: .infinity)
