@@ -12,15 +12,15 @@ struct RecommendShuffleView: View {
     @ObservedObject var viewModel: RecommendViewModel
     
     var body: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))]) {
+        LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 50)), count: 6)) {
             ForEach(viewModel.numbers, id: \.self) { number in
-                if viewModel.recommendNumbers.contains(number) {
-                    Text("\(number)")
-                        .foregroundColor(.green)
-                } else {
-                    Text("\(number)")
-                }
+                Text("\(number)")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(viewModel.recommendNumbers.contains(number) ? .yellow : .gray)
+                    .cornerRadius(10)
             }
         }
+        .padding()
     }
 }

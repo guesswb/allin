@@ -18,13 +18,20 @@ struct RecommendResultView: View {
     var body: some View {
         if viewModel.recommendNumbers.isEmpty {
             Text(TextType.goodLuck)
-                .font(.system(size: 25))
-        } else {
-            Text("\(viewModel.recommendNumbers.map{String($0)}.joined(separator: " "))")
+                .font(.title3)
                 .padding()
-                .font(.system(size:30))
-                .frame(maxWidth: .infinity)
-                .cornerRadius(25)
+        } else {
+            HStack {
+                ForEach(viewModel.recommendNumbers, id: \.self) { number in
+                    Text("\(number)")
+                        .frame(maxWidth: .infinity)
+                        .lineLimit(1)
+                        .font(.title3)
+                        .background(.yellow)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
         }
     }
 }

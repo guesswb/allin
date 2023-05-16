@@ -16,18 +16,18 @@ struct RecommendButtonView: View {
     }
     
     var body: some View {
-        HStack {
-            Button(action: {
-                viewModel.checkTime()
-                viewModel.recommend()
-            }, label: {
-                Text(TextType.recommend)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .font(.system(size: 30))
-                    .background(Color(red: 0.82, green: 0.82, blue: 0.82))
-                    .cornerRadius(25)
-            })
-        }
+        Button(action: {
+            viewModel.checkTime()
+            viewModel.recommend()
+        }, label: {
+            Text(TextType.recommend)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .font(.system(size: 30))
+                .background(.green)
+                .cornerRadius(25)
+                .tint(.black)
+        })
+        .padding(.horizontal)
     }
 }

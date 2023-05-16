@@ -10,6 +10,7 @@ import SwiftUI
 struct RecommendView: View {
     
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.managedObjectContext) var managedObjectContext
     
     @StateObject private var viewModel: RecommendViewModel
     
@@ -23,19 +24,21 @@ struct RecommendView: View {
     }
     
     var body: some View {
-        VStack {
-            switch viewModel.appState {
-            case .available:
-                RecommendShuffleView(viewModel: viewModel)
-                RecommendResultView(viewModel: viewModel)
-                RecommendButtonView(viewModel: viewModel)
-            case .unavailableNetwork:
-                Text(InformationText.checkNetwork)
-            case .unavailableTime:
-                Text(InformationText.unavailableTime)
+        GeometryReader { geometryReader in
+            VStack {
+                switch viewModel.appState {
+                case .available:
+                    RecommendShuffleView(viewModel: viewModel)
+                    RecommendResultView(viewModel: viewModel)
+                    RecommendButtonView(viewModel: viewModel)
+                case .unavailableNetwork:
+                    Text(InformationText.checkNetwork)
+                case .unavailableTime:
+                    Text(InformationText.unavailableTime)
+                }
             }
+            .frame(width: geometryReader.size.width, height: geometryReader.size.height)
         }
-        .padding()
         .onAppear {
             viewModel.checkTime()
         }
