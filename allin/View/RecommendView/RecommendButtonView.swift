@@ -23,7 +23,7 @@ struct RecommendButtonView: View {
             Text(TextType.recommend)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .font(.system(size: 30))
+                .font(.title)
                 .background(.green)
                 .cornerRadius(25)
                 .tint(.black)

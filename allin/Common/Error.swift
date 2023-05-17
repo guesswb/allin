@@ -19,3 +19,9 @@ enum JSONError: Error {
 enum FileError: Error {
     case bundle
 }
+
+enum CoreDataError: Error {
+    case entity
+    case save
+    case fetch
+}
