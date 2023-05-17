@@ -49,10 +49,11 @@ extension RecommendViewModel {
             DispatchQueue.main.async {
                 self.appState = .available
             }
-            
             return lottery
         } catch {
-            self.appState = .unavailableNetwork
+            DispatchQueue.main.async {
+                self.appState = .unavailableNetwork
+            }
             return []
         }
     }
@@ -62,7 +63,6 @@ extension RecommendViewModel {
     }
     
     func recommend() {
-        
         if conditionCount == 4 {
             let randomSet = numbers.shuffled()[0...5].sorted()
             let condition = Lottery.checkCondition(randomSet: randomSet, winNumbers: winNumbers)

@@ -12,6 +12,11 @@
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
 		3B32C5B329CDBF94009D336F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3B32C5B229CDBF94009D336F /* README.md */; };
 		3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */; };
+		3B3F61D12A1325F200576093 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61D02A1325F200576093 /* PersistenceController.swift */; };
+		3B3F61E12A13661800576093 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E02A13661800576093 /* Lottery.swift */; };
+		3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E92A14644800576093 /* Model.xcdatamodeld */; };
+		3B3F61F42A14C08E00576093 /* WinNumber+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */; };
+		3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
 		3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
@@ -25,7 +30,6 @@
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
 		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
 		3B7A5F922A0D2EA6005EF556 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */; };
-		3B878C1629AE1E0200846742 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1529AE1E0200846742 /* Lottery.swift */; };
 		3B878C1829AE295300846742 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1729AE295300846742 /* Address.swift */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
 		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
@@ -51,6 +55,11 @@
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
 		3B32C5B229CDBF94009D336F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendShuffleView.swift; sourceTree = "<group>"; };
+		3B3F61D02A1325F200576093 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		3B3F61E02A13661800576093 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
+		3B3F61EA2A14644800576093 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WinNumber+CoreDataClass.swift"; path = "allin/Model/CoreData/WinNumber+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WinNumber+CoreDataProperties.swift"; path = "allin/Model/CoreData/WinNumber+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3B57A56429A838F9000C110A /* allin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = allin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57A56729A838F9000C110A /* allinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinApp.swift; sourceTree = "<group>"; };
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,7 +75,6 @@
 		3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		3B57A5C329ACCCF4000C110A /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		3B878C1529AE1E0200846742 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
 		3B878C1729AE295300846742 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		3B878C1929AE30FC00846742 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMoveMapButton.swift; sourceTree = "<group>"; };
@@ -97,6 +105,24 @@
 				3B32C5AF29CDB794009D336F /* Verify.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		3B3F61CF2A1325E000576093 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3B3F61D02A1325F200576093 /* PersistenceController.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3B3F61F62A14C54900576093 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */,
+				3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */,
+				3B3F61E92A14644800576093 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		3B4543A929BAC39D00637D1E /* Frameworks */ = {
@@ -135,6 +161,7 @@
 				3B57A56729A838F9000C110A /* allinApp.swift */,
 				3B57A56929A838F9000C110A /* ContentView.swift */,
 				3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */,
+				3B3F61CF2A1325E000576093 /* Service */,
 				3B32C5AE29CDB767009D336F /* Common */,
 				3B57A58C29A83994000C110A /* Model */,
 				3B57A58829A83973000C110A /* ViewModel */,
@@ -173,10 +200,11 @@
 		3B57A58C29A83994000C110A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B3F61F62A14C54900576093 /* CoreData */,
 				3B57A5C329ACCCF4000C110A /* Plist.swift */,
-				3B878C1529AE1E0200846742 /* Lottery.swift */,
 				3B878C1729AE295300846742 /* Address.swift */,
 				3B878C1929AE30FC00846742 /* Store.swift */,
+				3B3F61E02A13661800576093 /* Lottery.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,14 +364,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B32C5AD29CDB292009D336F /* Error.swift in Sources */,
+				3B3F61F42A14C08E00576093 /* WinNumber+CoreDataClass.swift in Sources */,
 				3B878C1829AE295300846742 /* Address.swift in Sources */,
 				3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */,
+				3B3F61E12A13661800576093 /* Lottery.swift in Sources */,
 				3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */,
+				3B3F61D12A1325F200576093 /* PersistenceController.swift in Sources */,
 				3B57A56A29A838F9000C110A /* ContentView.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
+				3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */,
+				3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */,
 				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
-				3B878C1629AE1E0200846742 /* Lottery.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
@@ -569,6 +601,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B3F61E92A14644800576093 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B3F61EA2A14644800576093 /* Model.xcdatamodel */,
+			);
+			currentVersion = 3B3F61EA2A14644800576093 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B57A55C29A838F9000C110A /* Project object */;
 }

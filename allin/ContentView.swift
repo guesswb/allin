@@ -23,17 +23,16 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            StoreView(viewModel: StoreViewModel()).tabItem {
-                Label(TabItem.Text.store, systemImage: TabItem.Image.store)
-            }
             RecommendView(viewModel: RecommendViewModel()).tabItem {
                 Label(TabItem.Text.recommend, systemImage: TabItem.Image.recommend)
+            }
+            StoreView(viewModel: StoreViewModel()).tabItem {
+                Label(TabItem.Text.store, systemImage: TabItem.Image.store)
             }
         }
         .onAppear {
             UITabBar.appearance().backgroundColor = .systemGray6
         }
-        .tint(Color(red: 0.38, green: 0.2, blue: 0.1))
     }
 }
 
