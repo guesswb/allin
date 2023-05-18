@@ -9,7 +9,7 @@ import Foundation
 
 final class RecommendViewModel: ObservableObject {
     
-    @Published var appState: AppState = .available
+    @Published var appState: AppState = .unavailableNetwork
     @Published var recommendNumbers: [Int] = []
     
     let numbers: [Int] = Lottery.allNumbers
@@ -32,20 +32,21 @@ final class RecommendViewModel: ObservableObject {
 
 extension RecommendViewModel {
     private func winNumbers() async -> [Lottery] {
-        let lotteryRound: Int = Lottery.thisWeekRound()
-        
-        async let lotteryBeforeFiveWeeks = Lottery.request(round: lotteryRound - 5)
-        async let lotteryBeforeFourWeeks = Lottery.request(round: lotteryRound - 4)
-        async let lotteryBeforeThreeWeeks = Lottery.request(round: lotteryRound - 3)
-        async let lotteryBeforeTwoWeeks = Lottery.request(round: lotteryRound - 2)
-        async let lotteryBeforeOneWeeks = Lottery.request(round: lotteryRound - 1)
-        
         do {
+            let lotteryRound = try Lottery.thisWeekRound()
+            
+            async let lotteryBeforeFiveWeeks = Lottery.request(round: lotteryRound - 5)
+            async let lotteryBeforeFourWeeks = Lottery.request(round: lotteryRound - 4)
+            async let lotteryBeforeThreeWeeks = Lottery.request(round: lotteryRound - 3)
+            async let lotteryBeforeTwoWeeks = Lottery.request(round: lotteryRound - 2)
+            async let lotteryBeforeOneWeeks = Lottery.request(round: lotteryRound - 1)
+
             let lottery = try await [lotteryBeforeFiveWeeks,
                                      lotteryBeforeFourWeeks,
                                      lotteryBeforeThreeWeeks,
                                      lotteryBeforeTwoWeeks,
                                      lotteryBeforeOneWeeks]
+            
             DispatchQueue.main.async {
                 self.appState = .available
             }

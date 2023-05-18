@@ -35,18 +35,17 @@ extension Lottery {
         return [drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6].map { Int($0) }
     }
     
-    static func thisWeekRound() -> Int {
-        guard let date = Calendar.current.date(from: DateComponents(year: 2002, month: 11, day: 30, hour: 20)),
+    static func thisWeekRound() throws -> Int {
+        guard let date = Calendar.current.date(from: DateType.firstRound),
               let daysSinceFirstDay = Calendar.current.dateComponents([.day], from: date, to: Date()).day else {
-            return 0
+            throw DateError.requestRound
         }
         return daysSinceFirstDay / 7 + 1
     }
     
     static func isAvailableTime() -> Bool {
         let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
-        guard let weekday = today.weekday,
-              let hour = today.hour else {
+        guard let weekday = today.weekday, let hour = today.hour else {
             return false
         }
         
@@ -61,8 +60,8 @@ extension Lottery {
         if let lottery = try fetchFromCoreData(round: round) {
             return lottery
         }
-        
-        guard let url = URL(string: "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=" + String(round)),
+
+        guard let url = URL(string: TextType.urlString + String(round)),
               let (data, response) = try? await URLSession.shared.data(from: url),
               let statusCode = (response as? HTTPURLResponse)?.statusCode,
               (200...299 ~= statusCode) == true else {

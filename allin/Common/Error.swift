@@ -25,3 +25,7 @@ enum CoreDataError: Error {
     case save
     case fetch
 }
+
+enum DateError: Error {
+    case requestRound
+}

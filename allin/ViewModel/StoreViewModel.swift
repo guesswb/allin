@@ -81,6 +81,10 @@ extension StoreViewModel {
     }
     
     private func setStoreLocation() {
+        if storeItems.isEmpty == false {
+            return
+        }
+        
         Task {
             do {
                 if isKoreanLocation() == false {

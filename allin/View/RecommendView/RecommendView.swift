@@ -39,9 +39,6 @@ struct RecommendView: View {
             .padding()
             .frame(width: geometryReader.size.width, height: geometryReader.size.height)
         }
-        .onAppear {
-            viewModel.checkTime()
-        }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
                 viewModel.checkTime()
