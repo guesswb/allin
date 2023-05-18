@@ -22,7 +22,6 @@
 		3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
 		3B57A56F29A838FA000C110A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56E29A838FA000C110A /* Preview Assets.xcassets */; };
 		3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A58929A83987000C110A /* RecommendViewModel.swift */; };
-		3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59929A8D923000C110A /* RecommendResultView.swift */; };
 		3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */; };
 		3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B429AA50DB000C110A /* RecommendView.swift */; };
 		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
@@ -67,7 +66,6 @@
 		3B57A56E29A838FA000C110A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B57A58929A83987000C110A /* RecommendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewModel.swift; sourceTree = "<group>"; };
 		3B57A59829A83EB4000C110A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		3B57A59929A8D923000C110A /* RecommendResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendResultView.swift; sourceTree = "<group>"; };
 		3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendButtonView.swift; sourceTree = "<group>"; };
 		3B57A5B429AA50DB000C110A /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
 		3B57A5B829AB447E000C110A /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
@@ -80,9 +78,7 @@
 		3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMoveMapButton.swift; sourceTree = "<group>"; };
 		5A67059F7B17EEAC59200731 /* Pods_allin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allin.debug.xcconfig"; path = "Target Support Files/Pods-allin/Pods-allin.debug.xcconfig"; sourceTree = "<group>"; };
-		93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allinW Watch App.release.xcconfig"; path = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.release.xcconfig"; sourceTree = "<group>"; };
 		A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allinW_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allinW Watch App.debug.xcconfig"; path = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.debug.xcconfig"; sourceTree = "<group>"; };
 		E6772CE714FC4CBE3127B043 /* Pods-allin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allin.release.xcconfig"; path = "Target Support Files/Pods-allin/Pods-allin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */,
-				3B57A59929A8D923000C110A /* RecommendResultView.swift */,
 				3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */,
 				3B57A5B429AA50DB000C110A /* RecommendView.swift */,
 			);
@@ -236,8 +231,6 @@
 			children = (
 				831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */,
 				E6772CE714FC4CBE3127B043 /* Pods-allin.release.xcconfig */,
-				A794801E3600E0531C2998FF /* Pods-allinW Watch App.debug.xcconfig */,
-				93C167C2D5EB251D61B5885A /* Pods-allinW Watch App.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -381,7 +374,6 @@
 				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */,
-				3B57A59A29A8D923000C110A /* RecommendResultView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
 				3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */,
 				3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
@@ -527,7 +519,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -565,7 +557,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

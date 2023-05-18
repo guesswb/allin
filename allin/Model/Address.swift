@@ -29,7 +29,9 @@ struct Address: Codable {
             static let APIKey: String = "X-NCP-APIGW-API-KEY"
         }
     }
-    
+}
+
+extension Address {    
     static func currentAddress(longitude: CLLocationDegrees, latitude: CLLocationDegrees) async throws -> Address {
         guard var urlComponent = URLComponents(string: NaverDevelopers.Geocode.urlString) else {
             throw NetworkError.url

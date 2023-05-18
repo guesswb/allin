@@ -17,7 +17,6 @@ struct PersistenceController {
     private init() {
         container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores { _, error in
-            // TODO: error 처리
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

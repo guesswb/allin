@@ -35,10 +35,7 @@
 /* Begin PBXBuildFile section */
 		1FB397417AC247DDE80D5648F52F4F0C /* Pods-allin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B90CA64DD21996BAB7B807364CDD3E7F /* Pods-allin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		261572C54AE1039D9F20612E4FAD98D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */; };
-		40E9BA4D8913AED0812DF0F22550361B /* Pods-allinW Watch App-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA749B8C864E1DC7FDB3D5128EC0D76 /* Pods-allinW Watch App-dummy.m */; };
-		6A18C5A50423E69ECB990BB06D05EF5C /* Pods-allinW Watch App-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9996AD694F177EDE1000442EFBCFC23D /* Pods-allinW Watch App-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C768E507FF8B5C3F67AB76BE41DCD24 /* Pods-allin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E44D9FB07F1E057D9C02CB6A074649F7 /* Pods-allin-dummy.m */; };
-		EA8C1E457A7293384CB8003214F10CF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +66,6 @@
 		0184777C9686BE8481D93A119D4BA013 /* Pods-allin-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-allin-Info.plist"; sourceTree = "<group>"; };
 		0970046F7060534BA9B286629593DA0C /* NMapsMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.debug.xcconfig; sourceTree = "<group>"; };
 		1A326C79B1B897CBCFDC36BFF5174A43 /* NMapsGeometry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsGeometry.debug.xcconfig; sourceTree = "<group>"; };
-		2889AD5E99D4C8A374EE71011A92DC7D /* Pods-allinW Watch App-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-allinW Watch App-acknowledgements.plist"; sourceTree = "<group>"; };
-		2FA749B8C864E1DC7FDB3D5128EC0D76 /* Pods-allinW Watch App-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-allinW Watch App-dummy.m"; sourceTree = "<group>"; };
 		3D9CB09C2E7F8C2B65471DB6005D2BF4 /* Pods_allin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF956870ED93A13B8DF4DA906FDEA74 /* Pods-allin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-allin-acknowledgements.plist"; sourceTree = "<group>"; };
 		485FAE6318CCD7779377C7AA4A7B3528 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
@@ -79,23 +74,15 @@
 		50D5C576090BD9EDE7D21AA9FC593DED /* Pods-allin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-allin.release.xcconfig"; sourceTree = "<group>"; };
 		53BB18D8DE6118DEC0AAC01027DBECA8 /* NMapsMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.release.xcconfig; sourceTree = "<group>"; };
 		5D0A982A9433AACEF8A61353293CF443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6AD71CB42883C1E0929A917F34072688 /* Pods-allinW Watch App-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-allinW Watch App-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7F89040B8DC7FC773592AA5FE110E9DF /* NMapsGeometry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsGeometry.release.xcconfig; sourceTree = "<group>"; };
 		820CFDD1160D30D5CF7E2AE721291B45 /* Pods-allin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-allin-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8636F8D78502602472BDA8D4409A2F9C /* Pods-allin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-allin-frameworks.sh"; sourceTree = "<group>"; };
-		8DCFE2D1FAECC552FEC91EE9FC693988 /* Pods-allinW Watch App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-allinW Watch App.release.xcconfig"; sourceTree = "<group>"; };
 		983FCEF2808419DF12F69DFEBD7685D4 /* NMapsMap-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsMap-xcframeworks.sh"; sourceTree = "<group>"; };
-		9996AD694F177EDE1000442EFBCFC23D /* Pods-allinW Watch App-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-allinW Watch App-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B90CA64DD21996BAB7B807364CDD3E7F /* Pods-allin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-allin-umbrella.h"; sourceTree = "<group>"; };
-		BBC612642FDF17E6D70D742E0B5FD5DB /* Pods-allinW Watch App-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-allinW Watch App-Info.plist"; sourceTree = "<group>"; };
-		C9258A09690A905A7F3B3B7311CF87E0 /* Pods-allinW Watch App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-allinW Watch App.debug.xcconfig"; sourceTree = "<group>"; };
 		C9CED4399D62B6D8F7ED95D20DFEAB08 /* Pods-allin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-allin.modulemap"; sourceTree = "<group>"; };
 		E101130795B024FC83E4F774AA209B18 /* NMapsGeometry-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsGeometry-xcframeworks.sh"; sourceTree = "<group>"; };
 		E44D9FB07F1E057D9C02CB6A074649F7 /* Pods-allin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-allin-dummy.m"; sourceTree = "<group>"; };
-		E6B6B09346ADD481EECEB47427B4F2A9 /* Pods-allinW Watch App.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-allinW Watch App.modulemap"; sourceTree = "<group>"; };
-		EB0765E79FA25C91135BBB947C75AE24 /* Pods_allinW_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allinW_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,14 +94,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F3D3BB65E6C4EFEF1292FAF57BA20B09 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EA8C1E457A7293384CB8003214F10CF8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -122,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				E94EDED4BFCC9D9364ECA7088A57272A /* Pods-allin */,
-				E8BDE83BF834D42DCFB400884BBF8810 /* Pods-allinW Watch App */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -185,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				3D9CB09C2E7F8C2B65471DB6005D2BF4 /* Pods_allin.framework */,
-				EB0765E79FA25C91135BBB947C75AE24 /* Pods_allinW_Watch_App.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,17 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				03FBABE5ACCBF0D21AB61D364299D310 /* iOS */,
-				8B063FB5829CC11F1F48DAAF9305FCB4 /* watchOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8B063FB5829CC11F1F48DAAF9305FCB4 /* watchOS */ = {
-			isa = PBXGroup;
-			children = (
-				FCE35B7430FD7C91E8CC808A3540CF2E /* Foundation.framework */,
-			);
-			name = watchOS;
 			sourceTree = "<group>";
 		};
 		A3E28C362EAC5C5A2CCC22EE5E2FDA30 /* Support Files */ = {
@@ -237,22 +205,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8BDE83BF834D42DCFB400884BBF8810 /* Pods-allinW Watch App */ = {
-			isa = PBXGroup;
-			children = (
-				E6B6B09346ADD481EECEB47427B4F2A9 /* Pods-allinW Watch App.modulemap */,
-				6AD71CB42883C1E0929A917F34072688 /* Pods-allinW Watch App-acknowledgements.markdown */,
-				2889AD5E99D4C8A374EE71011A92DC7D /* Pods-allinW Watch App-acknowledgements.plist */,
-				2FA749B8C864E1DC7FDB3D5128EC0D76 /* Pods-allinW Watch App-dummy.m */,
-				BBC612642FDF17E6D70D742E0B5FD5DB /* Pods-allinW Watch App-Info.plist */,
-				9996AD694F177EDE1000442EFBCFC23D /* Pods-allinW Watch App-umbrella.h */,
-				C9258A09690A905A7F3B3B7311CF87E0 /* Pods-allinW Watch App.debug.xcconfig */,
-				8DCFE2D1FAECC552FEC91EE9FC693988 /* Pods-allinW Watch App.release.xcconfig */,
-			);
-			name = "Pods-allinW Watch App";
-			path = "Target Support Files/Pods-allinW Watch App";
-			sourceTree = "<group>";
-		};
 		E94EDED4BFCC9D9364ECA7088A57272A /* Pods-allin */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,14 +225,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		413FABBEDEA8E719D13DDA6E4AD4A0CA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A18C5A50423E69ECB990BB06D05EF5C /* Pods-allinW Watch App-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A8010A2292C8686BDB3C83D84D30C773 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -292,24 +236,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		95B0292FE5759CA204D3D8D0EC819247 /* Pods-allinW Watch App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 430BC24ADD6ADDC9D11BA76D0F177D0C /* Build configuration list for PBXNativeTarget "Pods-allinW Watch App" */;
-			buildPhases = (
-				413FABBEDEA8E719D13DDA6E4AD4A0CA /* Headers */,
-				24CD1898F68104A8D39BBA15915D83C9 /* Sources */,
-				F3D3BB65E6C4EFEF1292FAF57BA20B09 /* Frameworks */,
-				E0F7C40EEABD9C83D8FB17E7EEE0819C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-allinW Watch App";
-			productName = Pods_allinW_Watch_App;
-			productReference = EB0765E79FA25C91135BBB947C75AE24 /* Pods_allinW_Watch_App.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		D6191E2C56E4F6D98A2E6EABDE2BF931 /* Pods-allin */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF4E1EE30A8DA2FC651E08EC472931EB /* Build configuration list for PBXNativeTarget "Pods-allin" */;
@@ -356,19 +282,11 @@
 				72E614C823EA09AB1AAE80D5CD8A4C58 /* NMapsGeometry */,
 				8E049F5F4E3BDC647F924FEF22D49D90 /* NMapsMap */,
 				D6191E2C56E4F6D98A2E6EABDE2BF931 /* Pods-allin */,
-				95B0292FE5759CA204D3D8D0EC819247 /* Pods-allinW Watch App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E0F7C40EEABD9C83D8FB17E7EEE0819C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F816A7E9B952DDE8202FAF673223A999 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,14 +334,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		24CD1898F68104A8D39BBA15915D83C9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				40E9BA4D8913AED0812DF0F22550361B /* Pods-allinW Watch App-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4E062DA7D424F73336983DDD317C6A72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -619,45 +529,6 @@
 			};
 			name = Debug;
 		};
-		AE6F63A194A5BBFB1B8F0B4FEF9759FC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DCFE2D1FAECC552FEC91EE9FC693988 /* Pods-allinW Watch App.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
 		B2B0EBC99D8D14B39ADE616296FE2293 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B3425E75A71B53A505B598C7BF67205 /* Pods-allin.debug.xcconfig */;
@@ -693,44 +564,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E5CF7D5ECA60D2DBB7E06B09552FA8FC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9258A09690A905A7F3B3B7311CF87E0 /* Pods-allinW Watch App.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-allinW Watch App/Pods-allinW Watch App.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -809,15 +642,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		430BC24ADD6ADDC9D11BA76D0F177D0C /* Build configuration list for PBXNativeTarget "Pods-allinW Watch App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E5CF7D5ECA60D2DBB7E06B09552FA8FC /* Debug */,
-				AE6F63A194A5BBFB1B8F0B4FEF9759FC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

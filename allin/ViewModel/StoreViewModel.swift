@@ -34,6 +34,7 @@ final class StoreViewModel: NSObject, ObservableObject {
     enum AppState {
         case needLocationPermission
         case notKoreaLocation
+        case failLoadNaverMap
         case available
     }
     
@@ -75,13 +76,20 @@ extension StoreViewModel: CLLocationManagerDelegate {
 }
 
 extension StoreViewModel {
-    func isKoreanLocation() -> Bool {
+    private func isKoreanLocation() -> Bool {
         return Location.koreaLongitude ~= currentCoordinate.longitude && Location.koreaLatitude ~= currentCoordinate.latitude
     }
     
     private func setStoreLocation() {
         Task {
             do {
+                if isKoreanLocation() == false {
+                    DispatchQueue.main.async {
+                        self.appState = .notKoreaLocation
+                    }
+                    return
+                }
+                
                 let currentAddress = try await Address.currentAddress(longitude: self.currentCoordinate.longitude, latitude: self.currentCoordinate.latitude)
                 
                 DispatchQueue.main.async {
@@ -92,10 +100,12 @@ extension StoreViewModel {
                 
                 DispatchQueue.main.async {
                     self.storeItems = storeInformation
+                    self.appState = .available
                 }
             } catch {
-                //TODO: 에러처리
-                print(error, "에러")
+                DispatchQueue.main.async {
+                    self.appState = .failLoadNaverMap
+                }
             }
         }
     }
