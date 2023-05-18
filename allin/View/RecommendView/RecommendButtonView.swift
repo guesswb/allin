@@ -21,13 +21,12 @@ struct RecommendButtonView: View {
             viewModel.recommend()
         }, label: {
             Text(TextType.recommend)
-                .frame(maxWidth: .infinity)
                 .padding()
-                .font(.title)
+                .frame(maxWidth: .infinity)
+                .font(.title2)
                 .background(.green)
                 .cornerRadius(25)
                 .tint(.black)
         })
-        .padding(.horizontal)
     }
 }

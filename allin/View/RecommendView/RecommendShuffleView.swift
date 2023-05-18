@@ -24,6 +24,6 @@ struct RecommendShuffleView: View {
                     .minimumScaleFactor(0.1)
             }
         }
-        .padding()
+        .frame(maxHeight: .infinity)
     }
 }

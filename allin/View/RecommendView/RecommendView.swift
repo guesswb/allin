@@ -29,7 +29,6 @@ struct RecommendView: View {
                 switch viewModel.appState {
                 case .available:
                     RecommendShuffleView(viewModel: viewModel)
-                    RecommendResultView(viewModel: viewModel)
                     RecommendButtonView(viewModel: viewModel)
                 case .unavailableNetwork:
                     Text(InformationText.checkNetwork)
@@ -37,6 +36,7 @@ struct RecommendView: View {
                     Text(InformationText.unavailableTime)
                 }
             }
+            .padding()
             .frame(width: geometryReader.size.width, height: geometryReader.size.height)
         }
         .onAppear {
