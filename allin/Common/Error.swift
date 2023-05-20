@@ -29,3 +29,7 @@ enum CoreDataError: Error {
 enum DateError: Error {
     case requestRound
 }
+
+enum GeoCodeError: Error {
+    case reverseGeocode
+}

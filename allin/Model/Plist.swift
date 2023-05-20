@@ -8,18 +8,13 @@
 import Foundation
 
 struct Plist: Codable {
-    //naverCloud map
-    let NMFClientId: String
-    let NMFClientSecret: String
-    
     //naverDeveloper
     let naverClientId: String
     let naverClientSecret: String
     
     static func data() throws -> Data {
         guard let bundleURL = Bundle.main.url(forResource: "Info", withExtension: "plist"),
-              let bundleData = try? Data(contentsOf: bundleURL)
-        else {
+              let bundleData = try? Data(contentsOf: bundleURL) else {
             throw FileError.bundle
         }
         return bundleData

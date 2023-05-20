@@ -24,22 +24,35 @@ final class RecommendViewModel: ObservableObject {
     }
     
     init() {
-        Task {
-            self.winNumbers = await winNumbers()
-        }
+        configure()
+        
     }
 }
 
 extension RecommendViewModel {
-    private func winNumbers() async -> [Lottery] {
+    private func configure() {
+        checkTime()
+        
+        if appState == .unavailableTime {
+            return
+        }
+        Task {
+            let thisWeekRound = try Lottery.thisWeekRound()
+            self.winNumbers = await winNumbers(thisWeekRound: thisWeekRound)
+        }
+    }
+    
+    func checkTime() {
+        self.appState = Lottery.isAvailableTime() ? .available : .unavailableTime
+    }
+    
+    private func winNumbers(thisWeekRound: Int) async -> [Lottery] {
         do {
-            let lotteryRound = try Lottery.thisWeekRound()
-            
-            async let lotteryBeforeFiveWeeks = Lottery.request(round: lotteryRound - 5)
-            async let lotteryBeforeFourWeeks = Lottery.request(round: lotteryRound - 4)
-            async let lotteryBeforeThreeWeeks = Lottery.request(round: lotteryRound - 3)
-            async let lotteryBeforeTwoWeeks = Lottery.request(round: lotteryRound - 2)
-            async let lotteryBeforeOneWeeks = Lottery.request(round: lotteryRound - 1)
+            async let lotteryBeforeFiveWeeks = Lottery.request(round: thisWeekRound - 5)
+            async let lotteryBeforeFourWeeks = Lottery.request(round: thisWeekRound - 4)
+            async let lotteryBeforeThreeWeeks = Lottery.request(round: thisWeekRound - 3)
+            async let lotteryBeforeTwoWeeks = Lottery.request(round: thisWeekRound - 2)
+            async let lotteryBeforeOneWeeks = Lottery.request(round: thisWeekRound - 1)
 
             let lottery = try await [lotteryBeforeFiveWeeks,
                                      lotteryBeforeFourWeeks,
@@ -57,10 +70,6 @@ extension RecommendViewModel {
             }
             return []
         }
-    }
-    
-    func checkTime() {
-        self.appState = Lottery.isAvailableTime() ? .available : .unavailableTime
     }
     
     func recommend() {

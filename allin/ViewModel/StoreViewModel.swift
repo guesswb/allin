@@ -29,12 +29,13 @@ final class StoreViewModel: NSObject, ObservableObject {
     enum Location {
         static let koreaLongitude: ClosedRange = (124.0)...(132.0)
         static let koreaLatitude: ClosedRange = (33.0)...(43.0)
+        static let koreaLocale: String = "Ko-kr"
     }
     
     enum AppState {
         case needLocationPermission
         case notKoreaLocation
-        case failLoadNaverMap
+        case failToGetStore
         case available
     }
     
@@ -57,7 +58,6 @@ extension StoreViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = manager.location?.coordinate else { return }
         currentCoordinate = coordinate
-        setStoreLocation()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -76,31 +76,36 @@ extension StoreViewModel: CLLocationManagerDelegate {
 }
 
 extension StoreViewModel {
-    private func isKoreanLocation() -> Bool {
-        return Location.koreaLongitude ~= currentCoordinate.longitude && Location.koreaLatitude ~= currentCoordinate.latitude
+    private func isKoreaLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> Bool {
+        return Location.koreaLongitude ~= longitude && Location.koreaLatitude ~= latitude
     }
     
-    private func setStoreLocation() {
+    private func area(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> String {
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let geocoder = CLGeocoder()
+        let locale = Locale(identifier: Location.koreaLocale)
+        
+        guard let placemark = try? await geocoder.reverseGeocodeLocation(location, preferredLocale: locale).last,
+              let area = placemark.thoroughfare else {
+            throw GeoCodeError.reverseGeocode
+        }
+        return area
+    }
+    
+    func requestStoreLocation() {
         if storeItems.isEmpty == false {
+            return
+        }
+                
+        if isKoreaLocation(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude) == false {
+            self.appState = .notKoreaLocation
             return
         }
         
         Task {
             do {
-                if isKoreanLocation() == false {
-                    DispatchQueue.main.async {
-                        self.appState = .notKoreaLocation
-                    }
-                    return
-                }
-                
-                let currentAddress = try await Address.currentAddress(longitude: self.currentCoordinate.longitude, latitude: self.currentCoordinate.latitude)
-                
-                DispatchQueue.main.async {
-                    self.areaName = currentAddress.results[0].region.area3.name
-                }
-                
-                let storeInformation = try await Store.storeInformations(keyword: currentAddress.results[0].region.area3.name + " \(TextType.lottery)").items
+                let area = try await area(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude)
+                let storeInformation = try await Store.storeInformations(keyword: area + " " + TextType.lottery).items
                 
                 DispatchQueue.main.async {
                     self.storeItems = storeInformation
@@ -108,7 +113,7 @@ extension StoreViewModel {
                 }
             } catch {
                 DispatchQueue.main.async {
-                    self.appState = .failLoadNaverMap
+                    self.appState = .failToGetStore
                 }
             }
         }

@@ -18,13 +18,12 @@ struct StoreMoveMapButton: View {
     var body: some View {
         VStack {
             Button(TextType.moveToNaverMap) {
-                guard let url = URL(string: "nmap://") else { return }
-
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(viewModel.urlForNaverMap(isInstalled: true))
-                } else {
-                    UIApplication.shared.open(viewModel.urlForNaverMap(isInstalled: false))
-                }
+                guard let naverMapURL = URL(string: "nmap://") else { return }
+                
+                let url = UIApplication.shared.canOpenURL(naverMapURL) ?
+                viewModel.urlForNaverMap(isInstalled: true) :
+                viewModel.urlForNaverMap(isInstalled: false)
+                UIApplication.shared.open(url)
             }
             .frame(maxWidth: .infinity)
             .font(.system(size: 30))
