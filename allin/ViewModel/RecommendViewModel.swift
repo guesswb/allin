@@ -16,6 +16,7 @@ final class RecommendViewModel: ObservableObject {
     
     private var winNumbers: [Lottery] = []
     private var conditionCount: Int = 0
+    private var thisWeekRound = 0
     
     enum AppState {
         case unavailableTime
@@ -25,7 +26,6 @@ final class RecommendViewModel: ObservableObject {
     
     init() {
         configure()
-        
     }
 }
 
@@ -37,13 +37,14 @@ extension RecommendViewModel {
             return
         }
         Task {
-            let thisWeekRound = try Lottery.thisWeekRound()
+            self.thisWeekRound = try Lottery.thisWeekRound()
             self.winNumbers = await winNumbers(thisWeekRound: thisWeekRound)
         }
     }
     
     func checkTime() {
-        self.appState = Lottery.isAvailableTime() ? .available : .unavailableTime
+        let currentTime = Lottery.currentDate()
+        self.appState = Lottery.isAvailableTime(time: currentTime) ? .available : .unavailableTime
     }
     
     private func winNumbers(thisWeekRound: Int) async -> [Lottery] {
@@ -79,6 +80,7 @@ extension RecommendViewModel {
             
             if condition[1] == false && condition.filter({ $0 == false }).count == 1 {
                 recommendNumbers = randomSet
+                Lottery.storeAtFirebase(round: thisWeekRound, numbers: randomSet)
                 conditionCount = 0
                 return
             }
@@ -90,6 +92,7 @@ extension RecommendViewModel {
             
             if condition.allSatisfy({ $0 == true }) {
                 recommendNumbers = randomSet
+                Lottery.storeAtFirebase(round: thisWeekRound, numbers: randomSet)
                 conditionCount += 1
                 return
             }

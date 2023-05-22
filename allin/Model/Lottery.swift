@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import FirebaseFirestore
 
 struct Lottery: Decodable {
     var drwNo: Int16 = 0
@@ -18,11 +19,16 @@ struct Lottery: Decodable {
     var drwtNo6: Int16 = 0
     var bnusNo: Int16 = 0
 
-
     static let allNumbers: [Int] = [Int](1...45)
 
     private enum TextType {
         static let urlString: String = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="
+        
+        enum Firebase {
+            static let recommendNumbers: String = "RecommendNumbers"
+            static let round: String = "round"
+            static let numbers: String = "numbers"
+        }
     }
 
     private enum DateType {
@@ -43,53 +49,40 @@ extension Lottery {
         return daysSinceFirstDay / 7 + 1
     }
     
-    static func isAvailableTime() -> Bool {
-        let today = Calendar.current.dateComponents([.weekday, .hour], from: Date())
-        guard let weekday = today.weekday, let hour = today.hour else {
+    static func currentDate() -> DateComponents {
+        return Calendar.current.dateComponents([.weekday, .hour], from: Date())
+    }
+    
+    static func isAvailableTime(time: DateComponents) -> Bool {
+        guard let weekday = time.weekday, let hour = time.hour else {
             return false
         }
         
-        if (weekday == 7 && hour >= 20) || (weekday == 1 && hour <= 8) {
-            return false
-        }
-        
-        return true
+        return (weekday == 7 && hour >= 20) == false && (weekday == 1 && hour <= 8) == false
     }
     
     static func request(round: Int) async throws -> Lottery {
-        if let lottery = try fetchFromCoreData(round: round) {
+        if let winNumber = try WinNumber.fetch(round: round) {
+            let lottery = convertWinNumberToLottery(winNumber: winNumber)
             return lottery
         }
-
+        
         guard let url = URL(string: TextType.urlString + String(round)),
               let (data, response) = try? await URLSession.shared.data(from: url),
               let statusCode = (response as? HTTPURLResponse)?.statusCode,
               (200...299 ~= statusCode) == true else {
             throw NetworkError.response
         }
-        
+
         guard let lottery = try? JSONDecoder().decode(Lottery.self, from: data) else {
             throw JSONError.decode
         }
         
-        guard let _ = try? saveAtCoreData(lottery: lottery) else {
+        guard let _ = try? WinNumber.save(lottery: lottery) else {
             throw CoreDataError.save
         }
         
         return lottery
-    }
-    
-    static func fetchFromCoreData(round: Int) throws -> Lottery? {
-        let request = NSFetchRequest<WinNumber>(entityName: "WinNumber")
-        let context = PersistenceController.shared.container.viewContext
-        
-        let predicate = NSPredicate(format: "drwNo == %d", round)
-        request.predicate = predicate
-        
-        let result = try context.fetch(request)
-        guard let winNumber = result.filter({ $0.drwNo == round }).first else { return nil }
-        
-        return convertWinNumberToLottery(winNumber: winNumber)
     }
     
     static func convertWinNumberToLottery(winNumber: WinNumber) -> Lottery {
@@ -103,25 +96,6 @@ extension Lottery {
                        bnusNo: winNumber.bnusNo)
     }
     
-    static func saveAtCoreData(lottery: Lottery) throws {
-        let context = PersistenceController.shared.container.viewContext
-        guard let entity = NSEntityDescription.entity(forEntityName: "WinNumber", in: context) else {
-            throw CoreDataError.entity
-        }
-        
-        let object = NSManagedObject(entity: entity, insertInto: context)
-        object.setValue(lottery.drwNo, forKey: "drwNo")
-        object.setValue(lottery.bnusNo, forKey: "bnusNo")
-        object.setValue(lottery.drwtNo1, forKey: "drwtNo1")
-        object.setValue(lottery.drwtNo2, forKey: "drwtNo2")
-        object.setValue(lottery.drwtNo3, forKey: "drwtNo3")
-        object.setValue(lottery.drwtNo4, forKey: "drwtNo4")
-        object.setValue(lottery.drwtNo5, forKey: "drwtNo5")
-        object.setValue(lottery.drwtNo6, forKey: "drwtNo6")
-        
-        try context.save()
-    }
-    
     static func checkCondition(randomSet: [Int], winNumbers: [Lottery]) -> [Bool] {
         let result1 = VerifyNumber.checkPairCount(randomSet)
         let result2 = VerifyNumber.checkSum(randomSet)
@@ -131,5 +105,13 @@ extension Lottery {
         let result6 = VerifyNumber.checkLastWeeks(randomSet, winNumbers, 1, 4)
         
         return [result1, result2, result3, result4, result5, result6]
+    }
+    
+    static func storeAtFirebase(round: Int, numbers: [Int]) {
+        let db = Firestore.firestore()
+        db.collection(TextType.Firebase.recommendNumbers).addDocument(data: [
+            TextType.Firebase.round: round,
+            TextType.Firebase.numbers: numbers
+        ])
     }
 }
