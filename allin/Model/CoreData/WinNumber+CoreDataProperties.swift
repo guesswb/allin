@@ -32,11 +32,10 @@ extension WinNumber : Identifiable {
 }
 
 extension WinNumber {
-    static func fetch(round: Int) throws -> WinNumber? {
+    static func fetch(round: Int) throws -> [WinNumber] {
         let context = PersistenceController.shared.container.viewContext
         let request = WinNumber.fetchRequest()
-        
-        return try context.fetch(request).filter { $0.drwNo == round }.first
+        return try context.fetch(request)
     }
     
     static func save(lottery: Lottery) throws {

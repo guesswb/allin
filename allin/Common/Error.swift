@@ -27,7 +27,9 @@ enum CoreDataError: Error {
 }
 
 enum DateError: Error {
-    case requestRound
+    case round
+    case fetchDate
+    case unAvailableDate
 }
 
 enum GeoCodeError: Error {

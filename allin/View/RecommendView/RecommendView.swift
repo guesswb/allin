@@ -16,7 +16,7 @@ struct RecommendView: View {
     
     enum InformationText {
         static let checkNetwork: String = "Network를 확인해 주세요."
-        static let unavailableTime: String = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
+        static let unavailableDate: String = "토요일 20시 ~ 일요일 08시는 이용이 불가능합니다."
     }
     
     init(viewModel: RecommendViewModel) {
@@ -32,8 +32,8 @@ struct RecommendView: View {
                     RecommendButtonView(viewModel: viewModel)
                 case .unavailableNetwork:
                     Text(InformationText.checkNetwork)
-                case .unavailableTime:
-                    Text(InformationText.unavailableTime)
+                case .unavailableDate:
+                    Text(InformationText.unavailableDate)
                 }
             }
             .padding()
@@ -41,7 +41,7 @@ struct RecommendView: View {
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .active {
-                viewModel.checkTime()
+                viewModel.configure()
             }
         }
     }

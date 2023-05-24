@@ -14,88 +14,84 @@ final class RecommendViewModel: ObservableObject {
     
     let numbers: [Int] = Lottery.allNumbers
     
-    private var winNumbers: [Lottery] = []
-    private var conditionCount: Int = 0
     private var thisWeekRound = 0
+    private var lotteries: [Lottery] = Array(repeating: Lottery(), count: 5)
+    private var conditionCount: Int = 0
     
     enum AppState {
-        case unavailableTime
+        case unavailableDate
         case unavailableNetwork
         case available
     }
     
-    init() {
-        configure()
+    private enum DateType {
+        static let firstRound: DateComponents = DateComponents(year: 2002, month: 11, day: 30, hour: 20)
     }
 }
 
 extension RecommendViewModel {
-    private func configure() {
-        checkTime()
-        
-        if appState == .unavailableTime {
-            return
-        }
-        Task {
-            self.thisWeekRound = try Lottery.thisWeekRound()
-            self.winNumbers = await winNumbers(thisWeekRound: thisWeekRound)
-        }
-    }
-    
-    func checkTime() {
-        let currentTime = Lottery.currentDate()
-        self.appState = Lottery.isAvailableTime(time: currentTime) ? .available : .unavailableTime
-    }
-    
-    private func winNumbers(thisWeekRound: Int) async -> [Lottery] {
+    func configure() {
         do {
-            async let lotteryBeforeFiveWeeks = Lottery.request(round: thisWeekRound - 5)
-            async let lotteryBeforeFourWeeks = Lottery.request(round: thisWeekRound - 4)
-            async let lotteryBeforeThreeWeeks = Lottery.request(round: thisWeekRound - 3)
-            async let lotteryBeforeTwoWeeks = Lottery.request(round: thisWeekRound - 2)
-            async let lotteryBeforeOneWeeks = Lottery.request(round: thisWeekRound - 1)
-
-            let lottery = try await [lotteryBeforeFiveWeeks,
-                                     lotteryBeforeFourWeeks,
-                                     lotteryBeforeThreeWeeks,
-                                     lotteryBeforeTwoWeeks,
-                                     lotteryBeforeOneWeeks]
+            try checkDate()
+            try checkRound()
+            try request(round: thisWeekRound)
             
-            DispatchQueue.main.async {
-                self.appState = .available
-            }
-            return lottery
+            self.appState = .available
         } catch {
-            DispatchQueue.main.async {
+            switch error {
+            case DateError.fetchDate, DateError.unAvailableDate:
+                self.appState = .unavailableDate
+            default:
                 self.appState = .unavailableNetwork
             }
-            return []
+        }
+    }
+    
+    private func checkDate() throws {
+        let date = Calendar.current.dateComponents([.weekday, .hour], from: Date())
+        
+        guard let weekday = date.weekday, let hour = date.hour else {
+            throw DateError.fetchDate
+        }
+        
+        if (weekday == 7 && hour >= 20) == true || (weekday == 1 && hour <= 8) == true {
+            throw DateError.unAvailableDate
+        }
+    }
+    
+    private func checkRound() throws {
+        guard let date = Calendar.current.date(from: DateType.firstRound),
+              let daysSinceFirstDay = Calendar.current.dateComponents([.day], from: date, to: Date()).day else {
+            throw DateError.fetchDate
+        }
+        self.thisWeekRound = daysSinceFirstDay / 7 + 1
+    }
+    
+    private func request(round: Int) throws {
+        Task {
+            let lotteries = try await Lottery.fetchInitialLottery(round: round)
+            self.lotteries = lotteries
+            try Lottery.saveAtCoreData(lotteries: lotteries)
         }
     }
     
     func recommend() {
-        if conditionCount == 4 {
-            let randomSet = numbers.shuffled()[0...5].sorted()
-            let condition = Lottery.checkCondition(randomSet: randomSet, winNumbers: winNumbers)
-            
-            if condition[1] == false && condition.filter({ $0 == false }).count == 1 {
-                recommendNumbers = randomSet
-                Lottery.storeAtFirebase(round: thisWeekRound, numbers: randomSet)
-                conditionCount = 0
-                return
-            }
-        }
-        
         while true {
             let randomSet = numbers.shuffled()[0...5].sorted()
-            let condition = Lottery.checkCondition(randomSet: randomSet, winNumbers: winNumbers)
+            let condition = Lottery.checkCondition(randomSet: randomSet, lotteries: lotteries)
             
-            if condition.allSatisfy({ $0 == true }) {
-                recommendNumbers = randomSet
-                Lottery.storeAtFirebase(round: thisWeekRound, numbers: randomSet)
-                conditionCount += 1
-                return
+            if conditionCount < 4 && condition.allSatisfy({ $0 == true }) == false {
+                continue
             }
+            
+            if conditionCount == 4 && (condition[1] == false && condition.filter({ $0 == false }).count == 1) == false {
+                continue
+            }
+                
+            recommendNumbers = randomSet
+            Lottery.storeAtFirebase(round: thisWeekRound, numbers: randomSet)
+            conditionCount += conditionCount < 4 ? 1 : -conditionCount
+            return
         }
     }
 }

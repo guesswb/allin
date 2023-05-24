@@ -30,6 +30,7 @@ struct Store: Codable {
         }
     }
     
+    //TODO: 네트워크 분리
     static func storeInformations(keyword: String) async throws -> Store {
         guard var urlComponent = URLComponents(string: NaverCloud.Location.urlString) else {
             throw NetworkError.url

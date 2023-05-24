@@ -17,7 +17,6 @@ struct RecommendButtonView: View {
     
     var body: some View {
         Button(action: {
-            viewModel.checkTime()
             viewModel.recommend()
         }, label: {
             Text(TextType.recommend)

@@ -5,8 +5,6 @@ target 'allin' do
   use_frameworks!
 
   pod 'NMapsMap'
-  pod 'FirebaseAnalytics'
-  pod 'FirebaseFirestore'
 
   # Pods for allin
 
