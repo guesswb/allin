@@ -19,9 +19,15 @@
 		3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */; };
 		3B3F61FE2A1862DB00576093 /* allinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61FD2A1862DB00576093 /* allinTests.swift */; };
 		3B3F62392A1AF37400576093 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F62382A1AF37400576093 /* GoogleService-Info.plist */; };
+		3B42532D2A1F462100087F10 /* ChartResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42532C2A1F462100087F10 /* ChartResult.swift */; };
 		3B5587262A1DAD2E001735FD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587252A1DAD2E001735FD /* FirebaseAnalytics */; };
 		3B5587282A1DAD2E001735FD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587272A1DAD2E001735FD /* FirebaseFirestore */; };
 		3B55872A2A1DAD2E001735FD /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587292A1DAD2E001735FD /* FirebaseFunctions */; };
+		3B55872D2A1F1CC7001735FD /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55872C2A1F1CC7001735FD /* ChartView.swift */; };
+		3B55872F2A1F1DDD001735FD /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */; };
+		3B5587312A1F2272001735FD /* CircleChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5587302A1F2272001735FD /* CircleChart.swift */; };
+		3B5587332A1F22A7001735FD /* OtherCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5587322A1F22A7001735FD /* OtherCharts.swift */; };
+		3B5587352A1F2771001735FD /* CircleSliceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5587342A1F2771001735FD /* CircleSliceChart.swift */; };
 		3B57A56829A838F9000C110A /* allinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56729A838F9000C110A /* allinApp.swift */; };
 		3B57A56A29A838F9000C110A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A56929A838F9000C110A /* ContentView.swift */; };
 		3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B57A56B29A838FA000C110A /* Assets.xcassets */; };
@@ -76,6 +82,12 @@
 		3B3F61FB2A1862DB00576093 /* allinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = allinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3F61FD2A1862DB00576093 /* allinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinTests.swift; sourceTree = "<group>"; };
 		3B3F62382A1AF37400576093 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B42532C2A1F462100087F10 /* ChartResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartResult.swift; sourceTree = "<group>"; };
+		3B55872C2A1F1CC7001735FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		3B5587302A1F2272001735FD /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
+		3B5587322A1F22A7001735FD /* OtherCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCharts.swift; sourceTree = "<group>"; };
+		3B5587342A1F2771001735FD /* CircleSliceChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSliceChart.swift; sourceTree = "<group>"; };
 		3B57A56429A838F9000C110A /* allin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = allin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B57A56729A838F9000C110A /* allinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinApp.swift; sourceTree = "<group>"; };
 		3B57A56929A838F9000C110A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,6 +176,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3B55872B2A1F1CB7001735FD /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				3B55872C2A1F1CC7001735FD /* ChartView.swift */,
+				3B5587302A1F2272001735FD /* CircleChart.swift */,
+				3B5587342A1F2771001735FD /* CircleSliceChart.swift */,
+				3B5587322A1F22A7001735FD /* OtherCharts.swift */,
+				3B42532C2A1F462100087F10 /* ChartResult.swift */,
+			);
+			path = ChartView;
+			sourceTree = "<group>";
+		};
 		3B57A55B29A838F9000C110A = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +239,7 @@
 		3B57A58729A8396B000C110A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B55872B2A1F1CB7001735FD /* ChartView */,
 				3B57A5B729AB4465000C110A /* StoreView */,
 				3B57A5B329AA50A8000C110A /* RecommendView */,
 			);
@@ -226,6 +251,7 @@
 			children = (
 				3B57A58929A83987000C110A /* RecommendViewModel.swift */,
 				3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */,
+				3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -443,18 +469,24 @@
 				3B3F61D12A1325F200576093 /* PersistenceController.swift in Sources */,
 				3B57A56A29A838F9000C110A /* ContentView.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
+				3B5587352A1F2771001735FD /* CircleSliceChart.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */,
 				3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */,
 				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
+				3B55872F2A1F1DDD001735FD /* ChartViewModel.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
+				3B5587332A1F22A7001735FD /* OtherCharts.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */,
+				3B55872D2A1F1CC7001735FD /* ChartView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
 				3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */,
 				3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
+				3B5587312A1F2272001735FD /* CircleChart.swift in Sources */,
+				3B42532D2A1F462100087F10 /* ChartResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +515,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kim.allinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -505,7 +539,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kim.allinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -644,12 +680,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -682,12 +718,12 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

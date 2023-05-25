@@ -16,10 +16,6 @@ struct StoreView: View {
         static let failToGetStore: String = "주변 복권점을 불러오는데 실패했습니다."
     }
     
-    init(viewModel: StoreViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
-    
     var body: some View {
         VStack {
             switch viewModel.appState {
