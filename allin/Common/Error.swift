@@ -35,3 +35,7 @@ enum DateError: Error {
 enum GeoCodeError: Error {
     case reverseGeocode
 }
+
+enum FirebaseError: Error {
+    case noDocument
+}

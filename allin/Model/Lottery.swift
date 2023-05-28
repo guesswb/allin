@@ -29,13 +29,26 @@ struct Lottery: Decodable {
             static let recommendNumber: String = "RecommendNumber"
             static let round: String = "round"
             static let numbers: String = "numbers"
+            static let winResult: String = "WinResult"
         }
+    }
+    
+    private enum DateType {
+        static let firstRound: DateComponents = DateComponents(year: 2002, month: 11, day: 30, hour: 20)
     }
 }
 
 extension Lottery {
     func winNumbers() -> [Int] {
         return [drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6].map { Int($0) }
+    }
+    
+    static func thisWeekRound() throws -> Int {
+        guard let date = Calendar.current.date(from: DateType.firstRound),
+              let daysSinceFirstDay = Calendar.current.dateComponents([.day], from: date, to: Date()).day else {
+            throw DateError.fetchDate
+        }
+        return daysSinceFirstDay / 7 + 1
     }
     
     static func fetchInitialLottery(round: Int) async throws -> [Lottery] {
@@ -106,5 +119,25 @@ extension Lottery {
             .addDocument(data: [
                 TextType.Firebase.numbers: numbers
         ])
+    }
+    
+    static func requestToFireStore(round: Int) async throws -> [[Double]] {
+        let db = Firestore.firestore()
+        let snapshot = try await db.collection(TextType.Firebase.winResult)
+            .whereField("round", in: [Int](0..<4).map { "\(round - $0)" })
+            .getDocuments()
+        let documents = snapshot.documents.reversed()
+        
+        if documents.count == 0 {
+            throw FirebaseError.noDocument
+        }
+        
+        let result = documents.map { document -> [Double] in
+            guard let data = document.data() as? [String: String],
+                  let numbers = data["result"]?.split(separator: ",").compactMap({ Double($0) })
+            else { return [] }
+            return numbers
+        }
+        return result
     }
 }

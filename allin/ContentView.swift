@@ -11,11 +11,13 @@ struct ContentView: View {
     
     private enum TabItem {
         enum Text {
+            static let result: String = "결과"
             static let recommend: String = "추첨"
             static let store: String = "판매점"
         }
         
         enum Image {
+            static let result: String = "chart.pie"
             static let recommend: String = "questionmark"
             static let store: String = "map"
         }
@@ -23,6 +25,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            ChartView(viewModel: ChartViewModel()).tabItem {
+                Label(TabItem.Text.result, systemImage: TabItem.Image.result)
+            }
             RecommendView(viewModel: RecommendViewModel()).tabItem {
                 Label(TabItem.Text.recommend, systemImage: TabItem.Image.recommend)
             }

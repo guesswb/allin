@@ -23,17 +23,13 @@ final class RecommendViewModel: ObservableObject {
         case unavailableNetwork
         case available
     }
-    
-    private enum DateType {
-        static let firstRound: DateComponents = DateComponents(year: 2002, month: 11, day: 30, hour: 20)
-    }
 }
 
 extension RecommendViewModel {
     func configure() {
         do {
             try checkDate()
-            try checkRound()
+            self.thisWeekRound = try Lottery.thisWeekRound()
             try request(round: thisWeekRound)
             
             self.appState = .available
@@ -57,14 +53,6 @@ extension RecommendViewModel {
         if (weekday == 7 && hour >= 20) == true || (weekday == 1 && hour <= 8) == true {
             throw DateError.unAvailableDate
         }
-    }
-    
-    private func checkRound() throws {
-        guard let date = Calendar.current.date(from: DateType.firstRound),
-              let daysSinceFirstDay = Calendar.current.dateComponents([.day], from: date, to: Date()).day else {
-            throw DateError.fetchDate
-        }
-        self.thisWeekRound = daysSinceFirstDay / 7 + 1
     }
     
     private func request(round: Int) throws {

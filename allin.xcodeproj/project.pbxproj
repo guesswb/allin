@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B15CB9C2A22729F00C864EF /* ChartPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CB9B2A22729F00C864EF /* ChartPicker.swift */; };
+		3B15CBA02A22DC3100C864EF /* CircleSliceChartText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CB9F2A22DC3100C864EF /* CircleSliceChartText.swift */; };
+		3B15CBA32A22F27A00C864EF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CBA22A22F27A00C864EF /* ToastView.swift */; };
 		3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */; };
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
@@ -69,6 +72,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B15CB9B2A22729F00C864EF /* ChartPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPicker.swift; sourceTree = "<group>"; };
+		3B15CB9F2A22DC3100C864EF /* CircleSliceChartText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSliceChartText.swift; sourceTree = "<group>"; };
+		3B15CBA22A22F27A00C864EF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationSettingButton.swift; sourceTree = "<group>"; };
 		3B32C5AC29CDB292009D336F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
@@ -180,8 +186,10 @@
 			isa = PBXGroup;
 			children = (
 				3B55872C2A1F1CC7001735FD /* ChartView.swift */,
+				3B15CB9B2A22729F00C864EF /* ChartPicker.swift */,
 				3B5587302A1F2272001735FD /* CircleChart.swift */,
 				3B5587342A1F2771001735FD /* CircleSliceChart.swift */,
+				3B15CB9F2A22DC3100C864EF /* CircleSliceChartText.swift */,
 				3B5587322A1F22A7001735FD /* OtherCharts.swift */,
 				3B42532C2A1F462100087F10 /* ChartResult.swift */,
 			);
@@ -240,8 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				3B55872B2A1F1CB7001735FD /* ChartView */,
-				3B57A5B729AB4465000C110A /* StoreView */,
 				3B57A5B329AA50A8000C110A /* RecommendView */,
+				3B57A5B729AB4465000C110A /* StoreView */,
+				3B15CBA22A22F27A00C864EF /* ToastView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,9 +258,9 @@
 		3B57A58829A83973000C110A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */,
 				3B57A58929A83987000C110A /* RecommendViewModel.swift */,
 				3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */,
-				3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,9 +279,9 @@
 		3B57A5B329AA50A8000C110A /* RecommendView */ = {
 			isa = PBXGroup;
 			children = (
+				3B57A5B429AA50DB000C110A /* RecommendView.swift */,
 				3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */,
 				3B57A59C29A8DAC7000C110A /* RecommendButtonView.swift */,
-				3B57A5B429AA50DB000C110A /* RecommendView.swift */,
 			);
 			path = RecommendView;
 			sourceTree = "<group>";
@@ -473,12 +482,15 @@
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
 				3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */,
 				3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */,
+				3B15CB9C2A22729F00C864EF /* ChartPicker.swift in Sources */,
 				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
+				3B15CBA02A22DC3100C864EF /* CircleSliceChartText.swift in Sources */,
 				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
 				3B55872F2A1F1DDD001735FD /* ChartViewModel.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
 				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
 				3B5587332A1F22A7001735FD /* OtherCharts.swift in Sources */,
+				3B15CBA32A22F27A00C864EF /* ToastView.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */,
 				3B55872D2A1F1CC7001735FD /* ChartView.swift in Sources */,
