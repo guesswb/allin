@@ -1,5 +1,5 @@
 //
-//  CoreData.swift
+//  CoreDataManager.swift
 //  allin
 //
 //  Created by 김기훈 on 2023/05/16.
@@ -8,9 +8,9 @@
 import Foundation
 import CoreData
 
-struct PersistenceController {
+final class CoreDataManager {
     
-    static let shared = PersistenceController()
+    static let shared = CoreDataManager()
     
     let container: NSPersistentContainer
     

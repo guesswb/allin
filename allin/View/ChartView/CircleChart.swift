@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CircleChart: View {
     
-    var values: [Double]
+    var result: RecommendedResult
     
     struct CircleSliceData {
         var startAngle: Angle
@@ -19,16 +19,16 @@ struct CircleChart: View {
     }
     
     var slices: [CircleSliceData] {
-        let sum = values.reduce(0, +)
+        let sum = result.allCaseCount
         var endDeg: Double = 0
         var tempSlices: [CircleSliceData] = []
-
-        for (index, value) in values.enumerated() {
+        
+        for (index, value) in result.allCase.enumerated() {
             let degrees: Double = value * 360 / sum
             tempSlices.append(CircleSliceData(
                 startAngle: Angle(degrees: endDeg),
                 endAngle: Angle(degrees: endDeg + degrees),
-                text: self.values[index] != 0 ? "\(ChartView.ChartSource.Text.rank[index])\n\(self.values[index])%" : "",
+                text: value != 0 ? "\(ChartView.ChartSource.Text.rank[index])\n" + String(format: "%.2f", value/result.allCaseCount * 100) + "%" : "",
                 color: Color(ChartView.ChartSource.Color.colors[index])))
             endDeg += degrees
         }

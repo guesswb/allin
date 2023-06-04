@@ -25,13 +25,30 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            ChartView(viewModel: ChartViewModel()).tabItem {
+            ChartView(viewModel: ChartViewModel(
+                service: ChartService(
+                    recommendedResultRepository: RecommendedResultRepository())
+                )
+            )
+            .tabItem {
                 Label(TabItem.Text.result, systemImage: TabItem.Image.result)
             }
-            RecommendView(viewModel: RecommendViewModel()).tabItem {
+            RecommendView(viewModel: RecommendViewModel(
+                service: RecommendService(
+                    winNumberRepository: WinNumberEntityRepository(),
+                    recommendNumberRepository: RecommendNumberRepository())
+                )
+            )
+            .tabItem {
                 Label(TabItem.Text.recommend, systemImage: TabItem.Image.recommend)
             }
-            StoreView(viewModel: StoreViewModel()).tabItem {
+            StoreView(viewModel: StoreViewModel(
+                service: StoreService(
+                    storeRepository: StoreRepository(),
+                    plistRepository: PlistRepository())
+                )
+            )
+            .tabItem {
                 Label(TabItem.Text.store, systemImage: TabItem.Image.store)
             }
         }

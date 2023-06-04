@@ -63,7 +63,7 @@ struct ToastModifier: ViewModifier {
         if let toast = toast {
             VStack {
                 Spacer()
-                ToastView(title: toast.title, message: toast.message)
+                ToastView(type: toast.type, title: toast.title, message: toast.message)
             }
             .transition(.move(edge: .bottom))
         }
@@ -104,6 +104,7 @@ extension View {
 
 struct ToastView: View {
     
+    let type: ToastStyle
     let title: String
     let message: String
     
@@ -113,6 +114,7 @@ struct ToastView: View {
             Text(message)
                 .font(.system(size: 12))
         }
+        .foregroundColor(type.themeColor)
         .frame(minWidth: 0, maxWidth: .infinity)
         .padding()
         .background(.gray.opacity(0.4))

@@ -6,44 +6,55 @@
 //
 
 import Foundation
+import Combine
 
 final class ChartViewModel: ObservableObject {
-    @Published var lotteryRound: [Int] = []
-    @Published var lotteryResult: [[Double]] = []
-    @Published var isLastPage: Bool = false
     
-    private var thisWeekRound: Int = 0
+    @Published var recommendedResult: [RecommendedResult] = []
+    @Published var fetchDataStatus: FetchDataStatus = .success
+    
+    private let service: ChartService
+    private var thisWeekRound: Int?
+    private var cancellables = Set<AnyCancellable>()
+    
+    enum FetchDataStatus {
+        case success
+        case lastPage
+        case failFetch
+    }
         
-    init() {
-        configure()
+    init(service: ChartService) {
+        self.service = service
+        self.thisWeekRound = try? Date.thisWeekRound()
     }
 }
 
 extension ChartViewModel {
-    private func configure() {
-        do {
-            self.thisWeekRound = try Lottery.thisWeekRound()
-        } catch {
-            
-        }
-    }
-    
-    func request() async {
-        do {
-            let round = lotteryRound.isEmpty ? thisWeekRound - 1 : lotteryRound[lotteryRound.count - 1] - 1
-            let numbers = try await Lottery.requestToFireStore(round: round)
-            let rounds = [Int](0..<numbers.count).map { round - $0 }
-            
-            DispatchQueue.main.async {
-                self.lotteryRound += rounds
-                self.lotteryResult += numbers
-            }
-        } catch {
-            print(error)
-            DispatchQueue.main.async {
-                self.isLastPage = true
-            }
-        }
+    func request() {
+        guard let thisWeekRound = thisWeekRound else { return }
         
+        let beginRound = recommendedResult.isEmpty ? thisWeekRound - 1 : recommendedResult[recommendedResult.count - 1].round - 1
+        
+        Task { [weak self] in
+            
+            guard let self = self else { return }
+            
+            do {
+                let recommendedResult = try await self.service.requestRecommendedResult(beginRound: beginRound)
+                
+                await MainActor.run {
+                    self.recommendedResult += recommendedResult
+                    self.fetchDataStatus = .success
+                }
+            } catch {
+                await MainActor.run {
+                    switch error {
+                    case FirebaseError.fetch: self.fetchDataStatus = .failFetch
+                    case FirebaseError.noDocument: self.fetchDataStatus = .lastPage
+                    default: return
+                    }
+                }
+            }
+        }
     }
 }

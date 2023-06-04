@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-
-
+import Combine
 
 struct ChartView: View {
     
     @StateObject var viewModel: ChartViewModel
+    
     @State private var chartStyle: ChartSource.Style = .circle
     @State private var toast: Toast? = nil
 
@@ -35,8 +35,7 @@ struct ChartView: View {
     struct ChartResultData {
         var colors: [UIColor]
         var names: [String]
-        var values: [Double]
-        var sumValues: Double
+        var result: RecommendedResult
     }
     
     var body: some View {
@@ -45,37 +44,40 @@ struct ChartView: View {
     
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(0..<viewModel.lotteryRound.count, id: \.self) { index in
-                        Text("\(viewModel.lotteryRound[index])회")
+                    ForEach(viewModel.recommendedResult, id: \.id) { result in
+                        Text("\(result.round)회")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .font(.largeTitle)
                         
                         switch chartStyle {
-                        case .circle: CircleChart(values: viewModel.lotteryResult[index])
-                        default: OtherCharts(values: viewModel.lotteryResult[index], chartStyle: chartStyle)
+                        case .circle: CircleChart(result: result)
+                        default: OtherCharts(result: result, chartStyle: chartStyle)
                         }
-                        
+
                         ChartResult(chartResults: ChartResultData(
                             colors: ChartSource.Color.colors,
                             names: ChartSource.Text.rank,
-                            values: viewModel.lotteryResult[index],
-                            sumValues: viewModel.lotteryResult[index].reduce(0, +)))
+                            result: result))
                     }
                     
                     LazyVStack {
-                        if viewModel.isLastPage == false {
+                        if viewModel.fetchDataStatus != .lastPage {
                             ProgressView()
                                 .onAppear {
-                                    Task {
-                                        await viewModel.request()
-                                        toast = viewModel.isLastPage ? Toast(type: .info, title: "!", message: "마지막 페이지입니다.") : nil
-                                    }
+                                    viewModel.request()
                                 }
                         }
                     }
                 }
             }
             .shadow(radius: 10)
+            .onReceive(viewModel.$fetchDataStatus) { status in
+                switch status {
+                case .failFetch: toast = Toast(type: .error, title: "!", message: "데이터를 불러오는데 실패했습니다.")
+                case .success: toast = nil
+                case .lastPage: toast = Toast(type: .info, title: "!", message: "마지막 페이지입니다.")
+                }
+            }
             .toastView(toast: $toast)
         }
         .padding()
@@ -84,6 +86,6 @@ struct ChartView: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView(viewModel: ChartViewModel())
+        ChartView(viewModel: ChartViewModel(service: ChartService(recommendedResultRepository: RecommendedResultRepository())))
     }
 }

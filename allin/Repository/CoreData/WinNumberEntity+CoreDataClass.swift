@@ -9,8 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(WinNumber)
-public class WinNumber: NSManagedObject {
+@objc(WinNumberEntity)
+public class WinNumberEntity: NSManagedObject {
 
 }
 

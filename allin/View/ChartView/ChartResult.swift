@@ -13,7 +13,7 @@ struct ChartResult: View {
     
     var body: some View {
         VStack {
-            ForEach(0..<chartResults.values.count, id: \.self) { index in
+            ForEach(0..<8, id: \.self) { index in
                 HStack {
                     RoundedRectangle(cornerRadius: 5.0)
                         .fill(Color(chartResults.colors[index]))
@@ -23,8 +23,8 @@ struct ChartResult: View {
                     Spacer()
                     
                     VStack(alignment: .trailing) {
-                        Text("\(Int(chartResults.values[index]))")
-                        Text(String(format: "%.2f", chartResults.values[index] / chartResults.sumValues * 100) + "%")
+                        Text("\(Int(chartResults.result.allCase[index]))")
+                        Text(String(format: "%.2f", chartResults.result.allCase[index] / chartResults.result.allCaseCount * 100) + "%")
                             .foregroundColor(Color.gray)
                     }
                 }

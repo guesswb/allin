@@ -15,14 +15,32 @@
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
 		3B32C5B329CDBF94009D336F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3B32C5B229CDBF94009D336F /* README.md */; };
 		3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */; };
-		3B3F61D12A1325F200576093 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61D02A1325F200576093 /* PersistenceController.swift */; };
-		3B3F61E12A13661800576093 /* Lottery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E02A13661800576093 /* Lottery.swift */; };
+		3B3F61D12A1325F200576093 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61D02A1325F200576093 /* CoreDataManager.swift */; };
+		3B3F61E12A13661800576093 /* WinNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E02A13661800576093 /* WinNumber.swift */; };
 		3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E92A14644800576093 /* Model.xcdatamodeld */; };
-		3B3F61F42A14C08E00576093 /* WinNumber+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */; };
-		3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */; };
 		3B3F61FE2A1862DB00576093 /* allinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61FD2A1862DB00576093 /* allinTests.swift */; };
 		3B3F62392A1AF37400576093 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F62382A1AF37400576093 /* GoogleService-Info.plist */; };
 		3B42532D2A1F462100087F10 /* ChartResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42532C2A1F462100087F10 /* ChartResult.swift */; };
+		3B4C86632A27418A001C732D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86622A27418A001C732D /* NetworkManager.swift */; };
+		3B4C86692A274706001C732D /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86682A274706001C732D /* Requestable.swift */; };
+		3B4C866D2A274F48001C732D /* WinNumberRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C866C2A274F48001C732D /* WinNumberRequest.swift */; };
+		3B4C866F2A274F59001C732D /* StoreRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C866E2A274F59001C732D /* StoreRequest.swift */; };
+		3B4C86732A2754A6001C732D /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86722A2754A6001C732D /* URLConstants.swift */; };
+		3B4C86752A276F2B001C732D /* ChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86742A276F2B001C732D /* ChartService.swift */; };
+		3B4C86772A2792A7001C732D /* RecommendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86762A2792A7001C732D /* RecommendService.swift */; };
+		3B4C86792A2792B4001C732D /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86782A2792B4001C732D /* StoreService.swift */; };
+		3B4C867B2A280FE2001C732D /* RecommendedResultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C867A2A280FE2001C732D /* RecommendedResultRepository.swift */; };
+		3B4C867D2A280FF4001C732D /* RecommendNumberRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C867C2A280FF4001C732D /* RecommendNumberRepository.swift */; };
+		3B4C867F2A281007001C732D /* WinNumberEntityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C867E2A281007001C732D /* WinNumberEntityRepository.swift */; };
+		3B4C86812A281018001C732D /* StoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86802A281018001C732D /* StoreRepository.swift */; };
+		3B4C86832A281110001C732D /* RecommendedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86822A28110F001C732D /* RecommendedResult.swift */; };
+		3B4C868E2A281CCB001C732D /* RecommendNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C868D2A281CCB001C732D /* RecommendNumber.swift */; };
+		3B4C86902A283758001C732D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C868F2A283758001C732D /* Date.swift */; };
+		3B4C86952A285CB0001C732D /* PlistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86942A285CB0001C732D /* PlistRepository.swift */; };
+		3B4C86982A286478001C732D /* WinNumberEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86962A286478001C732D /* WinNumberEntity+CoreDataClass.swift */; };
+		3B4C86992A286478001C732D /* WinNumberEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86972A286478001C732D /* WinNumberEntity+CoreDataProperties.swift */; };
+		3B4C869F2A29DA9E001C732D /* NaverDeveloper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */; };
+		3B4C86A12A29DAC5001C732D /* NaverCloudPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */; };
 		3B5587262A1DAD2E001735FD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587252A1DAD2E001735FD /* FirebaseAnalytics */; };
 		3B5587282A1DAD2E001735FD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587272A1DAD2E001735FD /* FirebaseFirestore */; };
 		3B55872A2A1DAD2E001735FD /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587292A1DAD2E001735FD /* FirebaseFunctions */; };
@@ -41,10 +59,8 @@
 		3B57A5B929AB447E000C110A /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5B829AB447E000C110A /* StoreView.swift */; };
 		3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */; };
 		3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */; };
-		3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B57A5C329ACCCF4000C110A /* Plist.swift */; };
 		3B7A5F922A0D2EA6005EF556 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */; };
 		3B878C1A29AE30FC00846742 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1929AE30FC00846742 /* Store.swift */; };
-		3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */; };
 		4B98588B22FE17378781C7FE /* Pods_allin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A67059F7B17EEAC59200731 /* Pods_allin.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,15 +96,33 @@
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
 		3B32C5B229CDBF94009D336F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B3F61CA2A10DDF800576093 /* RecommendShuffleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendShuffleView.swift; sourceTree = "<group>"; };
-		3B3F61D02A1325F200576093 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		3B3F61E02A13661800576093 /* Lottery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottery.swift; sourceTree = "<group>"; };
+		3B3F61D02A1325F200576093 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3B3F61E02A13661800576093 /* WinNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinNumber.swift; sourceTree = "<group>"; };
 		3B3F61EA2A14644800576093 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WinNumber+CoreDataClass.swift"; path = "allin/Model/CoreData/WinNumber+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WinNumber+CoreDataProperties.swift"; path = "allin/Model/CoreData/WinNumber+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		3B3F61FB2A1862DB00576093 /* allinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = allinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3F61FD2A1862DB00576093 /* allinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinTests.swift; sourceTree = "<group>"; };
 		3B3F62382A1AF37400576093 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B42532C2A1F462100087F10 /* ChartResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartResult.swift; sourceTree = "<group>"; };
+		3B4C86622A27418A001C732D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3B4C86682A274706001C732D /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
+		3B4C866C2A274F48001C732D /* WinNumberRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinNumberRequest.swift; sourceTree = "<group>"; };
+		3B4C866E2A274F59001C732D /* StoreRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRequest.swift; sourceTree = "<group>"; };
+		3B4C86722A2754A6001C732D /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		3B4C86742A276F2B001C732D /* ChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartService.swift; sourceTree = "<group>"; };
+		3B4C86762A2792A7001C732D /* RecommendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendService.swift; sourceTree = "<group>"; };
+		3B4C86782A2792B4001C732D /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
+		3B4C867A2A280FE2001C732D /* RecommendedResultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResultRepository.swift; sourceTree = "<group>"; };
+		3B4C867C2A280FF4001C732D /* RecommendNumberRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendNumberRepository.swift; sourceTree = "<group>"; };
+		3B4C867E2A281007001C732D /* WinNumberEntityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinNumberEntityRepository.swift; sourceTree = "<group>"; };
+		3B4C86802A281018001C732D /* StoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRepository.swift; sourceTree = "<group>"; };
+		3B4C86822A28110F001C732D /* RecommendedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResult.swift; sourceTree = "<group>"; };
+		3B4C868D2A281CCB001C732D /* RecommendNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendNumber.swift; sourceTree = "<group>"; };
+		3B4C868F2A283758001C732D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3B4C86942A285CB0001C732D /* PlistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistRepository.swift; sourceTree = "<group>"; };
+		3B4C86962A286478001C732D /* WinNumberEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WinNumberEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3B4C86972A286478001C732D /* WinNumberEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WinNumberEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverDeveloper.swift; sourceTree = "<group>"; };
+		3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverCloudPlatform.swift; sourceTree = "<group>"; };
 		3B55872C2A1F1CC7001735FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		3B5587302A1F2272001735FD /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
@@ -106,10 +140,8 @@
 		3B57A5B829AB447E000C110A /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMapView.swift; sourceTree = "<group>"; };
 		3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
-		3B57A5C329ACCCF4000C110A /* Plist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 		3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3B878C1929AE30FC00846742 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMoveMapButton.swift; sourceTree = "<group>"; };
 		5A67059F7B17EEAC59200731 /* Pods_allin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		831602C99178572D30E71C84 /* Pods-allin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-allin.debug.xcconfig"; path = "Target Support Files/Pods-allin/Pods-allin.debug.xcconfig"; sourceTree = "<group>"; };
 		A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_allinW_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,8 +173,10 @@
 		3B32C5AE29CDB767009D336F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3B4C86912A28376F001C732D /* Extension */,
 				3B32C5AC29CDB292009D336F /* Error.swift */,
 				3B32C5AF29CDB794009D336F /* Verify.swift */,
+				3B4C86722A2754A6001C732D /* URLConstants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -150,19 +184,12 @@
 		3B3F61CF2A1325E000576093 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3B3F61D02A1325F200576093 /* PersistenceController.swift */,
+				3B4C86742A276F2B001C732D /* ChartService.swift */,
+				3B4C86762A2792A7001C732D /* RecommendService.swift */,
+				3B4C86782A2792B4001C732D /* StoreService.swift */,
+				3B57A58C29A83994000C110A /* Model */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		3B3F61F62A14C54900576093 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				3B3F61F22A14C08E00576093 /* WinNumber+CoreDataClass.swift */,
-				3B3F61F32A14C08E00576093 /* WinNumber+CoreDataProperties.swift */,
-				3B3F61E92A14644800576093 /* Model.xcdatamodeld */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		3B3F61FC2A1862DB00576093 /* allinTests */ = {
@@ -180,6 +207,50 @@
 				A05396CF68DEFBA21971A12A /* Pods_allinW_Watch_App.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B4C865F2A273E3A001C732D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C867A2A280FE2001C732D /* RecommendedResultRepository.swift */,
+				3B4C867E2A281007001C732D /* WinNumberEntityRepository.swift */,
+				3B4C867C2A280FF4001C732D /* RecommendNumberRepository.swift */,
+				3B4C86802A281018001C732D /* StoreRepository.swift */,
+				3B4C86942A285CB0001C732D /* PlistRepository.swift */,
+				3B4C86602A273E44001C732D /* Network */,
+				3B4C86612A273E4A001C732D /* CoreData */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		3B4C86602A273E44001C732D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C86622A27418A001C732D /* NetworkManager.swift */,
+				3B4C86682A274706001C732D /* Requestable.swift */,
+				3B4C866C2A274F48001C732D /* WinNumberRequest.swift */,
+				3B4C866E2A274F59001C732D /* StoreRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3B4C86612A273E4A001C732D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3B3F61D02A1325F200576093 /* CoreDataManager.swift */,
+				3B4C86962A286478001C732D /* WinNumberEntity+CoreDataClass.swift */,
+				3B4C86972A286478001C732D /* WinNumberEntity+CoreDataProperties.swift */,
+				3B3F61E92A14644800576093 /* Model.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		3B4C86912A28376F001C732D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C868F2A283758001C732D /* Date.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		3B55872B2A1F1CB7001735FD /* ChartView */ = {
@@ -227,8 +298,8 @@
 				3B57A56929A838F9000C110A /* ContentView.swift */,
 				3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */,
 				3B32C5AE29CDB767009D336F /* Common */,
+				3B4C865F2A273E3A001C732D /* Repository */,
 				3B3F61CF2A1325E000576093 /* Service */,
-				3B57A58C29A83994000C110A /* Model */,
 				3B57A58829A83973000C110A /* ViewModel */,
 				3B57A58729A8396B000C110A /* View */,
 				3B57A56D29A838FA000C110A /* Preview Content */,
@@ -268,10 +339,12 @@
 		3B57A58C29A83994000C110A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B3F61F62A14C54900576093 /* CoreData */,
-				3B57A5C329ACCCF4000C110A /* Plist.swift */,
+				3B4C86822A28110F001C732D /* RecommendedResult.swift */,
+				3B4C868D2A281CCB001C732D /* RecommendNumber.swift */,
+				3B3F61E02A13661800576093 /* WinNumber.swift */,
 				3B878C1929AE30FC00846742 /* Store.swift */,
-				3B3F61E02A13661800576093 /* Lottery.swift */,
+				3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */,
+				3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,7 +364,6 @@
 			children = (
 				3B57A5B829AB447E000C110A /* StoreView.swift */,
 				3B57A5BF29AB7A1E000C110A /* StoreMapView.swift */,
-				3B878C1B29AE4CC000846742 /* StoreMoveMapButton.swift */,
 				3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */,
 			);
 			path = StoreView;
@@ -471,32 +543,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B32C5AD29CDB292009D336F /* Error.swift in Sources */,
-				3B3F61F42A14C08E00576093 /* WinNumber+CoreDataClass.swift in Sources */,
+				3B4C866D2A274F48001C732D /* WinNumberRequest.swift in Sources */,
+				3B4C868E2A281CCB001C732D /* RecommendNumber.swift in Sources */,
 				3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */,
-				3B3F61E12A13661800576093 /* Lottery.swift in Sources */,
+				3B3F61E12A13661800576093 /* WinNumber.swift in Sources */,
 				3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */,
-				3B3F61D12A1325F200576093 /* PersistenceController.swift in Sources */,
+				3B3F61D12A1325F200576093 /* CoreDataManager.swift in Sources */,
 				3B57A56A29A838F9000C110A /* ContentView.swift in Sources */,
 				3B57A5B529AA50DB000C110A /* RecommendView.swift in Sources */,
+				3B4C86832A281110001C732D /* RecommendedResult.swift in Sources */,
 				3B5587352A1F2771001735FD /* CircleSliceChart.swift in Sources */,
+				3B4C86A12A29DAC5001C732D /* NaverCloudPlatform.swift in Sources */,
+				3B4C86692A274706001C732D /* Requestable.swift in Sources */,
+				3B4C869F2A29DA9E001C732D /* NaverDeveloper.swift in Sources */,
 				3B57A58A29A83987000C110A /* RecommendViewModel.swift in Sources */,
+				3B4C86992A286478001C732D /* WinNumberEntity+CoreDataProperties.swift in Sources */,
+				3B4C86792A2792B4001C732D /* StoreService.swift in Sources */,
+				3B4C86902A283758001C732D /* Date.swift in Sources */,
 				3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */,
-				3B3F61F52A14C08F00576093 /* WinNumber+CoreDataProperties.swift in Sources */,
+				3B4C86632A27418A001C732D /* NetworkManager.swift in Sources */,
 				3B15CB9C2A22729F00C864EF /* ChartPicker.swift in Sources */,
-				3B878C1C29AE4CC000846742 /* StoreMoveMapButton.swift in Sources */,
+				3B4C867B2A280FE2001C732D /* RecommendedResultRepository.swift in Sources */,
 				3B15CBA02A22DC3100C864EF /* CircleSliceChartText.swift in Sources */,
-				3B57A5C429ACCCF4000C110A /* Plist.swift in Sources */,
+				3B4C867D2A280FF4001C732D /* RecommendNumberRepository.swift in Sources */,
 				3B55872F2A1F1DDD001735FD /* ChartViewModel.swift in Sources */,
 				3B57A56829A838F9000C110A /* allinApp.swift in Sources */,
+				3B4C867F2A281007001C732D /* WinNumberEntityRepository.swift in Sources */,
 				3B32C5B029CDB794009D336F /* Verify.swift in Sources */,
 				3B5587332A1F22A7001735FD /* OtherCharts.swift in Sources */,
+				3B4C86732A2754A6001C732D /* URLConstants.swift in Sources */,
+				3B4C866F2A274F59001C732D /* StoreRequest.swift in Sources */,
 				3B15CBA32A22F27A00C864EF /* ToastView.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */,
+				3B4C86952A285CB0001C732D /* PlistRepository.swift in Sources */,
+				3B4C86812A281018001C732D /* StoreRepository.swift in Sources */,
+				3B4C86752A276F2B001C732D /* ChartService.swift in Sources */,
 				3B55872D2A1F1CC7001735FD /* ChartView.swift in Sources */,
 				3B57A5B929AB447E000C110A /* StoreView.swift in Sources */,
 				3B57A5C229ACA1F1000C110A /* StoreViewModel.swift in Sources */,
+				3B4C86772A2792A7001C732D /* RecommendService.swift in Sources */,
 				3B57A59D29A8DAC7000C110A /* RecommendButtonView.swift in Sources */,
+				3B4C86982A286478001C732D /* WinNumberEntity+CoreDataClass.swift in Sources */,
 				3B5587312A1F2272001735FD /* CircleChart.swift in Sources */,
 				3B42532D2A1F462100087F10 /* ChartResult.swift in Sources */,
 			);

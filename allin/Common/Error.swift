@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum APIError: Error {
+    case invalidURL
+    case invalidBody
+    case badRequest
+}
+
 enum NetworkError: Error {
     case url
     case response
@@ -14,16 +20,18 @@ enum NetworkError: Error {
 
 enum JSONError: Error {
     case decode
+    case encode
 }
 
-enum FileError: Error {
-    case bundle
+enum PlistError: Error {
+    case getData
 }
 
 enum CoreDataError: Error {
     case entity
     case save
     case fetch
+    case convert
 }
 
 enum DateError: Error {
@@ -38,4 +46,6 @@ enum GeoCodeError: Error {
 
 enum FirebaseError: Error {
     case noDocument
+    case fetch
+    case failAddDocument
 }

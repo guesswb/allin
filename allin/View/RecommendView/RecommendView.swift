@@ -23,13 +23,13 @@ struct RecommendView: View {
         GeometryReader { geometryReader in
             VStack {
                 switch viewModel.appState {
-                case .available:
-                    RecommendShuffleView(viewModel: viewModel)
-                    RecommendButtonView(viewModel: viewModel)
                 case .unavailableNetwork:
                     Text(InformationText.checkNetwork)
                 case .unavailableDate:
                     Text(InformationText.unavailableDate)
+                case .available:
+                    RecommendShuffleView(viewModel: viewModel)
+                    RecommendButtonView(viewModel: viewModel)
                 }
             }
             .padding()
@@ -45,6 +45,6 @@ struct RecommendView: View {
 
 struct RecommendView_Previews : PreviewProvider {
     static var previews: some View {
-        RecommendView(viewModel: RecommendViewModel())
+        RecommendView(viewModel: RecommendViewModel(service: RecommendService(winNumberRepository: WinNumberEntityRepository(), recommendNumberRepository: RecommendNumberRepository())))
     }
 }

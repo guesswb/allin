@@ -58,9 +58,16 @@ exports.makeStatistics = functions.region("asia-northeast3")
         }
         });
     
-        const winResult = db.collection("WinResult").doc(`${drwNoRound}`);
+        const winResult = db.collection("RecommendedResult").doc(`${drwNoRound}`);
         await winResult.set({
-            round: `${drwNoRound}`,
-            result: `${winCount}`
+            round: drwNoRound,
+            firstPlace: winCount[0],
+            secondPlace: winCount[1],
+            thirdPlace: winCount[2],
+            fourthPlace: winCount[3],
+            fifthPlace: winCount[4],
+            hitTwoNumber: winCount[5],
+            hitOneNumber: winCount[6],
+            hitZeroNumber: winCount[7]
         });
     });
