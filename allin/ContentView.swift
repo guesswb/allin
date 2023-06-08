@@ -14,12 +14,14 @@ struct ContentView: View {
             static let result: String = "결과"
             static let recommend: String = "추첨"
             static let store: String = "판매점"
+            static let replay: String = "다시보기"
         }
         
         enum Image {
             static let result: String = "chart.pie"
             static let recommend: String = "questionmark"
             static let store: String = "map"
+            static let replay: String = "play.rectangle"
         }
     }
     
@@ -50,6 +52,15 @@ struct ContentView: View {
             )
             .tabItem {
                 Label(TabItem.Text.store, systemImage: TabItem.Image.store)
+            }
+            
+            ReplayView(viewModel: ReplayViewModel(
+                replayService: ReplayService(
+                    replayDataRepository: ReplayDataRepository())
+                )
+            )
+            .tabItem {
+                    Label(TabItem.Text.replay, systemImage: TabItem.Image.replay)
             }
         }
         .onAppear {

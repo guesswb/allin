@@ -41,6 +41,12 @@
 		3B4C86992A286478001C732D /* WinNumberEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86972A286478001C732D /* WinNumberEntity+CoreDataProperties.swift */; };
 		3B4C869F2A29DA9E001C732D /* NaverDeveloper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */; };
 		3B4C86A12A29DAC5001C732D /* NaverCloudPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */; };
+		3B4C86DC2A318399001C732D /* ReplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86DB2A318399001C732D /* ReplayView.swift */; };
+		3B4C86DE2A31872D001C732D /* ReplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86DD2A31872D001C732D /* ReplayViewModel.swift */; };
+		3B4C86E02A318A63001C732D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86DF2A318A63001C732D /* WebView.swift */; };
+		3B4C86E22A318FC4001C732D /* Replay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86E12A318FC4001C732D /* Replay.swift */; };
+		3B4C86E42A31A57F001C732D /* ReplayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86E32A31A57F001C732D /* ReplayService.swift */; };
+		3B4C86E62A31A61A001C732D /* ReplayDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86E52A31A61A001C732D /* ReplayDataRepository.swift */; };
 		3B5587262A1DAD2E001735FD /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587252A1DAD2E001735FD /* FirebaseAnalytics */; };
 		3B5587282A1DAD2E001735FD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587272A1DAD2E001735FD /* FirebaseFirestore */; };
 		3B55872A2A1DAD2E001735FD /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 3B5587292A1DAD2E001735FD /* FirebaseFunctions */; };
@@ -123,6 +129,12 @@
 		3B4C86972A286478001C732D /* WinNumberEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WinNumberEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverDeveloper.swift; sourceTree = "<group>"; };
 		3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverCloudPlatform.swift; sourceTree = "<group>"; };
+		3B4C86DB2A318399001C732D /* ReplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayView.swift; sourceTree = "<group>"; };
+		3B4C86DD2A31872D001C732D /* ReplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayViewModel.swift; sourceTree = "<group>"; };
+		3B4C86DF2A318A63001C732D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		3B4C86E12A318FC4001C732D /* Replay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Replay.swift; sourceTree = "<group>"; };
+		3B4C86E32A31A57F001C732D /* ReplayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayService.swift; sourceTree = "<group>"; };
+		3B4C86E52A31A61A001C732D /* ReplayDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayDataRepository.swift; sourceTree = "<group>"; };
 		3B55872C2A1F1CC7001735FD /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		3B5587302A1F2272001735FD /* CircleChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleChart.swift; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 				3B4C86742A276F2B001C732D /* ChartService.swift */,
 				3B4C86762A2792A7001C732D /* RecommendService.swift */,
 				3B4C86782A2792B4001C732D /* StoreService.swift */,
+				3B4C86E32A31A57F001C732D /* ReplayService.swift */,
 				3B57A58C29A83994000C110A /* Model */,
 			);
 			path = Service;
@@ -217,6 +230,7 @@
 				3B4C867C2A280FF4001C732D /* RecommendNumberRepository.swift */,
 				3B4C86802A281018001C732D /* StoreRepository.swift */,
 				3B4C86942A285CB0001C732D /* PlistRepository.swift */,
+				3B4C86E52A31A61A001C732D /* ReplayDataRepository.swift */,
 				3B4C86602A273E44001C732D /* Network */,
 				3B4C86612A273E4A001C732D /* CoreData */,
 			);
@@ -251,6 +265,15 @@
 				3B4C868F2A283758001C732D /* Date.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3B4C86DA2A318382001C732D /* ReplayView */ = {
+			isa = PBXGroup;
+			children = (
+				3B4C86DB2A318399001C732D /* ReplayView.swift */,
+				3B4C86DF2A318A63001C732D /* WebView.swift */,
+			);
+			path = ReplayView;
 			sourceTree = "<group>";
 		};
 		3B55872B2A1F1CB7001735FD /* ChartView */ = {
@@ -321,6 +344,7 @@
 				3B55872B2A1F1CB7001735FD /* ChartView */,
 				3B57A5B329AA50A8000C110A /* RecommendView */,
 				3B57A5B729AB4465000C110A /* StoreView */,
+				3B4C86DA2A318382001C732D /* ReplayView */,
 				3B15CBA22A22F27A00C864EF /* ToastView.swift */,
 			);
 			path = View;
@@ -332,6 +356,7 @@
 				3B55872E2A1F1DDD001735FD /* ChartViewModel.swift */,
 				3B57A58929A83987000C110A /* RecommendViewModel.swift */,
 				3B57A5C129ACA1F1000C110A /* StoreViewModel.swift */,
+				3B4C86DD2A31872D001C732D /* ReplayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -345,6 +370,7 @@
 				3B878C1929AE30FC00846742 /* Store.swift */,
 				3B4C869E2A29DA9E001C732D /* NaverDeveloper.swift */,
 				3B4C86A02A29DAC5001C732D /* NaverCloudPlatform.swift */,
+				3B4C86E12A318FC4001C732D /* Replay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -545,6 +571,7 @@
 				3B32C5AD29CDB292009D336F /* Error.swift in Sources */,
 				3B4C866D2A274F48001C732D /* WinNumberRequest.swift in Sources */,
 				3B4C868E2A281CCB001C732D /* RecommendNumber.swift in Sources */,
+				3B4C86DC2A318399001C732D /* ReplayView.swift in Sources */,
 				3B57A5C029AB7A1E000C110A /* StoreMapView.swift in Sources */,
 				3B3F61E12A13661800576093 /* WinNumber.swift in Sources */,
 				3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */,
@@ -560,7 +587,11 @@
 				3B4C86992A286478001C732D /* WinNumberEntity+CoreDataProperties.swift in Sources */,
 				3B4C86792A2792B4001C732D /* StoreService.swift in Sources */,
 				3B4C86902A283758001C732D /* Date.swift in Sources */,
+				3B4C86E62A31A61A001C732D /* ReplayDataRepository.swift in Sources */,
+				3B4C86DE2A31872D001C732D /* ReplayViewModel.swift in Sources */,
 				3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */,
+				3B4C86E22A318FC4001C732D /* Replay.swift in Sources */,
+				3B4C86E42A31A57F001C732D /* ReplayService.swift in Sources */,
 				3B4C86632A27418A001C732D /* NetworkManager.swift in Sources */,
 				3B15CB9C2A22729F00C864EF /* ChartPicker.swift in Sources */,
 				3B4C867B2A280FE2001C732D /* RecommendedResultRepository.swift in Sources */,
@@ -573,6 +604,7 @@
 				3B5587332A1F22A7001735FD /* OtherCharts.swift in Sources */,
 				3B4C86732A2754A6001C732D /* URLConstants.swift in Sources */,
 				3B4C866F2A274F59001C732D /* StoreRequest.swift in Sources */,
+				3B4C86E02A318A63001C732D /* WebView.swift in Sources */,
 				3B15CBA32A22F27A00C864EF /* ToastView.swift in Sources */,
 				3B878C1A29AE30FC00846742 /* Store.swift in Sources */,
 				3B3F61CB2A10DDF800576093 /* RecommendShuffleView.swift in Sources */,

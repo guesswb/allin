@@ -96,7 +96,9 @@ extension StoreViewModel {
             guard let self = self else { return }
             
             guard let area = try? await area(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude) else {
-                self.appState = .failToGetArea
+                await MainActor.run {
+                    self.appState = .failToGetArea
+                }
                 return
             }
             
@@ -105,7 +107,9 @@ extension StoreViewModel {
             }
             
             guard var store = try? await service.requestStore(area: area) else {
-                self.appState = .failToGetStore
+                await MainActor.run {
+                    self.appState = .failToGetStore
+                }
                 return
             }
             
