@@ -25,6 +25,8 @@ struct ChartView: View {
         
         enum Text {
             static let rank: [String] = ["1등", "2등", "3등", "4등", "5등", "2개 맞춤", "1개 맞춤", "0개 맞춤"]
+            static let mathProbability: [String] = ["0.000000123", "0.000000737", "0.002799239",
+                                                    "0.14", "2.22", "15.15", "42.41", "40.06"]
         }
         
         enum Color {
@@ -36,6 +38,7 @@ struct ChartView: View {
         var colors: [UIColor]
         var names: [String]
         var result: RecommendedResult
+        var mathProbability: [String]
     }
     
     var body: some View {
@@ -57,7 +60,9 @@ struct ChartView: View {
                         ChartResult(chartResults: ChartResultData(
                             colors: ChartSource.Color.colors,
                             names: ChartSource.Text.rank,
-                            result: result))
+                            result: result,
+                            mathProbability: ChartSource.Text.mathProbability
+                        ))
                     }
                     
                     LazyVStack {

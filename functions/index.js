@@ -2,7 +2,9 @@
 const functions = require("firebase-functions");
 const admin = require('firebase-admin');
 const {getFirestore} = require("firebase-admin/firestore");
-
+const firstURL = "https://m.imbc.com/Vod/VodPlay?progCode=1003945100000100000&broadcastID=1003945";
+const midURL = 100434;
+const lastURL = "100000";
 admin.initializeApp();
 
 const db = getFirestore();
@@ -58,8 +60,8 @@ exports.makeStatistics = functions.region("asia-northeast3")
         }
         });
     
-        const winResult = db.collection("RecommendedResult").doc(`${drwNoRound}`);
-        await winResult.set({
+        const recommendResult = db.collection("RecommendedResult").doc(`${drwNoRound}`);
+        await recommendResult.set({
             round: drwNoRound,
             firstPlace: winCount[0],
             secondPlace: winCount[1],
@@ -69,5 +71,11 @@ exports.makeStatistics = functions.region("asia-northeast3")
             hitTwoNumber: winCount[5],
             hitOneNumber: winCount[6],
             hitZeroNumber: winCount[7]
+        });
+
+        const replayData = db.collection("ReplayData");
+        await replayData.set({
+            round: drwNoRound,
+            urlString: firstURL + `${midURL + ((drwNoRound - 1070) * 2)}` + lastURL
         });
     });

@@ -24,7 +24,9 @@ struct ChartResult: View {
                     
                     VStack(alignment: .trailing) {
                         Text("\(Int(chartResults.result.allCase[index]))")
-                        Text(String(format: "%.2f", chartResults.result.allCase[index] / chartResults.result.allCaseCount * 100) + "%")
+                        Text("이론상 확률 : " + chartResults.mathProbability[index])
+                            .foregroundColor(Color.gray)
+                        Text("사용자 확률 : " + String(format: "%.2f", chartResults.result.allCase[index] / chartResults.result.allCaseCount * 100) + "%")
                             .foregroundColor(Color.gray)
                     }
                 }
