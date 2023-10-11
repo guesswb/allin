@@ -11,10 +11,6 @@ struct CircleSliceChart: View {
     
     let circleSliceData: CircleChart.CircleSliceData
     
-    var midRadians: Double {
-        return Double.pi / 2.0 - (circleSliceData.startAngle + circleSliceData.endAngle).radians / 2.0
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             Path { path in

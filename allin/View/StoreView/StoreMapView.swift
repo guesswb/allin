@@ -43,19 +43,21 @@ struct StoreMapView: UIViewRepresentable {
         
         let storeItems = viewModel.storeItems.filter { $0.category == TextType.category }
         
+        
         storeItems.forEach { storeItem in
             guard let x = Double(storeItem.mapx), let y = Double(storeItem.mapy) else { return }
-            let latlon = NMGTm128(x: x, y: y).toLatLng()
+            
+            print(storeItem)
             
             //InfoWindow
             let infoWindow = NMFInfoWindow()
             let dataSource = NMFInfoWindowDefaultTextSource.data()
-            dataSource.title = "\(storeItem.title) / \(String(format: "%.0f", (storeItem.distance ?? 0) * 1000))m"
+            dataSource.title = storeItem.title
             infoWindow.dataSource = dataSource
             
             //Marker
             let marker = NMFMarker()
-            marker.position = NMGLatLng(lat: latlon.lat, lng: latlon.lng)
+            marker.position = NMGLatLng(lat: y / 10000000, lng: x / 10000000)
             marker.mapView = uiView.mapView
             
             marker.touchHandler = { (overlay: NMFOverlay) -> Bool in

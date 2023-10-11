@@ -52,6 +52,7 @@ extension StoreViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = manager.location?.coordinate else { return }
         currentCoordinate = coordinate
+        locationManager.stopUpdatingLocation()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

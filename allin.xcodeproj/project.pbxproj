@@ -10,6 +10,7 @@
 		3B15CB9C2A22729F00C864EF /* ChartPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CB9B2A22729F00C864EF /* ChartPicker.swift */; };
 		3B15CBA02A22DC3100C864EF /* CircleSliceChartText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CB9F2A22DC3100C864EF /* CircleSliceChartText.swift */; };
 		3B15CBA32A22F27A00C864EF /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B15CBA22A22F27A00C864EF /* ToastView.swift */; };
+		3B2D00E02A61D99E00CD2E67 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B2D00DF2A61D99E00CD2E67 /* GoogleService-Info.plist */; };
 		3B32C5A729CD9AA8009D336F /* StoreLocationSettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */; };
 		3B32C5AD29CDB292009D336F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AC29CDB292009D336F /* Error.swift */; };
 		3B32C5B029CDB794009D336F /* Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B32C5AF29CDB794009D336F /* Verify.swift */; };
@@ -19,7 +20,6 @@
 		3B3F61E12A13661800576093 /* WinNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E02A13661800576093 /* WinNumber.swift */; };
 		3B3F61EB2A14644800576093 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61E92A14644800576093 /* Model.xcdatamodeld */; };
 		3B3F61FE2A1862DB00576093 /* allinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F61FD2A1862DB00576093 /* allinTests.swift */; };
-		3B3F62392A1AF37400576093 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3F62382A1AF37400576093 /* GoogleService-Info.plist */; };
 		3B42532D2A1F462100087F10 /* ChartResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42532C2A1F462100087F10 /* ChartResult.swift */; };
 		3B4C86632A27418A001C732D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86622A27418A001C732D /* NetworkManager.swift */; };
 		3B4C86692A274706001C732D /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4C86682A274706001C732D /* Requestable.swift */; };
@@ -97,6 +97,7 @@
 		3B15CB9B2A22729F00C864EF /* ChartPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartPicker.swift; sourceTree = "<group>"; };
 		3B15CB9F2A22DC3100C864EF /* CircleSliceChartText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSliceChartText.swift; sourceTree = "<group>"; };
 		3B15CBA22A22F27A00C864EF /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		3B2D00DF2A61D99E00CD2E67 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3B32C5A629CD9AA8009D336F /* StoreLocationSettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocationSettingButton.swift; sourceTree = "<group>"; };
 		3B32C5AC29CDB292009D336F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3B32C5AF29CDB794009D336F /* Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verify.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		3B3F61EA2A14644800576093 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		3B3F61FB2A1862DB00576093 /* allinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = allinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3F61FD2A1862DB00576093 /* allinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allinTests.swift; sourceTree = "<group>"; };
-		3B3F62382A1AF37400576093 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B42532C2A1F462100087F10 /* ChartResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartResult.swift; sourceTree = "<group>"; };
 		3B4C86622A27418A001C732D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3B4C86682A274706001C732D /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 			children = (
 				3B57A56B29A838FA000C110A /* Assets.xcassets */,
 				3B57A59829A83EB4000C110A /* Info.plist */,
-				3B3F62382A1AF37400576093 /* GoogleService-Info.plist */,
+				3B2D00DF2A61D99E00CD2E67 /* GoogleService-Info.plist */,
 				3B57A56729A838F9000C110A /* allinApp.swift */,
 				3B57A56929A838F9000C110A /* ContentView.swift */,
 				3B7A5F912A0D2EA6005EF556 /* Launch Screen.storyboard */,
@@ -505,9 +505,9 @@
 			files = (
 				3B32C5B329CDBF94009D336F /* README.md in Resources */,
 				3B57A56F29A838FA000C110A /* Preview Assets.xcassets in Resources */,
-				3B3F62392A1AF37400576093 /* GoogleService-Info.plist in Resources */,
 				3B7A5F922A0D2EA6005EF556 /* Launch Screen.storyboard in Resources */,
 				3B57A56C29A838FA000C110A /* Assets.xcassets in Resources */,
+				3B2D00E02A61D99E00CD2E67 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -855,7 +855,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.8;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kim.allin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
